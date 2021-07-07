@@ -209,22 +209,76 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#geocodificacion_convencional">geocodificacion_convencional</a></li>
+            <li class="second-level"><a href="#construccion-de-la-consulta">Construcción de la consulta</a></li>
+                
+            <li class="second-level"><a href="#determinar-el-numero-de-resultados">Determinar el nùmero de resultados</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="geocodificacion_convencional">geocodificacion_convencional</h2>
 <p><br /></p>
-<p>La geocodificación convencional es el proceso de identificación de una dirección o una referencia geográfica junto con su información de ubicación (coordenadas geográficas).</p>
-<p>El caso más simple es la localización a partir de una cadena de texto que forme parte de la identificación de una dirección.</p>
-<p>El formato de interrogación a la API se conforma a partir de la url de la API para el método elegido (<code>https://geocoder-5-ign.larioja.org/v1/search</code>), seguido del signo <code>?</code> y de la secuencia de parámetros que configuran la pregunta.</p>
-<p>El caso más simple es la búsqueda convencional (obtención de los datos de una dirección junto con su ubicación) indicando un texto que forme parte de los elementos que definen una dirección.</p>
-<p>El parámetro a utilizar es:
-| Parámetro |significado| Tipo | Requerido | Defecto | Ejemplo |
-|---|---|---|---|---|---|
-|<code>text</code>|texto de la dirección a buscar|string|yes|none| Calle Mayor|</p>
-<p>En el ejemplo siguiente el texto a buscar es «<em>murrieta</em>», añadiendo a la url el parámetro <code>text=murrieta</code>..
-<a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta</a> (1)</p>
+<p>La geocodificación convencional es el proceso de localización de una dirección junto con su ubicación (coordenadas geográficas).</p>
+<p>El caso más simple es la localización indicando una cadena de texto que forme parte de la dirección.</p>
+<p><br /></p>
+<h4 id="construccion-de-la-consulta">Construcción de la consulta</h4>
+<p>El formato de interrogación a la API se conforma a partir de la url para el método elegido (<code>https://geocoder-5-ign.larioja.org/v1/search</code>), seguido del signo <code>?</code> y de la secuencia de parámetros que configuran la pregunta.</p>
+<p>El parámetro a utilizar es:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>significado</th>
+<th>Tipo</th>
+<th>Requerido</th>
+<th>Defecto</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td>texto de la dirección a buscar</td>
+<td>string</td>
+<td>yes</td>
+<td>none</td>
+<td>Calle Mayor</td>
+</tr>
+</tbody>
+</table>
+<p>En el ejemplo siguiente (1) el texto a buscar en la dirección es «<em>murrieta</em>», para lo cual se añade a la url el parámetro <code>text=murrieta</code>.<br />
+<a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta</a>.</p>
+<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato GoeJSON que contiene los mejores resultados de la búsqueda que coinciden con el texto <em>murrieta</em>. El formato JSON puede ser leido en un navegador web (1) o en un procesador de texto.</p>
+<p>Los resultados obtenidos se corresponden con las siguientes direcciones:
+BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)<br />
+CALLE MURRIETA, San Vicente de Barakaldo/San Bizenti-Barakaldo, Bizkaia, España (-2.989928,43.301062)<br />
+Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  </p>
+<p><br /></p>
+<h4 id="determinar-el-numero-de-resultados">Determinar el nùmero de resultados</h4>
+<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, lo puede configurar en la llamada con el parámetro <code>size</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>significado</th>
+<th>Tipo</th>
+<th>Requerido</th>
+<th>Defecto</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size</code></td>
+<td>número deseado de resultados</td>
+<td>integer</td>
+<td>no</td>
+<td>10</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
 <p><br /></p>
 <hr />
 <p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON..</p></div>
