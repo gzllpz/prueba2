@@ -222,9 +222,9 @@
 <p>La geocodificación convencional es el proceso de localización de una dirección junto con su ubicación (coordenadas geográficas).</p>
 <p>El caso más simple es la localización indicando una cadena de texto que forme parte de la dirección.</p>
 <p><br /></p>
-<h4 id="construccion-de-la-consulta">Construcción de la consulta</h4>
-<p>El formato de interrogación a la API se conforma a partir de la url para el método elegido (<code>https://geocoder-5-ign.larioja.org/v1/search</code>), seguido del signo <code>?</code> y de la secuencia de parámetros que configuran la pregunta.</p>
-<p>El parámetro a utilizar es:</p>
+<h3 id="construccion-de-la-consulta">Construcción de la consulta</h3>
+<p>El formato de interrogación a la API se construye a partir de la url de referencia para el método elegido, seguido del signo <code>?</code> y de la secuencia de parámetros que configuran la pregunta separados por el signo <code>&amp;</code>.</p>
+<p>Si se desea localizar una dirección que contenta un texto determinado, el parámetro a utilizar es:</p>
 <table>
 <thead>
 <tr>
@@ -247,16 +247,18 @@
 </tr>
 </tbody>
 </table>
-<p>En el ejemplo siguiente (1) el texto a buscar en la dirección es «<em>murrieta</em>», para lo cual se añade a la url el parámetro <code>text=murrieta</code>.<br />
-<a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta</a>.</p>
-<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato GoeJSON que contiene los mejores resultados de la búsqueda que coinciden con el texto <em>murrieta</em>. El formato JSON puede ser leido en un navegador web (1) o en un procesador de texto.</p>
-<p>Los resultados obtenidos se corresponden con las siguientes direcciones:
-BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)<br />
+<p>En el ejemplo siguiente el texto a buscar en la dirección es «<em>murrieta</em>», para lo cual se añade a la url del método de geolocalización convencional <code>https://geocoder-5-ign.larioja.org/v1/search</code>, el signo '?<code>y el parámetro</code>text=murrieta`.</p>
+<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta</a></p>
+<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato GoeJSON que contiene los resultados de la búsqueda que mejor coinciden con el texto <em>murrieta</em>. El fichero con formato GeoJSON puede ser leído en un navegador web (1) o en un procesador de texto.</p>
+<p>En este caso los resultados obtenidos son los siguientes:</p>
+<blockquote>
+<p>BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)<br />
 CALLE MURRIETA, San Vicente de Barakaldo/San Bizenti-Barakaldo, Bizkaia, España (-2.989928,43.301062)<br />
 Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  </p>
+</blockquote>
 <p><br /></p>
-<h4 id="determinar-el-numero-de-resultados">Determinar el nùmero de resultados</h4>
-<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, lo puede configurar en la llamada con el parámetro <code>size</code>.</p>
+<h3 id="determinar-el-numero-de-resultados">Determinar el nùmero de resultados</h3>
+<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
 <table>
 <thead>
 <tr>
@@ -279,6 +281,12 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </tr>
 </tbody>
 </table>
+<p>Si se deseara recibir un único resultado en el ejmplo anterior, la sintaxis de la consulta a utilizar sería:</p>
+<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta&amp;size=1">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta&amp;size=1</a></p>
+<p>siendo el resultado obtenido:</p>
+<blockquote>
+<p>BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)  </p>
+</blockquote>
 <p><br /></p>
 <hr />
 <p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON..</p></div>
