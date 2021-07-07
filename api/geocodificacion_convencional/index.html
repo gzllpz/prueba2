@@ -215,8 +215,8 @@
                 
             <li class="second-level"><a href="#consulta-en-un-area-determinada">Consulta en un área determinada</a></li>
                 
-                <li class="third-level"><a href="#busqueda-por-paises">Búsqueda por paises</a></li>
-                <li class="third-level"><a href="#busqueda-en-un-area-rectangular">Búsqueda en un área  rectangular</a></li>
+                <li class="third-level"><a href="#busqueda-por-paises">Búsqueda por países</a></li>
+                <li class="third-level"><a href="#busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -291,8 +291,8 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </blockquote>
 <h3 id="consulta-en-un-area-determinada">Consulta en un área determinada</h3>
 <p>Es posible constreñir la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La API Pelias que utiliza el geocodificador permite tres fórmulas para limitar espacialmente la búsqueda: país, rectángulo y círculo.</p>
-<h4 id="busqueda-por-paises">Búsqueda por paises</h4>
-<p>En ocasiones puede ser necesario que los resultados de una búsqueda sean de un país en particular o de una lista de países. Para hacer esto, puede establecer el valor del parámetro `boundary.country´ en una lista separada por comas de código de país alpha-2 o alpha-3 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a> si bien en este caso, dicha búsqueda por paises no tendría mucho sentido ya que el geocodificador solamente contiene información de las direcciones de España </p>
+<h4 id="busqueda-por-paises">Búsqueda por países</h4>
+<p>En ocasiones puede ser necesario que los resultados de una búsqueda correspondan a uno o varios países en particular. Para hacer esto, es necesario establecer el valor del parámetro `boundary.country´ mediante una lista separada por comas de códigos de país alpha-2 o alpha-3 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a>, si bien en este caso, dicha búsqueda por paises no tendría mucho sentido ya que el geocodificador solamente contiene información de las direcciones de España </p>
 <table>
 <thead>
 <tr>
@@ -315,7 +315,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </tr>
 </tbody>
 </table>
-<h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área  rectangular</h4>
+<h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</h4>
 <p>Para limitar la búsqueda a un área rectangular es necesario conocer las coordenadas de latitud y longitud máximas y mínimas que definen el rectángulo (2).</p>
 <p>En este caso los parámetros a utilizar son los siguientes:</p>
 <table>
@@ -364,7 +364,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </tr>
 </tbody>
 </table>
-<p>Por ejemplo, para encontrar una dirección con texto "mayor" en un área rectangular en el entorno de la ciudad de Zaragoza, cuyo rectángulo está comprendido por las siguiente coordenadas (lon_min,lat_min,lon_max,lat_max):-1.1474,41.5453,-0.6585,41.7342</p>
+<p>Por ejemplo, para encontrar una dirección con texto "<em>mayor</em>" dentro de un área rectangular en el entorno de la ciudad de Zaragoza, cuyo rectángulo está comprendido por las siguiente coordenadas (lon_min,lat_min,lon_max,lat_max):-1.1474,41.5453,-0.6585,41.7342</p>
 <p><br />
 <img alt="Rectángulo área de Zaragoza(fuente: visor klokantech.com)" src="../../img/rectangulo_zaragoza.jpg" title="Rectángulo área de Zaragoza(fuente: visor klokantech.com)" />
 <br />
@@ -373,9 +373,9 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342</a></p>
 <p>siendo estos los resultados obtenidos:</p>
 <blockquote>
-<p>CALLE MAYOR, La Muela, Zaragoza, España (1.117274,41.57985)
-CALLE MAYOR (MONTAÑANA), MONTAÑANA, Zaragoza, España (-0.822357,41.684245)
-CALLE OSA MAYOR, Zaragoza, España (0.932542,41.639184)</p>
+<p>CALLE MAYOR, La Muela, Zaragoza, España (1.117274,41.57985)<br />
+CALLE MAYOR (MONTAÑANA), MONTAÑANA, Zaragoza, España (-0.822357,41.684245)<br />
+CALLE OSA MAYOR, Zaragoza, España (0.932542,41.639184)  </p>
 </blockquote>
 <p><br /></p>
 <hr />
