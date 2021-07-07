@@ -211,20 +211,23 @@
         <li class="first-level active"><a href="#geocodificacion_convencional">geocodificacion_convencional</a></li>
             <li class="second-level"><a href="#construccion-de-la-consulta">Construcción de la consulta</a></li>
                 
-            <li class="second-level"><a href="#determinar-el-numero-de-resultados">Determinar el nùmero de resultados</a></li>
+            <li class="second-level"><a href="#configurar-el-numero-de-resultados">Configurar el número de resultados</a></li>
                 
+            <li class="second-level"><a href="#consulta-en-un-area-determinada">Consulta en un área determinada</a></li>
+                
+                <li class="third-level"><a href="#busqueda-por-paises">Búsqueda por paises</a></li>
+                <li class="third-level"><a href="#busqueda-en-un-area-rectangular">Búsqueda en un área  rectangular</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="geocodificacion_convencional">geocodificacion_convencional</h2>
 <p><br /></p>
-<p>La geocodificación convencional es el proceso de localización de una dirección junto con su ubicación (coordenadas geográficas).</p>
-<p>El caso más simple es la localización indicando una cadena de texto que forme parte de la dirección.</p>
+<p>La geocodificación convencional es el proceso de localización de una dirección junto con las coordenadas geográficas de su ubicación.</p>
 <p><br /></p>
 <h3 id="construccion-de-la-consulta">Construcción de la consulta</h3>
 <p>El formato de interrogación a la API se construye a partir de la url de referencia para el método elegido, seguido del signo <code>?</code> y de la secuencia de parámetros que configuran la pregunta separados por el signo <code>&amp;</code>.</p>
-<p>Si se desea localizar una dirección que contenta un texto determinado, el parámetro a utilizar es:</p>
+<p>Si se desea localizar una dirección que contenta un texto determinado, que es el caso más común, el parámetro a utilizar es <code>text</code>:</p>
 <table>
 <thead>
 <tr>
@@ -257,8 +260,8 @@ CALLE MURRIETA, San Vicente de Barakaldo/San Bizenti-Barakaldo, Bizkaia, España
 Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  </p>
 </blockquote>
 <p><br /></p>
-<h3 id="determinar-el-numero-de-resultados">Determinar el nùmero de resultados</h3>
-<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
+<h3 id="configurar-el-numero-de-resultados">Configurar el número de resultados</h3>
+<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
 <table>
 <thead>
 <tr>
@@ -281,15 +284,105 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </tr>
 </tbody>
 </table>
-<p>Si se deseara recibir un único resultado en el ejmplo anterior, la sintaxis de la consulta a utilizar sería:</p>
+<p>Si en el ejemplo anterior se deseara recibir solamente un único resultado, la sintaxis de la consulta debería ser:</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta&amp;size=1">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta&amp;size=1</a></p>
 <p>siendo el resultado obtenido:</p>
 <blockquote>
 <p>BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)  </p>
 </blockquote>
 <p><br /></p>
+<h3 id="consulta-en-un-area-determinada">Consulta en un área determinada</h3>
+<p>Es posible constreñir la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La API Pelias que utiliza el geocodificador permite tres fórmulas para limitar espacialmente la búsqueda: país, rectángulo y círculo.</p>
+<h4 id="busqueda-por-paises">Búsqueda por paises</h4>
+<p>En ocasiones puede ser necesario que los resultados de una búsqueda sean de un país en particular o de una lista de países. Para hacer esto, puede establecer el valor del parámetro `boundary.country´ en una lista separada por comas de código de país alpha-2 o alpha-3 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a> si bien en este caso, dicha búsqueda por paises no tendría mucho sentido ya que el geocodificador solamente contiene información de las direcciones de España </p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>significado</th>
+<th>Tipo</th>
+<th>Requerido</th>
+<th>Defecto</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boundary.country</code></td>
+<td>listado de países separados por comas, codificados según alpha-2 o alpha-3 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a></td>
+<td>string</td>
+<td></td>
+<td>no</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área  rectangular</h4>
+<p>Para limitar la búsqueda a un área rectangular es necesario conocer las coordenadas de latitud y longitud máximas y mínimas que definen el rectángulo (2).</p>
+<p>En este caso los parámetros a utilizar son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>significado</th>
+<th>Tipo</th>
+<th>Requerido</th>
+<th>Defecto</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boundary.rect.max_lat</code></td>
+<td>valor máximo de la latitud utilizado en la búsqueda en una región rectangular</td>
+<td>floating point number</td>
+<td>no</td>
+<td>none</td>
+<td>35.81346</td>
+</tr>
+<tr>
+<td><code>boundary.rect.max_lon</code></td>
+<td>valor máximo de la longitud utilizado en la búsqueda en una región rectangular</td>
+<td>floating point number</td>
+<td>no</td>
+<td>none</td>
+<td>140.1471</td>
+</tr>
+<tr>
+<td><code>boundary.rect.min_lat</code></td>
+<td>valor mínimo de la latitud utilizado en la búsqueda en una región rectangular</td>
+<td>floating point number</td>
+<td>no</td>
+<td>none</td>
+<td>35.53308</td>
+</tr>
+<tr>
+<td><code>boundary.rect.min_lon</code></td>
+<td>valor mínimo de la longitud utilizado en la búsqueda en una región rectangular</td>
+<td>floating point number</td>
+<td>no</td>
+<td>none</td>
+<td>139.2794</td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, para encontrar una dirección con texto "mayor" en un área rectangular en el entorno de la ciudad de Zaragoza, cuyo rectángulo está comprendido por las siguiente coordenadas (lon_min,lat_min,lon_max,lat_max):-1.1474,41.5453,-0.6585,41.7342</p>
+<p><br />
+<img alt="Rectángulo área de Zaragoza(fuente:visor klokantech.com)" src="./img/rectangulo_zaragoza.jpg" title="Rectángulo área de Zaragoza(fuente:visor klokantech.com)" />
+<br />
+<br /></p>
+<p>la sintaxis a utilizar sería:</p>
+<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342</a></p>
+<p>siendo estos los resultados obtenidos:</p>
+<blockquote>
+<p>CALLE MAYOR, La Muela, Zaragoza, España (1.117274,41.57985)
+CALLE MAYOR (MONTAÑANA), MONTAÑANA, Zaragoza, España (-0.822357,41.684245)
+CALLE OSA MAYOR, Zaragoza, España (0.932542,41.639184)</p>
+</blockquote>
+<p><br /></p>
 <hr />
-<p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON..</p></div>
+<p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON.<br />
+(2) Puede buscar un cuadro delimitador para una región conocida con <a href="https://boundingbox.klokantech.com/">esta herramienta web</a>.  </p></div>
         
         
     </div>
