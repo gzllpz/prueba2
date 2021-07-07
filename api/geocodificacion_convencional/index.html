@@ -250,9 +250,9 @@
 </tr>
 </tbody>
 </table>
-<p>En el ejemplo siguiente el texto a buscar en la dirección es «<em>murrieta</em>», para lo cual se añade a la url del método de geolocalización convencional <code>https://geocoder-5-ign.larioja.org/v1/search</code>, el signo '?<code>y el parámetro</code>text=murrieta`.</p>
+<p>En el ejemplo siguiente el texto a buscar en la dirección es «<em>murrieta</em>», para lo cual se añade a la url del método de geolocalización convencional <code>https://geocoder-5-ign.larioja.org/v1/search</code>, el signo <code>?</code> y el parámetro <code>text=murrieta</code>.</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta</a></p>
-<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato GoeJSON que contiene los resultados de la búsqueda que mejor coinciden con el texto <em>murrieta</em>. El fichero con formato GeoJSON puede ser leído en un navegador web (1) o en un procesador de texto.</p>
+<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato GeoJSON que contiene los resultados de la búsqueda que mejor coinciden con el texto «<em>murrieta</em>». El fichero con formato GeoJSON puede ser leído en un navegador web (1) o en un procesador de texto.</p>
 <p>En este caso los resultados obtenidos son los siguientes:</p>
 <blockquote>
 <p>BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)<br />
@@ -260,7 +260,7 @@ CALLE MURRIETA, San Vicente de Barakaldo/San Bizenti-Barakaldo, Bizkaia, España
 Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  </p>
 </blockquote>
 <h3 id="configurar-el-numero-de-resultados">Configurar el número de resultados</h3>
-<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
+<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, este se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
 <table>
 <thead>
 <tr>
@@ -292,7 +292,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <h3 id="consulta-en-un-area-determinada">Consulta en un área determinada</h3>
 <p>Es posible constreñir la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La API Pelias que utiliza el geocodificador permite tres fórmulas para limitar espacialmente la búsqueda: país, rectángulo y círculo.</p>
 <h4 id="busqueda-por-paises">Búsqueda por países</h4>
-<p>En ocasiones puede ser necesario que los resultados de una búsqueda correspondan a uno o varios países en particular. Para hacer esto, es necesario establecer el valor del parámetro `boundary.country´ mediante una lista separada por comas de códigos de país alpha-2 o alpha-3 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a>, si bien en este caso, dicha búsqueda por paises no tendría mucho sentido ya que el geocodificador solamente contiene información de las direcciones de España </p>
+<p>En ocasiones puede ser necesario que los resultados de una búsqueda correspondan a uno o varios países en particular. Para hacer esto, es necesario establecer el valor del parámetro <code>boundary.country</code> mediante una lista separada por comas de códigos de país <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a>, si bien en este caso, dicha búsqueda por países no tendría mucho sentido ya que el geocodificador del SCN solamente contiene información de las direcciones de España </p>
 <table>
 <thead>
 <tr>
@@ -307,7 +307,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <tbody>
 <tr>
 <td><code>boundary.country</code></td>
-<td>listado de países separados por comas, codificados según alpha-2 o alpha-3 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a></td>
+<td>listado de países separados por comas, codificados según <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a></td>
 <td>string</td>
 <td></td>
 <td>no</td>
@@ -316,7 +316,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </tbody>
 </table>
 <h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</h4>
-<p>Para limitar la búsqueda a un área rectangular es necesario conocer las coordenadas de latitud y longitud máximas y mínimas que definen el rectángulo (2).</p>
+<p>Para limitar la búsqueda a un área geográfica rectangular, es necesario conocer las coordenadas de latitud y longitud, máximas y mínimas, que definen el rectángulo (2).</p>
 <p>En este caso los parámetros a utilizar son los siguientes:</p>
 <table>
 <thead>
@@ -369,7 +369,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <img alt="Rectángulo área de Zaragoza(fuente: visor klokantech.com)" src="../../img/rectangulo_zaragoza.jpg" title="Rectángulo área de Zaragoza(fuente: visor klokantech.com)" />
 <br />
 <br /></p>
-<p>la sintaxis a utilizar sería:</p>
+<p>la sintaxis a utilizar sería (3):</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342</a></p>
 <p>siendo estos los resultados obtenidos:</p>
 <blockquote>
@@ -380,7 +380,8 @@ CALLE OSA MAYOR, Zaragoza, España (0.932542,41.639184)  </p>
 <p><br /></p>
 <hr />
 <p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON.<br />
-(2) Puede buscar un cuadro delimitador para una región conocida con <a href="https://boundingbox.klokantech.com/">esta herramienta web</a>.  </p></div>
+(2) Puede buscar un cuadro delimitador para una región conocida con <a href="https://boundingbox.klokantech.com/">esta herramienta web</a>.<br />
+(3) Utilizar la notación punto [.] como separador decimal.  </p></div>
         
         
     </div>
