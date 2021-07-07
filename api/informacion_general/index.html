@@ -114,7 +114,7 @@
         
             
 <li >
-    <a href="../no_disponible/">Geocodificación convencional</a>
+    <a href="../geocodificacion_convencional/">Geocodificación convencional</a>
 </li>
 
         
@@ -194,7 +194,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../no_disponible/">
+                        <a rel="next" href="../geocodificacion_convencional/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -213,31 +213,45 @@
                 
             <li class="second-level"><a href="#la-api-de-direcciones-pelias">La API de direcciones Pelias</a></li>
                 
+            <li class="second-level"><a href="#metodos">Métodos</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
 <h2 id="servicio-api-de-geocodificacion-de-direcciones">Servicio API de geocodificación de direcciones</h2>
 <p><br /></p>
-<p>El <em>Servicio API de geocodificación de direcciones del Sistema Cartográfico Nacional</em> de España, tiene como objetivo principal buscar y obtener la localización geográfica de cualquier dirección que se encuentre ubicada dentro del territorio español, a partir de sus datos identificativos.</p>
-<p>La URL PROVISIONAL del servicio (EN FASE DE PRUEBAS) es: <a href="https://geocoder-5-ign.larioja.org/v1"><strong>https://geocoder-5-ign.larioja.org/v1</strong></a></p>
-<p>Además de la geolocalización de una dirección específica, este servicio permite también obtener los datos de las direcciones cercanas a un punto determinado, así como aquellas que estén ubicadas dentro de una determinada área geográfica rectangular o circular.</p>
+<p>El <em>Servicio API de geocodificación de direcciones del Sistema Cartográfico Nacional</em> de España, tiene como objetivo principal buscar y obtener a partir de sus datos identificativos, la localización geográfica de cualquier dirección que se encuentre ubicada dentro del territorio español, .</p>
+<p>La URL PROVISIONAL del servicio es: <a href="https://geocoder-5-ign.larioja.org/v1"><strong>https://geocoder-5-ign.larioja.org/v1</strong></a></p>
+<p>Además de la geolocalización de una dirección específica, este servicio permite también obtener los datos de las direcciones cercanas a un punto determinado así como aquellas que estén ubicadas dentro de una determinada área geográfica rectangular o circular.</p>
 <p>El servicio utiliza internamente la <a href="https://github.com/pelias/pelias">API Pelias</a> con objeto de ofrecer un conjunto de funciones de consulta flexibles y sofisticadas.</p>
 <p>Los métodos (<em>endpoints</em>) y parámetros que se describen aquí, permiten a cualquier usuario identificar y localizar direcciones con la máxima precisión a partir de los datos completos o parciales que definen una referencia postal, de un identificador (ID) o de un nombre representativo de la misma.</p>
 <p>Las búsquedas interrogan al conjunto de datos de direcciones que se encuentra almacenado en una base de datos <a href="https://www.elastic.co/es/">ElasticSearch (ELS)</a>, siendo el binomio <em>ElasticSearch-API Pelias</em>, junto con distintos procedimientos desarrollados ad-hoc para este servicio, los elementos que conforman la plataforma tecnológica que provee la funcionalidad.</p>
-<p>Los datos básicos de las direcciones de referencia son recopilados a partir de la información proporcionada por los diferentes productores que tienen asignadas competencias en materia de direcciones, dentro del marco de cooperación que ofrece el <a href="http://www.scne.es/"><em>Sistema Cartográfico Nacional</em></a> de España.</p>
-<p>Además de direcciones, el servicio de geocodificación está también diseñado para la localización geográfica de referencias toponímicas y puntos de interés (POIs).</p>
+<p>Los datos básicos de las direcciones de referencia son recopilados a partir de la información proporcionada por los diferentes productores competentes en materia de direcciones, dentro del marco de cooperación que ofrece el <a href="http://www.scne.es/"><em>Sistema Cartográfico Nacional</em></a> de España.</p>
+<p>Además de direcciones, el servicio de geocodificación está también diseñado para la localización geográfica de topónimos y puntos de interés (POIs).</p>
+<p><br /></p>
 <h3 id="funcionalidad">Funcionalidad</h3>
-<p>El servicio permite interrogar la API RESTful con el fin de:</p>
+<p>El servicio permite interrogar la API con el fin de:</p>
 <ul>
 <li>Obtener los datos y la ubicación precisa de una dirección.  </li>
-<li>Localizar la dirección más próxima a un punto determinado.  </li>
+<li>Localizar la dirección más próxima a un punto determinado (geocodificación inversa).  </li>
 <li>Localizar las direcciones que se encuentran dentro de un área geográfica rectangular o circular.  </li>
 </ul>
-<p>pudiendo limitar el dominio de búsqueda a los datos ofrecidos por uno o varios suministradores.  </p>
+<p>pudiendo limitar el ámbito de búsqueda a los datos ofrecidos por uno o varios suministradores.  </p>
+<p><br /></p>
 <h3 id="la-api-de-direcciones-pelias">La API de direcciones Pelias</h3>
-<p>La <em>API Pelias</em> utilizada subyacentemente en este servicio, es una API RESTful que devuelve en <a href="https://es.wikipedia.org/wiki/JSON">formato JSON</a> el resultado de las consultas realizadas conforme a los métodos y parámetros definidos en este documento.
-<br /></p>
+<p>La <em>API Pelias</em> utilizada subyacentemente en este servicio, es una API RESTful que devuelve el resultado de las consultas realizadas en <a href="https://es.wikipedia.org/wiki/JSON">formato JSON</a> conforme a los métodos y parámetros definidos en este documento.</p>
+<p><br /></p>
+<h3 id="metodos">Métodos</h3>
+<p>Los métodos (<em>endpoints</em>) que se pueden utilizar son los siguientes:</p>
+<ul>
+<li><a href="./api/busqueda_convencional"><strong>Método de búsqueda convencional</strong></a> (/v1/search): Servicio que obtiene la ubicación de una dirección a partir sus datos identificativos, identificador o nombre.  </li>
+<li><strong>Método de autocompletar</strong> (/v1/autocomplete): Servicio que obtiene resultados en tiempo real sin necesidad de completar todos los datos de identificación.  </li>
+<li><strong>Método de invertir geocodificación</strong> (/v1/reverse): Servicio que busca direcciones más próximas a un punto determinado.  </li>
+<li><strong>Método de geocodificación estructurada</strong> (/v1/search/structured): (beta) Servicio que encuentra un lugar a partir de datos ya separados en calle, número, ciudad, etc.  </li>
+<li><strong>Método de lugar</strong> (/v1/place): Servicio que obtiene detalles sobre un lugar devuelto por una consulta anterior.<br />
+<br /></li>
+</ul>
 <hr />
 <p>(1) La documentación técnica de esta página web reutiliza información original de la <em>API Pelias</em>, disponible en el repositorio Github: <a href="https://github.com/pelias/documentation">https://github.com/pelias/documentation</a>.</p></div>
         
