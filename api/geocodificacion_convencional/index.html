@@ -231,6 +231,7 @@
 <p>La geocodificación convencional es el proceso de localización de una dirección junto con las coordenadas geográficas de su ubicación.</p>
 <p><br /></p>
 <h3 id="construccion-de-la-consulta">Construcción de la consulta</h3>
+<p><br /></p>
 <p>El formato de interrogación a la API se construye a partir de la url de referencia para el método elegido, seguido del signo <code>?</code> y de la secuencia de parámetros que configuran la pregunta, separados por el signo <code>&amp;</code>.</p>
 <p>Si se desea localizar una dirección que contenta un texto determinado, que es el caso más común, el parámetro a utilizar es <code>text</code>:</p>
 <table>
@@ -265,6 +266,7 @@ CALLE MURRIETA, San Vicente de Barakaldo/San Bizenti-Barakaldo, Bizkaia, España
 Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  </p>
 </blockquote>
 <h3 id="configurar-el-numero-de-resultados">Configurar el número de resultados</h3>
+<p><br /></p>
 <p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, este se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
 <table>
 <thead>
@@ -295,8 +297,10 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <p>BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)  </p>
 </blockquote>
 <h3 id="consulta-en-un-area-determinada">Consulta en un área determinada</h3>
+<p><br /></p>
 <p>Es posible constreñir la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La <a href="https://github.com/pelias/pelias">API Pelias</a> que utiliza el geocodificador del SCN permite tres fórmulas para limitar espacialmente la búsqueda: <em>país</em>, <em>rectángulo</em> y <em>círculo</em>.</p>
 <h4 id="busqueda-por-paises">Búsqueda por países</h4>
+<p><br /></p>
 <p>En ocasiones puede ser necesario que los resultados de una búsqueda correspondan a uno o varios países en particular. Para hacer esto, es necesario establecer el valor del parámetro <code>boundary.country</code> mediante una lista separada por comas de códigos de país <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a>, si bien en este caso la búsqueda por países no tendría mucho sentido ya que el geocodificador del SCN solamente contiene información de las direcciones de España </p>
 <table>
 <thead>
@@ -321,6 +325,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </tbody>
 </table>
 <h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</h4>
+<p><br /></p>
 <p>Para limitar la búsqueda a un área geográfica rectangular, es necesario conocer las coordenadas latitud y longitud, mínimas y máximas, que definen el rectángulo (3).</p>
 <p>En este caso los parámetros a utilizar son los siguientes (3):</p>
 <table>
@@ -384,6 +389,7 @@ CALLE OSA MAYOR, Zaragoza, España (0.932542,41.639184)<br />
 PLAZA MAYOR (CARTUJA), Cartuja Baja, Zaragoza, España (-0.821923,41.604933)  </p>
 </blockquote>
 <h4 id="busqueda-en-un-area-circular">Búsqueda en un área circular</h4>
+<p><br /></p>
 <p>En aquellos casos en los que se quiera localizar las direcciones que se encuentran dentro de una distancia de un punto dado, se puede utilizar las búsqueda en un área circular, partiendo de una coordenada central de referencia y el radio en km del círculo dentro del cual realizar la búsqueda.</p>
 <p>Los parámetros a utilizar en este caso son los siguientes:</p>
 <table>
@@ -426,23 +432,26 @@ PLAZA MAYOR (CARTUJA), Cartuja Baja, Zaragoza, España (-0.821923,41.604933)  </
 </table>
 <p>Por ejemplo, para encontrar una dirección que contenga el texto "<em>mayor</em>" en un área circular de 10 km desde Frómista (Palencia), con coordenadas de referencia (lat,lon) 42.268,-4.405, la sintaxis a utilizar es:</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.circle.lat=42.268&amp;boundary.circle.lon=-4.405&amp;boundary.circle.radius=10">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342</a></p>
-<p>Que arroja los siguientes resultados:</p>
+<p>Que arroja el siguiente resultado:</p>
 <blockquote>
-<p>CALLE MAYOR, Marcilla de Campos, Palencia, España (4.397729,42.317378)
-PLAZA MAYOR, Santoyo, Palencia, España (-4.34285,42.214136)
-TRAVESIA MAYOR, Boadilla del Camino, Palencia, España (-4.347739,42.259541)
-TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)</p>
+<p>CALLE MAYOR, Marcilla de Campos, Palencia, España (4.397729,42.317378)<br />
+PLAZA MAYOR, Santoyo, Palencia, España (-4.34285,42.214136)<br />
+TRAVESIA MAYOR, Boadilla del Camino, Palencia, España (-4.347739,42.259541)<br />
+TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)  </p>
 </blockquote>
 <h4 id="busqueda-aplicando-la-jerarquia-administrativa">Búsqueda aplicando la jerarquía administrativa</h4>
+<p><br /></p>
 <p>(APARTADO EN EDICIÓN)</p>
 <p>El almacenamiento de información mantiene internamente una estructuración jerárquica entre lugares, aplicando un concepto denominado <em>jerarquía administrativa</em> donde cada registro se asocia a un vecindario, ciudad, región, país y otras regiones principales.</p>
 <p>Esta propiedad tiene múltiples aplicaciones entre las que destaca el filtrado de información. El ID global de Pelias (gid) de cualquier registro se puede usar con el filtro <code>boundary.gid</code> para devolver solo registros con un ascendente determinado.</p>
 <p>Si se definen varios tipos de regiones en la misma solicitud, los resultados corresponderán a la intersección de todos los límites. Por lo que si las regiones no se superponen, el resultado de la consulta no contendrá datos.</p>
 <p><br /></p>
 <h3 id="priorizacion-de-resultados-por-proximidad">Priorización de resultados por proximidad</h3>
+<p><br /></p>
 <p>En algunas ocasiones es conveniente presentar los resultados más cercanos a una ubicación o región en la parte superior de la lista sin renunciar a otros resultados que se encuentran geográficamente más lejanos.</p>
 <p>La <em>búsqueda convencional</em> permite priorizar los resultados dentro de los límites geográficos, incluso alrededor de un punto, dentro de un país o dentro de una región.</p>
 <h4 id="priorizar-la-proximidad-a-un-punto">Priorizar la proximidad a un punto</h4>
+<p><br /></p>
 <p>Aplicando a a búsqueda el parámetro <code>focus.point</code>, los resultados se ordenarán en parte por su proximidad a la coordenada dada.</p>
 <p>Para las mismas condiciones, los resultados más cercanos al punto aparecerán en la parte superior de la relación. Sin embargo, a diferencia de las consultas circunscritas a áreas rectangulares o circulares, este parámetro puede devolver resultados muy distantes de la coordenada de referencia.</p>
 <p>Los parámetros a utilizar para al consulta por proximidad a un punto son:</p>
@@ -476,7 +485,7 @@ TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)</p>
 </tr>
 </tbody>
 </table>
-<p>Si repetimos la consulta de ejemplo utilizado en la busqueda por círculo, pero en este caso utilizando las coordenadas de Frómista para consultar por proximidad a un punto:</p>
+<p>Si repetimos la consulta de ejemplo utilizada en la busqueda por círculo, pero en este caso utilizando las coordenadas de Frómista para consultar por proximidad a un punto:</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;focus.point.lat=42.268&amp;focus.point.lon=-4.405">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;focus.point.lat=42.268&amp;focus.point.lon=-4.405</a></p>
 <p>Se obtiene el siguiente resultado:</p>
 <blockquote>
