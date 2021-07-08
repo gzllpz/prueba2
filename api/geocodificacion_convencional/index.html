@@ -265,6 +265,7 @@
 CALLE MURRIETA, San Vicente de Barakaldo/San Bizenti-Barakaldo, Bizkaia, España (-2.989928,43.301062)<br />
 Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  </p>
 </blockquote>
+<p><br /></p>
 <h3 id="configurar-el-numero-de-resultados">Configurar el número de resultados</h3>
 <p><br /></p>
 <p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, este se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
@@ -296,9 +297,11 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <blockquote>
 <p>BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)  </p>
 </blockquote>
+<p><br /></p>
 <h3 id="consulta-en-un-area-determinada">Consulta en un área determinada</h3>
 <p><br /></p>
 <p>Es posible constreñir la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La <a href="https://github.com/pelias/pelias">API Pelias</a> que utiliza el geocodificador del SCN permite tres fórmulas para limitar espacialmente la búsqueda: <em>país</em>, <em>rectángulo</em> y <em>círculo</em>.</p>
+<p><br /></p>
 <h4 id="busqueda-por-paises">Búsqueda por países</h4>
 <p><br /></p>
 <p>En ocasiones puede ser necesario que los resultados de una búsqueda correspondan a uno o varios países en particular. Para hacer esto, es necesario establecer el valor del parámetro <code>boundary.country</code> mediante una lista separada por comas de códigos de país <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a>, si bien en este caso la búsqueda por países no tendría mucho sentido ya que el geocodificador del SCN solamente contiene información de las direcciones de España </p>
@@ -324,6 +327,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </tr>
 </tbody>
 </table>
+<p><br /></p>
 <h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</h4>
 <p><br /></p>
 <p>Para limitar la búsqueda a un área geográfica rectangular, es necesario conocer las coordenadas latitud y longitud, mínimas y máximas, que definen el rectángulo (3).</p>
@@ -388,6 +392,7 @@ CALLE MAYOR (MONTAÑANA), MONTAÑANA, Zaragoza, España (-0.822357,41.684245)<br
 CALLE OSA MAYOR, Zaragoza, España (0.932542,41.639184)<br />
 PLAZA MAYOR (CARTUJA), Cartuja Baja, Zaragoza, España (-0.821923,41.604933)  </p>
 </blockquote>
+<p><br /></p>
 <h4 id="busqueda-en-un-area-circular">Búsqueda en un área circular</h4>
 <p><br /></p>
 <p>En aquellos casos en los que se quiera localizar las direcciones que se encuentran dentro de una distancia de un punto dado, se puede utilizar las búsqueda en un área circular, partiendo de una coordenada central de referencia y el radio en km del círculo dentro del cual realizar la búsqueda.</p>
@@ -439,6 +444,7 @@ PLAZA MAYOR, Santoyo, Palencia, España (-4.34285,42.214136)<br />
 TRAVESIA MAYOR, Boadilla del Camino, Palencia, España (-4.347739,42.259541)<br />
 TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)  </p>
 </blockquote>
+<p><br /></p>
 <h4 id="busqueda-aplicando-la-jerarquia-administrativa">Búsqueda aplicando la jerarquía administrativa</h4>
 <p><br /></p>
 <p>(APARTADO EN EDICIÓN)</p>
@@ -450,6 +456,7 @@ TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)  </p>
 <p><br /></p>
 <p>En algunas ocasiones es conveniente presentar los resultados más cercanos a una ubicación o región en la parte superior de la lista sin renunciar a otros resultados que se encuentran geográficamente más lejanos.</p>
 <p>La <em>búsqueda convencional</em> permite priorizar los resultados dentro de los límites geográficos, incluso alrededor de un punto, dentro de un país o dentro de una región.</p>
+<p><br /></p>
 <h4 id="priorizar-la-proximidad-a-un-punto">Priorizar la proximidad a un punto</h4>
 <p><br /></p>
 <p>Aplicando a a búsqueda el parámetro <code>focus.point</code>, los resultados se ordenarán en parte por su proximidad a la coordenada dada.</p>
