@@ -218,7 +218,7 @@
                 <li class="third-level"><a href="#busqueda-por-paises">Búsqueda por países</a></li>
                 <li class="third-level"><a href="#busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</a></li>
                 <li class="third-level"><a href="#busqueda-en-un-area-circular">Búsqueda en un área circular</a></li>
-                <li class="third-level"><a href="#busqueda-aplicando-la-jerarquia-administrativa">Búsqueda aplicando la jerarquía administrativa</a></li>
+                <li class="third-level"><a href="#busqueda-aplicando-jerarquia-administrativa">Búsqueda aplicando jerarquía administrativa</a></li>
             <li class="second-level"><a href="#priorizacion-de-resultados-por-proximidad">Priorización de resultados por proximidad</a></li>
                 
                 <li class="third-level"><a href="#priorizar-la-proximidad-a-un-punto">Priorizar la proximidad a un punto</a></li>
@@ -435,8 +435,13 @@ PLAZA MAYOR (CARTUJA), Cartuja Baja, Zaragoza, España (-0.821923,41.604933)  </
 </tr>
 </tbody>
 </table>
-<p>Por ejemplo, para encontrar una dirección que contenga el texto "<em>mayor</em>" en un área circular de 10 km desde Frómista (Palencia), con coordenadas de referencia (lat,lon) 42.268,-4.405, la sintaxis a utilizar es:</p>
-<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.circle.lat=42.268&amp;boundary.circle.lon=-4.405&amp;boundary.circle.radius=10">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.max_lon=-0.6585&amp;boundary.rect.max_lat=41.7342</a></p>
+<p>Por ejemplo, para encontrar una dirección que contenga el texto "<em>mayor</em>" en un área circular de 10 km desde Frómista (Palencia), con coordenadas de referencia (lat,lon) 42.268,-4.405.
+<br />
+<img alt="Círculo 10 km desde Frómista (fuente: propia)" src="../../img/fromista_circulo_10km.jpg" title="Círculo 10 km desde Frómista (fuente: propia)" />
+<br />
+<br /></p>
+<p>La sintaxis a utilizar es:</p>
+<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.circle.lat=42.268&amp;boundary.circle.lon=-4.405&amp;boundary.circle.radius=10">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.circle.lat=42.268&amp;boundary.circle.lon=-4.405&amp;boundary.circle.radius=10</a></p>
 <p>Que arroja el siguiente resultado:</p>
 <blockquote>
 <p>CALLE MAYOR, Marcilla de Campos, Palencia, España (4.397729,42.317378)<br />
@@ -445,7 +450,7 @@ TRAVESIA MAYOR, Boadilla del Camino, Palencia, España (-4.347739,42.259541)<br 
 TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)  </p>
 </blockquote>
 <p><br /></p>
-<h4 id="busqueda-aplicando-la-jerarquia-administrativa">Búsqueda aplicando la jerarquía administrativa</h4>
+<h4 id="busqueda-aplicando-jerarquia-administrativa">Búsqueda aplicando jerarquía administrativa</h4>
 <p><br /></p>
 <p>(APARTADO EN EDICIÓN)</p>
 <p>El almacenamiento de información mantiene internamente una estructuración jerárquica entre lugares, aplicando un concepto denominado <em>jerarquía administrativa</em> donde cada registro se asocia a un vecindario, ciudad, región, país y otras regiones principales.</p>
@@ -503,8 +508,8 @@ PLAZA MAYOR, BOADILLA DEL CAMINO, Palencia, España (4.347215,42.259306) [distan
 </blockquote>
 <p><br /></p>
 <hr />
-<p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON. En el caso<br />
-(2) Aunque las coordenadas geográficas se suelen expresar en el orden latitud,longitud, los resultados de la API se ofrecen en el orden longtiud,latitud.<br />
+<p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON.<br />
+(2) Aunque las coordenadas geográficas se suelen expresar en el orden latitud,longitud, los resultados de la API se ofrecen en el orden longitud,latitud.<br />
 (3) Puede obtener las coordenadas de un rectángulo geográfico utlizando la <a href="https://boundingbox.klokantech.com/">utilidad web de Klokantech</a>.<br />
 (4) Utilizar la notación punto [.] como signo de separación decimal.  </p></div>
         
