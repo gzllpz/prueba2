@@ -88,7 +88,7 @@
                         
                             
 <li >
-    <a href="../../datos/no_disponible/">Lista de proveedores</a>
+    <a href="../../datos/fuentes_de_datos/">Fuentes de datos</a>
 </li>
 
                         
@@ -169,6 +169,21 @@
                 
                 
                 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Listas controladas <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../listas_controladas/proveedores/">Proveedores</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
                     <li >
                         <a href="../../ejemplos/no_disponible.md">Ejemplos</a>
                     </li>
@@ -222,6 +237,11 @@
             <li class="second-level"><a href="#priorizacion-de-resultados-por-proximidad">Priorización de resultados por proximidad</a></li>
                 
                 <li class="third-level"><a href="#priorizar-la-proximidad-a-un-punto">Priorizar la proximidad a un punto</a></li>
+            <li class="second-level"><a href="#busqueda-combinada-priorizada-dentro-de-un-area">Búsqueda combinada priorizada dentro de un área</a></li>
+                
+            <li class="second-level"><a href="#filtrado-de-la-busqueda">Filtrado de la búsqueda</a></li>
+                
+                <li class="third-level"><a href="#filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -238,20 +258,20 @@
 <thead>
 <tr>
 <th>Parámetro</th>
-<th>significado</th>
 <th>Tipo</th>
-<th>Requerido</th>
+<th>Obligatorio</th>
 <th>Defecto</th>
+<th>Descripción</th>
 <th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>text</code></td>
-<td>texto de la dirección a buscar</td>
 <td>string</td>
-<td>yes</td>
+<td>sí</td>
 <td>none</td>
+<td>Texto de la dirección a buscar</td>
 <td>Calle Mayor</td>
 </tr>
 </tbody>
@@ -273,20 +293,20 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <thead>
 <tr>
 <th>Parámetro</th>
-<th>significado</th>
 <th>Tipo</th>
-<th>Requerido</th>
+<th>Obligatorio</th>
 <th>Defecto</th>
+<th>Descripción</th>
 <th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>size</code></td>
-<td>número deseado de resultados</td>
 <td>integer</td>
 <td>no</td>
 <td>10</td>
+<td>Número deseado de resultados</td>
 <td>5</td>
 </tr>
 </tbody>
@@ -309,21 +329,21 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <thead>
 <tr>
 <th>Parámetro</th>
-<th>significado</th>
 <th>Tipo</th>
-<th>Requerido</th>
+<th>Obligatorio</th>
 <th>Defecto</th>
+<th>Descripción</th>
 <th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>boundary.country</code></td>
-<td>listado de países separados por comas, codificados según <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a></td>
 <td>string</td>
-<td></td>
 <td>no</td>
 <td>none</td>
+<td>Listado de países separados por comas, codificados según <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a></td>
+<td>ES</td>
 </tr>
 </tbody>
 </table>
@@ -331,50 +351,50 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</h4>
 <p><br /></p>
 <p>Para limitar la búsqueda a un área geográfica rectangular, es necesario conocer las coordenadas latitud y longitud, mínimas y máximas, que definen el rectángulo (3).</p>
-<p>En este caso los parámetros a utilizar son los siguientes (3):</p>
+<p>En este caso los parámetros a utilizar son los siguientes (4):</p>
 <table>
 <thead>
 <tr>
 <th>Parámetro</th>
-<th>significado</th>
 <th>Tipo</th>
-<th>Requerido</th>
+<th>Obligatorio</th>
 <th>Defecto</th>
+<th>Descripción</th>
 <th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>boundary.rect.max_lat</code></td>
-<td>valor máximo de la latitud utilizado en la búsqueda en una región rectangular</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>35.81346</td>
+<td>Valor máximo de la latitud utilizado en la búsqueda en una región rectangular</td>
+<td>41.7342</td>
 </tr>
 <tr>
 <td><code>boundary.rect.max_lon</code></td>
-<td>valor máximo de la longitud utilizado en la búsqueda en una región rectangular</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>140.1471</td>
+<td>Valor máximo de la longitud utilizado en la búsqueda en una región rectangular</td>
+<td>-0.6585</td>
 </tr>
 <tr>
 <td><code>boundary.rect.min_lat</code></td>
-<td>valor mínimo de la latitud utilizado en la búsqueda en una región rectangular</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>35.53308</td>
+<td>Valor mínimo de la latitud utilizado en la búsqueda en una región rectangular</td>
+<td>41.5453</td>
 </tr>
 <tr>
 <td><code>boundary.rect.min_lon</code></td>
-<td>valor mínimo de la longitud utilizado en la búsqueda en una región rectangular</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>139.2794</td>
+<td>Valor mínimo de la longitud utilizado en la búsqueda en una región rectangular</td>
+<td>-1.1474</td>
 </tr>
 </tbody>
 </table>
@@ -401,42 +421,42 @@ PLAZA MAYOR (CARTUJA), Cartuja Baja, Zaragoza, España (-0.821923,41.604933)  </
 <thead>
 <tr>
 <th>Parámetro</th>
-<th>significado</th>
 <th>Tipo</th>
-<th>Requerido</th>
+<th>Obligatorio</th>
 <th>Defecto</th>
+<th>Descripción</th>
 <th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>boundary.circle.lat</code></td>
-<td>valor de la latitud del punto central del círculo utilizado en la búsqueda en una región circular</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>43.818156</td>
+<td>Valor de la latitud del punto central del círculo utilizado en la búsqueda en una región circular</td>
+<td>42.268</td>
 </tr>
 <tr>
 <td><code>boundary.circle.lon</code></td>
-<td>valor de la longitud del punto central del círculo utilizado en la búsqueda en una región circular</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>-79.186484</td>
+<td>Valor de la longitud del punto central del círculo utilizado en la búsqueda en una región circular</td>
+<td>-4.405</td>
 </tr>
 <tr>
 <td><code>boundary.circle.radius</code></td>
-<td>valor del radio (kilómetros) utilizado en la búsqueda en una región circular</td>
 <td>floating point number</td>
 <td>no</td>
 <td>50</td>
-<td>35</td>
+<td>Valor del radio (kilómetros) utilizado en la búsqueda en una región circular</td>
+<td>10</td>
 </tr>
 </tbody>
 </table>
-<p>Por ejemplo, para encontrar una dirección que contenga el texto "<em>mayor</em>" en un área circular de 10 km desde Frómista (Palencia), con coordenadas de referencia (lat,lon) 42.268,-4.405.
-<br />
+<p>Por ejemplo, para encontrar una dirección que contenga el texto "<em>mayor</em>" en un área circular de 10 km desde Frómista (Palencia), con coordenadas de referencia (lat,lon) 42.268,-4.405.</p>
+<p><br />
 <img alt="Círculo 10 km desde Frómista (fuente: propia)" src="../../img/fromista_circulo_10km.jpg" title="Círculo 10 km desde Frómista (fuente: propia)" />
 <br />
 <br /></p>
@@ -471,29 +491,29 @@ TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)  </p>
 <thead>
 <tr>
 <th>Parámetro</th>
-<th>significado</th>
 <th>Tipo</th>
-<th>Requerido</th>
+<th>Obligatorio</th>
 <th>Defecto</th>
+<th>Descripción</th>
 <th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>focus.point.lat</code></td>
-<td>valor de la latitud utilizado en la búsqueda alrededor de un punto</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>48.581755</td>
+<td>Valor de la latitud utilizado en la búsqueda alrededor de un punto</td>
+<td>42.268</td>
 </tr>
 <tr>
 <td><code>focus.point.lon</code></td>
-<td>valor de la longitud utilizado en la búsqueda alrededor de un punto</td>
 <td>floating point number</td>
 <td>no</td>
 <td>none</td>
-<td>7.745843</td>
+<td>Valor de la longitud utilizado en la búsqueda alrededor de un punto</td>
+<td>-4.405</td>
 </tr>
 </tbody>
 </table>
@@ -511,7 +531,28 @@ PLAZA MAYOR, BOADILLA DEL CAMINO, Palencia, España (4.347215,42.259306) [distan
 <p>(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON.<br />
 (2) Aunque las coordenadas geográficas se suelen expresar en el orden latitud,longitud, los resultados de la API se ofrecen en el orden longitud,latitud.<br />
 (3) Puede obtener las coordenadas de un rectángulo geográfico utlizando la <a href="https://boundingbox.klokantech.com/">utilidad web de Klokantech</a>.<br />
-(4) Utilizar la notación punto [.] como signo de separación decimal.  </p></div>
+(4) Utilizar la notación punto [.] como signo de separación decimal.  </p>
+<p><br /></p>
+<h3 id="busqueda-combinada-priorizada-dentro-de-un-area">Búsqueda combinada priorizada dentro de un área</h3>
+<p><br /></p>
+<p>Es posible combinar en la misma consulta la búsqueda en un área determinada, ordenando al mismo tiempo los resultados por su proximidad a un punto dado.</p>
+<p>En el siguiente ejemplo se prioriza la búsqueda en un área rectangular en las proximidades de Zaragoza, priorizando la proximidad a su esquina de coordenadas latitud,longitud mínimas:</p>
+<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.max_lat=41.7342&amp;boundary.rect.max_lon=-0.6585&amp;focus.point.lat=41.5453&amp;focus.point.lon=-1.1474">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.max_lat=41.7342&amp;boundary.rect.max_lon=-0.6585&amp;focus.point.lat=41.5453&amp;focus.point.lon=-1.1474</a></p>
+<p>El resultado obtenido por orden de priorización es:</p>
+<blockquote>
+<p>CALLE MAYOR, La Muela, Zaragoza, España (1.122955,41.577862) [distancia: 4.158]<br />
+CALLE MAYOR (GARRAPINILLOS), Garrapinillos, Zaragoza, España (1.028693,41.682992) [distancia: 18.236]<br />
+CALLE OSA MAYOR, ZARAGOZA, España (-0.932936,41.637167) [distancia": 20.577]  </p>
+</blockquote>
+<p><br /></p>
+<h3 id="filtrado-de-la-busqueda">Filtrado de la búsqueda</h3>
+<p><br /></p>
+<p>El almacén de datos de referencia en este geocodificador permite combinar datos de muchas fuentes, de hecho, uno de los objetivos principales del proyecto es definir un modelo de datos neutro en formato CSV, con objeto de poder cargar datos procedentes de distintos productores.</p>
+<p>La API Pelias ofrece la posibilidad de seleccionar el conjunto de datos sobre el que se desea buscar y seleccionar el tipo de registro desde el que se quieren obtener los datos </p>
+<p><br /></p>
+<h4 id="filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</h4>
+<p><br /></p>
+<p>(APARTADO EN EDICIÓN)</p></div>
         
         
     </div>
