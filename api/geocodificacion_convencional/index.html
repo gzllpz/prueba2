@@ -567,6 +567,33 @@ CALLE OSA MAYOR, ZARAGOZA, España (-0.932936,41.637167) [distancia": 20.577]  <
 <p><br /></p>
 <p>El almacén de datos de referencia en este geocodificador permite combinar datos de muchas fuentes, de hecho, uno de los objetivos principales del proyecto es definir un modelo de datos neutro en formato CSV, con objeto de poder cargar datos procedentes de distintos productores.</p>
 <p>La API Pelias ofrece la posibilidad de seleccionar el conjunto de datos sobre el que se desea buscar y seleccionar el tipo de registro desde el que se quieren obtener los datos </p>
+<p>En la fase de pruebas Se han cargado direcciones de los siguientes <a href="../../datos/fuentes_de_datos">proveedores de datos</a>.</p>
+<p>Cuando se realiza una consulta, se dirige por defecto a todas las direcciones que están almacenadas en la base de datos.</p>
+<p>Es posible definir uno ovarios conjuntos de datos al realizar la petición a la API, utilizando el parámetro <code>sources</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sources</code></td>
+<td>string</td>
+<td>no</td>
+<td>all sources: <em>nota (2)</em></td>
+<td>Listado de fuentes de datos separados por comas, codificados según lista controlada de proveedores</td>
+<td>cnig</td>
+</tr>
+</tbody>
+</table>
+<p>El siguiente ejemplo realiza una consulta general a toda la base de datos:</p>
+<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor 10">https://geocoder-5-ign.larioja.org/v1/search?text=mayor 10 haro</a></p>
 <p><br /></p>
 <h4 id="filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</h4>
 <p><br /></p>
