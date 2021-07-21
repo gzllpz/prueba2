@@ -2,67 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://example.com/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/api/geocodificacion_convencional/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/api/informacion_general/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/api/no_disponible/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/datos/fuentes_de_datos/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://example.com/datos/modelo_de_datos/</loc>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/datos/no_disponible/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/listas_controladas/abreviaturas/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/listas_controladas/comunidades_ciudades_autonomas/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <loc>https://example.com/listas_controladas/ciudades_autonomas/</loc>
+         <lastmod>2021-07-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://example.com/listas_controladas/comunidades_autonomas/</loc>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/listas_controladas/municipios/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/listas_controladas/poblaciones/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/listas_controladas/proveedores_de_datos/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/listas_controladas/provincias/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://example.com/utilidades/no_disponible/</loc>
-         <lastmod>2021-07-14</lastmod>
+         <lastmod>2021-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

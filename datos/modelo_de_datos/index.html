@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Proyecto de geocodificación de direcciones. Comisión Especializada de Normas Geográficas. España">
     <meta name="author" content="Gonzalo López García">
-    <link rel="canonical" href="https://example.com/listas_controladas/provincias/">
+    <link rel="canonical" href="https://example.com/datos/modelo_de_datos/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Provincias - Geocodificador SCN</title>
+    <title>Modelo de datos - Geocodificador SCN</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -75,19 +75,19 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../../datos/modelo_de_datos/">Modelo de datos</a>
+<li class="active">
+    <a href="./">Modelo de datos</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../datos/fuentes_de_datos/">Fuentes de datos</a>
+    <a href="../fuentes_de_datos/">Fuentes de datos</a>
 </li>
 
                         
@@ -168,49 +168,49 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Listas controladas <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../abreviaturas/">Abreviaturas</a>
+    <a href="../../listas_controladas/abreviaturas/">Abreviaturas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../comunidades_autonomas/">Comunidades autónomas</a>
+    <a href="../../listas_controladas/comunidades_autonomas/">Comunidades autónomas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../ciudades_autonomas/">Ciudades autónomas</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Provincias</a>
+    <a href="../../listas_controladas/ciudades_autonomas/">Ciudades autónomas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../municipios/">Municipios</a>
+    <a href="../../listas_controladas/provincias/">Provincias</a>
 </li>
 
                         
                             
 <li >
-    <a href="../poblaciones/">Poblaciones</a>
+    <a href="../../listas_controladas/municipios/">Municipios</a>
 </li>
 
                         
                             
 <li >
-    <a href="../proveedores_de_datos/">Proveedores de datos</a>
+    <a href="../../listas_controladas/poblaciones/">Poblaciones</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../listas_controladas/proveedores_de_datos/">Proveedores de datos</a>
 </li>
 
                         
@@ -239,17 +239,17 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../ciudades_autonomas/">
+                        <a rel="prev" href="../..">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../municipios/">
+                        <a rel="next" href="../fuentes_de_datos/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/listas_controladas/provincias.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/datos/modelo_de_datos.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -261,285 +261,89 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#provincias">Provincias</a></li>
+        <li class="first-level active"><a href="#modelo-de-datos">Modelo de datos</a></li>
+            <li class="second-level"><a href="#0-objetivos">0. Objetivos</a></li>
+                
+            <li class="second-level"><a href="#1-introduccion">1. Introducción</a></li>
+                
+            <li class="second-level"><a href="#2-modelo-de-datos-atributos">2. Modelo de datos (atributos)</a></li>
+                
+                <li class="third-level"><a href="#21-identificador">2.1 Identificador</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="provincias">Provincias</h1>
-<p><br />
-Provincias de España, por orden alfabético.</p>
+<h1 id="modelo-de-datos">Modelo de datos</h1>
+<p><br /></p>
+<p>Se describe a continuacíón el modelo de datos que se ha definido para la recopilación efectiva de los datos de direcciones que servirán de referencia para un servicio nacional de geocodificación de direcciones.</p>
+<p><br /></p>
+<h3 id="0-objetivos">0. Objetivos</h3>
+<p><br /></p>
+<p>El modelo de datos a definir tiene como objetivo principal estructurar la información que es preciso recopilar para constituir los datos de referecia de un servicio de geocodificación de direcciones de carácter nacional.</p>
+<p>Las características técnicas que debe cumplir el servico son las siguientes:</p>
+<ul>
+<li>Operaciones de descubrimiento y geolocalización (obtención de coordenadas geográficas) de una dirección en base a sus principales componentes (nombre del vial, portal, etc).</li>
+<li>Priorización de las soluciones más próximas a una posición geográfica dada.</li>
+<li>Operaciones de geocodificación inversa, con objeto de poder descubrir la dirección más cercana a un punto de coordenadas conocidas.</li>
+<li>Búsqueda circunscrita a un área geográfica o una unidad administrativa determinada.</li>
+<li>Búsqueda en subconjuntos de datos de un proveedor dado.</li>
+<li>Tecnología API REST (Interfaz de Programación de Aplicaciones). Posibilidad de poder invocar los métodos y procedimientos desde procesos informáticos.</li>
+</ul>
+<p>En cuanto a la funcionalidad el servicio debe permitir:</p>
+<ul>
+<li>Localización de direcciones fuera del ámbito urbano</li>
+<li>Localización de direcciones en vigor e históricas (en desuso).</li>
+<li>Consulta de direcciones expresadas en cualquiera de las lenguas oficiales.</li>
+<li>Utilización de sinónimos y abreviaturas.</li>
+<li>Respuesta a búsqueda de direcciones no estructuradas.</li>
+<li>Geolocalización de toponimia y nombres geográficos.</li>
+<li>Geolocalización de Puntos de Interés (POIs).</li>
+</ul>
+<p><br /></p>
+<h3 id="1-introduccion">1. Introducción</h3>
+<p><br /></p>
+<p>En España la competencia administrativa para definir el nombre oficial del viario y la numeración de las direcciones corresponde a los ayuntamientos.</p>
+<p>Por este motivo para constituir una base de datos de direcciones, es necesaro definir un procedimiento de recopilación de información muy básico en el que pueda participar cualquier administración local, independientemente de su tamaño y capacidad técnica o económica.</p>
+<p>Para ello se ha establecido que el formato de fichero de datos a utilizar para la recolección de direcciones, sea conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, dada su naturaleza de texto plano, la sencillez de su estructura interna y la posibidad de generarlo con cualquier tipo de software.</p>
+<p>A diferencia de otros modelos de datos de direcciones, la estructura se ha orientado a soportar las funcionalidades genéricas de un servicio de geocodificación, a las que se añaden las más específicas citadas anteriormente.</p>
+<p>Por este motivo se ha incluido un atributo que codifique la tipología del dato, con objeto de diferenciar las direcciones entre: oficiales; normalizadas; históricas y otras, así como otro atributo que permita asignar un nombre propio a una dirección o localización, con objeto de facilitar su descubrimiento cuando no se dispone del dato preciso de dirección, siendo aplicable también a la búsqueda de toponimia y puntos de interés.</p>
+<p>Una novedad de este modelo es la incorporación de un atributo denominado <code>ENCLAVE</code> que aporta al dato de dirección información complementaria de utilidad para el reparto postal y que habitualmente resulta difícil de encajar en otros esquemas.</p>
+<p>Es necesario recalcar que este modelo de datos no está dirigido a la formación de una base de datos de direcciones al uso, sino a la indexación de información con el objetivo de dar soporte a un servicio de geocodificación.</p>
+<p><br /></p>
+<h3 id="2-modelo-de-datos-atributos">2. Modelo de datos (atributos)</h3>
+<p><br /></p>
+<h4 id="21-identificador">2.1 Identificador</h4>
+<p><br /></p>
 <table>
 <thead>
 <tr>
-<th>Código INE</th>
-<th>Provincia</th>
-<th>Comunidad/ciudad autónoma</th>
+<th>Nombre</th>
+<th>Definición</th>
+<th>Obligación</th>
+<th>Ocurrencia</th>
+<th>Tipo de dato</th>
+<th>Dominio</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>15</td>
-<td>A Coruña</td>
-<td>Galicia</td>
-</tr>
-<tr>
-<td>02</td>
-<td>Albacete</td>
-<td>Castilla-La Mancha</td>
-</tr>
-<tr>
-<td>03</td>
-<td>Alicante/Alacant</td>
-<td>Comunitat Valenciana</td>
-</tr>
-<tr>
-<td>04</td>
-<td>Almería</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>01</td>
-<td>Araba/Álava</td>
-<td>País Vasco</td>
-</tr>
-<tr>
-<td>33</td>
-<td>Asturias</td>
-<td>Principado de Asturias</td>
-</tr>
-<tr>
-<td>05</td>
-<td>Ávila</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>06</td>
-<td>Badajoz</td>
-<td>Extremadura</td>
-</tr>
-<tr>
-<td>08</td>
-<td>Barcelona</td>
-<td>Cataluña</td>
-</tr>
-<tr>
-<td>48</td>
-<td>Bizkaia</td>
-<td>País Vasco</td>
-</tr>
-<tr>
-<td>09</td>
-<td>Burgos</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Cáceres</td>
-<td>Extremadura</td>
-</tr>
-<tr>
-<td>11</td>
-<td>Cádiz</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>39</td>
-<td>Cantabria</td>
-<td>Cantabria</td>
-</tr>
-<tr>
-<td>12</td>
-<td>Castellón/Castelló</td>
-<td>Comunitat Valenciana</td>
-</tr>
-<tr>
-<td>51</td>
-<td>Ceuta</td>
-<td>Ciudad Autónoma de Ceuta</td>
-</tr>
-<tr>
-<td>13</td>
-<td>Ciudad Real</td>
-<td>Castilla-La Mancha</td>
-</tr>
-<tr>
-<td>14</td>
-<td>Córdoba</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>16</td>
-<td>Cuenca</td>
-<td>Castilla-La Mancha</td>
-</tr>
-<tr>
-<td>20</td>
-<td>Gipuzkoa</td>
-<td>País Vasco</td>
-</tr>
-<tr>
-<td>17</td>
-<td>Girona</td>
-<td>Cataluña</td>
-</tr>
-<tr>
-<td>18</td>
-<td>Granada</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>19</td>
-<td>Guadalajara</td>
-<td>Castilla-La Mancha</td>
-</tr>
-<tr>
-<td>21</td>
-<td>Huelva</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>22</td>
-<td>Huesca</td>
-<td>Aragón</td>
-</tr>
-<tr>
-<td>07</td>
-<td>Illes Balears</td>
-<td>Illes Balears</td>
-</tr>
-<tr>
-<td>23</td>
-<td>Jaén</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>26</td>
-<td>La Rioja</td>
-<td>La Rioja</td>
-</tr>
-<tr>
-<td>35</td>
-<td>Las Palmas</td>
-<td>Canarias</td>
-</tr>
-<tr>
-<td>24</td>
-<td>León</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>25</td>
-<td>Lleida</td>
-<td>Cataluña</td>
-</tr>
-<tr>
-<td>27</td>
-<td>Lugo</td>
-<td>Galicia</td>
-</tr>
-<tr>
-<td>28</td>
-<td>Madrid</td>
-<td>Comunidad de Madrid</td>
-</tr>
-<tr>
-<td>29</td>
-<td>Málaga</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>52</td>
-<td>Melilla</td>
-<td>Ciudad Autónoma de Melilla</td>
-</tr>
-<tr>
-<td>30</td>
-<td>Murcia</td>
-<td>Región de Murcia</td>
-</tr>
-<tr>
-<td>31</td>
-<td>Navarra</td>
-<td>Comunidad Foral de Navarra</td>
-</tr>
-<tr>
-<td>32</td>
-<td>Ourense</td>
-<td>Galicia</td>
-</tr>
-<tr>
-<td>34</td>
-<td>Palencia</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>36</td>
-<td>Pontevedra</td>
-<td>Galicia</td>
-</tr>
-<tr>
-<td>37</td>
-<td>Salamanca</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>38</td>
-<td>Santa Cruz de Tenerife</td>
-<td>Canarias</td>
-</tr>
-<tr>
-<td>40</td>
-<td>Segovia</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>41</td>
-<td>Sevilla</td>
-<td>Andalucía</td>
-</tr>
-<tr>
-<td>42</td>
-<td>Soria</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>43</td>
-<td>Tarragona</td>
-<td>Cataluña</td>
-</tr>
-<tr>
-<td>44</td>
-<td>Teruel</td>
-<td>Aragón</td>
-</tr>
-<tr>
-<td>45</td>
-<td>Toledo</td>
-<td>Castilla-La Mancha</td>
-</tr>
-<tr>
-<td>46</td>
-<td>Valencia/València</td>
-<td>Comunitat Valenciana</td>
-</tr>
-<tr>
-<td>47</td>
-<td>Valladolid</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>49</td>
-<td>Zamora</td>
-<td>Castilla y León</td>
-</tr>
-<tr>
-<td>50</td>
-<td>Zaragoza</td>
-<td>Aragón</td>
+<td>ID</td>
+<td>Identificador persistente y local proporcionado por el proveedor para referenciar una dirección (ubicación puntual) de un lugar que puede tener diferentes lenguas, diferentes épocas, diferentes denominaciones…</td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>CharacterString</td>
+<td>Free text</td>
 </tr>
 </tbody>
 </table>
+<p>Características para asignar el identificador:</p>
+<ul>
+<li>La geometría no varía</li>
+<li>Expresa el identificador único de cada dirección, tal como es gestionado por el organismo productor de la información.</li>
+<li>Todos los registros que hacen referencia a la misma dirección, independientemente de la lengua y del momento temporal, como es el caso de las direcciones activas y las obsoletas, o los registros que se creen para cada fórmula lingüística, deberían tener el mismo ID.</li>
+<li>Incluir la abreviatura del organismo en el identificador</li>
+</ul>
+<p>Este atributo, concatenado con el relativo a la fuente de datos, se podría utilizar eficazmente para diseñar los procesos de actualización de la información.</p>
 <p><br /></p>
 <hr /></div>
         
