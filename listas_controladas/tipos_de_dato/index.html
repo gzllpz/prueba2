@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Proyecto de geocodificación de direcciones. Comisión Especializada de Normas Geográficas. España">
     <meta name="author" content="Gonzalo López García">
-    <link rel="canonical" href="https://example.com/datos/fuentes_de_datos/">
+    <link rel="canonical" href="https://example.com/listas_controladas/tipos_de_dato/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Fuentes de datos - Geocodificador SCN</title>
+    <title>Tipos de dato - Geocodificador SCN</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -75,19 +75,19 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../modelo_de_datos/">Modelo de datos</a>
+    <a href="../../datos/modelo_de_datos/">Modelo de datos</a>
 </li>
 
                         
                             
-<li class="active">
-    <a href="./">Fuentes de datos</a>
+<li >
+    <a href="../../datos/fuentes_de_datos/">Fuentes de datos</a>
 </li>
 
                         
@@ -168,67 +168,67 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Listas controladas <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../listas_controladas/abreviaturas/">Abreviaturas</a>
+    <a href="../abreviaturas/">Abreviaturas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/ciudades_autonomas/">Ciudades autónomas</a>
+    <a href="../ciudades_autonomas/">Ciudades autónomas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/comunidades_autonomas/">Comunidades autónomas</a>
+    <a href="../comunidades_autonomas/">Comunidades autónomas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/estados_del_dato/">Estados del dato</a>
+    <a href="../estados_del_dato/">Estados del dato</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/lenguas/">Lenguas</a>
+    <a href="../lenguas/">Lenguas</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/municipios/">Municipios</a>
+    <a href="../municipios/">Municipios</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/poblaciones/">Poblaciones</a>
+    <a href="../poblaciones/">Poblaciones</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/proveedores_de_datos/">Proveedores de datos</a>
+    <a href="../proveedores_de_datos/">Proveedores de datos</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../listas_controladas/provincias/">Provincias</a>
+    <a href="../provincias/">Provincias</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../listas_controladas/tipos_de_dato/">Tipos de dato</a>
+<li class="active">
+    <a href="./">Tipos de dato</a>
 </li>
 
                         
@@ -257,17 +257,17 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../modelo_de_datos/">
+                        <a rel="prev" href="../provincias/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../../api/informacion_general/">
+                        <a rel="next" href="../../utilidades/no_disponible/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/datos/fuentes_de_datos.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/listas_controladas/tipos_de_dato.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -279,57 +279,38 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#fuentes-de-datos">FUENTES DE DATOS</a></li>
+        <li class="first-level active"><a href="#tipos-de-dato">TIPOS DE DATO</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="fuentes-de-datos">FUENTES DE DATOS</h2>
+<h2 id="tipos-de-dato">TIPOS DE DATO</h2>
 <p><br /></p>
-<p>Estos son los códigos de los proveedores de los datos que se han cargado para efectuar las pruebas de geocodificación.</p>
+<p>Recoge la tipología del registro de datos con objeto de su aplicación en el algoritmo de búsqueda:</p>
+<p>Se utiliza para cumplimentar el atributo <a href="../../datos/modelo_de_datos#215-tipo-de-dato"><strong><code>TIPDATO</code></strong></a>.</p>
 <table>
 <thead>
 <tr>
-<th>Código</th>
-<th>Proveedor</th>
+<th>Tipo</th>
+<th>Definición</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>10037</td>
-<td>Ayuntamiento de Cáceres</td>
+<td>Dirección</td>
+<td>Identificación de la localización fija de una finca o edificación por medio de una composición estructurada de nombres geográficos e identificadores</td>
 </tr>
 <tr>
-<td>caaymad</td>
-<td>Ayuntamiento de Madrid</td>
+<td>Topónimo</td>
+<td>Término toponímico o nombre geográfico</td>
 </tr>
 <tr>
-<td>calrj</td>
-<td>Comunidad Autónoma de La Rioja</td>
+<td>POI</td>
+<td>Ubicación geográfica de un punto de interés (POI), que no corresponde a una dirección formal</td>
 </tr>
 <tr>
-<td>camad</td>
-<td>Comunidad de Madrid</td>
-</tr>
-<tr>
-<td>canav</td>
-<td>Comunidad Foral de Navarra</td>
-</tr>
-<tr>
-<td>cnig</td>
-<td>Centro Nacional de Información Geográfico</td>
-</tr>
-<tr>
-<td>dpbcn</td>
-<td>Diputación de Barcelona</td>
-</tr>
-<tr>
-<td>dgcat</td>
-<td>Dirección General de Catastro</td>
-</tr>
-<tr>
-<td>ieca</td>
-<td>Instituto de Estadística y Cartografía de Andalucía</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
