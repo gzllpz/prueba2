@@ -113,19 +113,19 @@
         
             
 <li >
-    <a href="../../api/geocodificacion_convencional/">Geocodificación convencional</a>
+    <a href="../../api/busqueda.md">Búsqueda</a>
 </li>
 
         
             
 <li >
-    <a href="../../api/no_disponible/">Geocodificación inversa</a>
+    <a href="../../api/no_disponible/">Autocompletar</a>
 </li>
 
         
             
 <li >
-    <a href="../../api/no_disponible/">Autocompletado</a>
+    <a href="../../api/no_disponible/">Invertir geocodificación</a>
 </li>
 
         
@@ -137,7 +137,7 @@
         
             
 <li >
-    <a href="../../api/no_disponible/">Localización de lugar</a>
+    <a href="../../api/no_disponible/">Lugar</a>
 </li>
 
         
@@ -306,6 +306,8 @@
                 <li class="third-level"><a href="#218-geometria">2.18 Geometría</a></li>
                 <li class="third-level"><a href="#2181-latitud">2.18.1 Latitud</a></li>
                 <li class="third-level"><a href="#2182-longitud">2.18.2 Longitud</a></li>
+            <li class="second-level"><a href="#3-formato-del-fichero">3. Formato del fichero</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -367,9 +369,9 @@
 <tr>
 <td><strong><code>ID</code></strong></td>
 <td>Identificador persistente y local proporcionado por el proveedor para referenciar una dirección (ubicación puntual) de un lugar que puede tener diferentes lenguas, diferentes épocas, diferentes denominaciones…</td>
-<td>Opcional</td>
+<td>opcional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -405,9 +407,9 @@
 <tr>
 <td><strong><code>TIPVIA</code></strong></td>
 <td>Expresión de la tipología de vía de referencia o de su abreviatura</td>
-<td>Opcional. No es necesario que las organizaciones tengan almacenado el <code>TIPVIA</code>. El campo puede estar vacío</td>
+<td>opcional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -420,6 +422,7 @@
 </tr>
 </tbody>
 </table>
+<p>No es necesario que las organizaciones tengan almacenado en sus bases de datos el <code>TIPVIA</code>. El campo puede estar vacío.</p>
 <p>Se propone utilizar la tipología proporcionada por el INE, D.G. del Catastro, y los departamentos catastrales del País Vasco y Navarra así como los utilizados en los proyectos de recopilación de datos de direcciones gestionados por otras administraciones públicas.</p>
 <p>Se recomienda utilizar la expresión textual completa para el tipo de vía, siendo posible aplicar las abreviaturas más comunes.</p>
 <p>En los casos en que el tipo de vía se considere parte intrínseca del nombre, se recomienda no rellenar el atributo <a href="../../datos/modelo_de_datos/#22-tipo-de-via"><code>TIPVIA</code></a> con el fin de no duplicar esta información.</p>
@@ -444,7 +447,7 @@
     </tr>
     <tr>
         <td>Kalea</td>
-        <td>Barrutiko </td>
+        <td>Barrutiko</td>
         <td>Iruñea</td>
     </tr>
     <tr>
@@ -475,9 +478,9 @@
 <tr>
 <td><strong><code>NOMVIA</code></strong></td>
 <td>Nombre o denominación de la calle o vía a la que se adscribe una dirección</td>
-<td>Condicional</td>
+<td>condicional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -510,9 +513,9 @@
 <tr>
 <td><strong><code>NUMERO</code></strong></td>
 <td>Localizador o identificación del portal; número; punto km asociado a una dirección</td>
-<td>Condicional</td>
+<td>condicional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -558,9 +561,9 @@
 <tr>
 <td><strong><code>NOMLOC</code></strong></td>
 <td>Designación alternativa ligada a la dirección o lugar (nombre de edificio, topónimos, POIs)</td>
-<td>Opcional,Condicional</td>
+<td>opcional,condicional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -594,9 +597,9 @@
 <tr>
 <td><strong><code>ENCLAVE</code></strong></td>
 <td>Zona que agrupa a varios objetos direccionables a efectos de direccionamiento, sin constituir una unidad administrativa</td>
-<td>Opcional</td>
+<td>opcional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -630,9 +633,9 @@
 <tr>
 <td><strong><code>NUCLEO</code></strong></td>
 <td>Información del <em>núcleo</em>, <em>barrio</em>, <em>aldea</em>, <em>parroquia</em>, <em>distrito</em>, <em>diseminado</em>, cuando estructura la jerarquía de una dirección</td>
-<td>Opcional</td>
+<td>opcional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -664,9 +667,9 @@
 <tr>
 <td><strong><code>CODPOSTAL</code></strong></td>
 <td>Código postal asociado a una dirección</td>
-<td>Condicional</td>
+<td>condicional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td><a href="https://www.correos.es/es/es/herramientas/codigos-postales/detalle">Códigos postales</a> de la Sociedad Estatal Correos y Telegrafos</td>
 </tr>
 <tr>
@@ -698,9 +701,9 @@
 <tr>
 <td><strong><code>POBLACION</code></strong></td>
 <td>Nombre de la población (Entidad singular)</td>
-<td>Condicional</td>
+<td>condicional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td><a href="../../listas_controladas/poblaciones">Lista controlada <em>Poblaciones</em></a></td>
 </tr>
 <tr>
@@ -734,9 +737,9 @@
 <tr>
 <td><strong><code>MUNICIPIO</code></strong></td>
 <td>Nombre del municipio</td>
-<td>Obligatorio</td>
+<td>obligatorio</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td><a href="../../listas_controladas/municipios">Lista controlada <em>Municipios</em></a></td>
 </tr>
 <tr>
@@ -768,9 +771,9 @@
 <tr>
 <td><strong><code>PROVINCIA</code></strong></td>
 <td>Nombre de la provincia</td>
-<td>Obligatorio</td>
+<td>obligatorio</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td><a href="../../listas_controladas/provincias">Lista controlada <em>Provincias</em></a></td>
 </tr>
 <tr>
@@ -802,9 +805,9 @@
 <tr>
 <td><strong><code>CA</code></strong></td>
 <td>Nombre de la comunidad o ciudad autónoma</td>
-<td>Obligatorio</td>
+<td>obligatorio</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td><a href="../../listas_controladas/comunidades_autonomas">Lista controlada <em>Comunidades autónomas</em></a>; <a href="../../listas_controladas/ciudades_autonomas">Lista controlada <em>Ciudades autonomas</em></a></td>
 </tr>
 <tr>
@@ -836,9 +839,9 @@
 <tr>
 <td><strong><code>INEVIA</code></strong></td>
 <td>Código INE de vía (16 dígitos)</td>
-<td>Opcional</td>
+<td>opcional</td>
 <td>0,1</td>
-<td>Cadena de caracteres</td>
+<td>cadena de caracteres</td>
 <td>Código INE</td>
 </tr>
 <tr>
@@ -878,9 +881,9 @@ En los próximos meses se va a producir un cambio en el sistema de gestión del 
 <tr>
 <td><strong><code>LENGUA</code></strong></td>
 <td>Lengua utilizada en la expresión de una dirección, topónimo o punto de interés</td>
-<td>Opcional</td>
+<td>opcional</td>
 <td>0.1</td>
-<td>Dominio de valores</td>
+<td>dominio de valores</td>
 <td><a href="../../listas_controladas/lenguas">Lista controlada Lenguas</a></td>
 </tr>
 <tr>
@@ -954,9 +957,9 @@ En los próximos meses se va a producir un cambio en el sistema de gestión del 
 <tr>
 <td><strong><code>TIPDATO</code></strong></td>
 <td>Tipología del registro de datos conforme a la naturaleza de la información</td>
-<td>Obligatorio</td>
+<td>obligatorio</td>
 <td>0.1</td>
-<td>Dominio de valores</td>
+<td>dominio de valores</td>
 <td><a href="../../listas_controladas/tipos_de_dato">Lista controlada <em>Tipos de dato</em></a></td>
 </tr>
 <tr>
@@ -971,9 +974,9 @@ En los próximos meses se va a producir un cambio en el sistema de gestión del 
 </table>
 <p>Recoge la tipología del registro de datos con objeto de su aplicación en el algoritmo de búsqueda:</p>
 <ul>
-<li>Dirección: Identificación de la localización fija de una finca o edificación por medio de una composición estructurada de nombres geográficos e identificadores.</li>
-<li>Topónimo: Término toponímico o nombre geográfico.</li>
-<li>POI: Ubicación geográfica de un punto de interés (POI), que no corresponde a una dirección formal.</li>
+<li><em>Dirección</em>: Identificación de la localización fija de una finca o edificación por medio de una composición estructurada de nombres geográficos e identificadores.</li>
+<li><em>Topónimo</em>: Término toponímico o nombre geográfico.</li>
+<li><em>POI</em>: Ubicación geográfica de un punto de interés (POI), que no corresponde a una dirección formal.</li>
 </ul>
 <p>Comentario:<br />
 Poder integrar de forma flexible datos de distintas procedencias y formatos en un servicio común de geocodificación de direcciones, ofrece la posibilidad de adaptar la metodología de la recopilación de información a las necesidades y posibilidades de cada productor. De esta manera los datos de direcciones recopilados por una comunidad autónoma, administración local u organismo público, se podrían actualizar remitiéndolos a un repositorio común (P.ej. <em>Cartociudad</em>) para su indexación, o bien ser recopilados de forma automática y periódica a partir de un servicio de publicación o de un fichero en red.</p>
@@ -996,7 +999,7 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 <td><strong><code>ESTADO</code></strong></td>
 <td>Estatus de una dirección o nombre geográfico</td>
 <td>0.1</td>
-<td>Dominio de valores</td>
+<td>dominio de valores</td>
 <td><a href="../../listas_controladas/estados_del_dato">Lista controlada <em>Estados del dato</em></a></td>
 <td></td>
 </tr>
@@ -1012,12 +1015,12 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 </table>
 <p>Información que permite discernir qué crédito debe darse a la información con respecto a su oficialidad, grado de normalización y/o su vigencia.</p>
 <ul>
-<li>Oficial: Información actualmente en uso, aprobada oficialmente por la administración competente o establecida por la legislación.</li>
-<li>Normalizado: Información actualmente en uso, aceptada o recomendada por un órgano que tenga asignada una función asesora o tenga facultad de decisión en materia de toponimia.</li>
-<li>Histórico: Información actualmente en desuso o sin vigencia administrativa.</li>
-<li>Otro: Información actualmente en uso que no tienen ningún estatus oficial, ni ha sido aprobada por ningún órgano.</li>
+<li><em>Oficial</em>: Información actualmente en uso, aprobada oficialmente por la administración competente o establecida por la legislación.</li>
+<li><em>Normalizado</em>: Información actualmente en uso, aceptada o recomendada por un órgano que tenga asignada una función asesora o tenga facultad de decisión en materia de toponimia.</li>
+<li><em>Histórico</em>: Información actualmente en desuso o sin vigencia administrativa.</li>
+<li><em>Otro</em>: Información actualmente en uso que no tienen ningún estatus oficial, ni ha sido aprobada por ningún órgano.</li>
 </ul>
-<p>Fuente: <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2010:323:0011:0102:Es:PDF">Reglamento (UE) Nº 1089/2010</a>.</p>
+<p>Fuente: <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2010:323:0011:0102:Es:PDF"><em>Reglamento (UE) Nº 1089/2010</em></a>.</p>
 <p>Este atributo permite acotar el ámbito de la búsqueda de una dirección a un subconjunto de registros en función de su estado.</p>
 <p><br /></p>
 <h4 id="217-proveedor">2.17 Proveedor</h4>
@@ -1037,9 +1040,9 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 <tr>
 <td><strong><code>PROVEEDOR</code></strong></td>
 <td>Proveedor de datos de la información del registro, señalando mediante una codificación el organismo o institución que suministra la información</td>
-<td>Obligatorio</td>
+<td>obligatorio</td>
 <td>0.1</td>
-<td>Dominio de valores</td>
+<td>dominio de valores</td>
 <td><a href="../../listas_controladas/proveedores_de_datos">Lista controlada <em>Proveedores de datos</em></a></td>
 </tr>
 <tr>
@@ -1079,9 +1082,9 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <tr>
 <td><strong><code>LATITUD</code></strong></td>
 <td>Valor de la <em>latitud</em> de la geometría puntual</td>
-<td>Obligatorio</td>
+<td>obligatorio</td>
 <td>0.1</td>
-<td>Numérico decimal</td>
+<td>numérico decimal</td>
 <td>-90.00&lt;=latitud&lt;=+90.00</td>
 </tr>
 <tr>
@@ -1118,9 +1121,9 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <tr>
 <td><strong><code>LONGITUD</code></strong></td>
 <td>Valor de la <em>longitud</em> de la geometría puntual</td>
-<td>Obligatorio</td>
+<td>obligatorio</td>
 <td>0.1</td>
-<td>Numérico decimal</td>
+<td>numérico decimal</td>
 <td>-180.00&lt;=longitud&lt;=+180.00</td>
 </tr>
 <tr>
@@ -1139,6 +1142,20 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <li>Utilizar el carácter punto (.) como separador decimal.  </li>
 <li>NO UTILIZAR el formato en grados sexagesimales como una cadena de valores expresado en grados, minutos y segundos.</li>
 </ul>
+<p><br /></p>
+<h3 id="3-formato-del-fichero">3. Formato del fichero</h3>
+<p><br /></p>
+<p>El formato de fichero de intercambioomo debe ser conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, utilizando como separador de los campos el carácter <em>punto y coma</em> (;).</p>
+<p>Cada registro (dirección, topónimo, punto de interés) se define mediante una línea adicional en el fichero.</p>
+<p>Las coordenadas latitud, longitud, se deben expresan en formato geográfico decimal en el Sistema Geográfico de Referencia <a href="https://epsg.io/4258">EPSG:4258</a>, utilizando el carácter <em>punto</em> (.) como separador decimal.</p>
+<blockquote>
+<p>Unidades: Grados<br />
+CRS: <a href="https://epsg.io/4936">ETRS89</a><br />
+Datum: <a href="https://epsg.io/6258-datum">European Terrestrial Reference System 1989 (ETRS89)</a><br />
+Ellipsoid: <a href="https://epsg.io/7019-ellipsoid">GRS 1980</a><br />
+Meridiano de referencia: Meridiano de Greenwich  </p>
+</blockquote>
+<p>Codificación de caracteres: UTF-8 sin BOM.</p>
 <p><br /></p>
 <hr /></div>
         

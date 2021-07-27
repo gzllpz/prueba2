@@ -113,19 +113,19 @@
         
             
 <li >
-    <a href="../geocodificacion_convencional/">Geocodificación convencional</a>
+    <a href="../busqueda.md">Búsqueda</a>
 </li>
 
         
             
 <li >
-    <a href="../no_disponible/">Geocodificación inversa</a>
+    <a href="../no_disponible/">Autocompletar</a>
 </li>
 
         
             
 <li >
-    <a href="../no_disponible/">Autocompletado</a>
+    <a href="../no_disponible/">Invertir geocodificación</a>
 </li>
 
         
@@ -137,7 +137,7 @@
         
             
 <li >
-    <a href="../no_disponible/">Localización de lugar</a>
+    <a href="../no_disponible/">Lugar</a>
 </li>
 
         
@@ -262,7 +262,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../geocodificacion_convencional/">
+                        <a rel="next" href="../no_disponible/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -317,13 +317,17 @@
 <p><br /></p>
 <h3 id="metodos">Métodos</h3>
 <p><br /></p>
-<p>Los métodos (<em>endpoints</em>) que se pueden utilizar son los siguientes:</p>
+<p>Los métodos y <em>endpoints</em> que se pueden utilizar son los siguientes:</p>
 <ul>
-<li><a href="../../api/geocodificacion_convencional/"><strong>Método de búsqueda convencional</strong> (/v1/search)</a>: Servicio que obtiene la ubicación de una dirección a partir sus datos identificativos, identificador o nombre.  </li>
-<li><strong>Método de autocompletar</strong> (/v1/autocomplete): Servicio que obtiene resultados en tiempo real sin necesidad de completar todos los datos de identificación.  </li>
-<li><strong>Método de invertir geocodificación</strong> (/v1/reverse): Servicio que busca direcciones más próximas a un punto determinado.  </li>
-<li><strong>Método de geocodificación estructurada</strong> (/v1/search/structured): (beta) Servicio que encuentra un lugar a partir de datos ya separados en calle, número, ciudad, etc.  </li>
-<li><strong>Método de lugar</strong> (/v1/place): Servicio que obtiene detalles sobre un lugar devuelto por una consulta anterior.<br />
+<li><a href="../../api/geocodificacion_directa/"><strong>Geocodificación directa</strong></a> <small>(/v1/search)</small>: Método que obtiene los datos y la ubicación de una dirección o lugar, a partir de sus datos identificativos o de referencia.  </li>
+<li><strong>Geocodificación inversa</strong> <small>(/v1/reverse)</small>: Método que busca las direcciones más próximas a un punto geográfico determinado.  </li>
+<li>
+<p><strong>Autocompletado</strong> <small>(/v1/autocomplete)</small>: Método que obtiene resultados en tiempo real sin necesidad de completar todos los datos de identificación.  </p>
+</li>
+<li>
+<p><strong>Geocodificación estructurada</strong> <small>(/v1/search/structured)</small>: (beta) Método que encuentra un lugar a partir de datos estructurados en calle, número, ciudad, etc.  </p>
+</li>
+<li><strong>Lugar</strong> <small>(/v1/place)</small>: Método que obtiene detalles sobre un lugar devuelto por una consulta anterior.<br />
 <br /></li>
 </ul>
 <hr />

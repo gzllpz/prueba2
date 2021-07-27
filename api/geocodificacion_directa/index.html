@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Proyecto de geocodificación de direcciones. Comisión Especializada de Normas Geográficas. España">
     <meta name="author" content="Gonzalo López García">
-    <link rel="canonical" href="https://example.com/api/geocodificacion_convencional/">
+    <link rel="canonical" href="https://example.com/api/geocodificacion_directa/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Geocodificación convencional - Geocodificador SCN</title>
+    <title>Geocodificacion directa - Geocodificador SCN</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -96,7 +96,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -112,20 +112,20 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="./">Geocodificación convencional</a>
+<li >
+    <a href="../busqueda.md">Búsqueda</a>
 </li>
 
         
             
 <li >
-    <a href="../no_disponible/">Geocodificación inversa</a>
+    <a href="../no_disponible/">Autocompletar</a>
 </li>
 
         
             
 <li >
-    <a href="../no_disponible/">Autocompletado</a>
+    <a href="../no_disponible/">Invertir geocodificación</a>
 </li>
 
         
@@ -137,7 +137,7 @@
         
             
 <li >
-    <a href="../no_disponible/">Localización de lugar</a>
+    <a href="../no_disponible/">Lugar</a>
 </li>
 
         
@@ -256,18 +256,8 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../informacion_general/">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="next" href="../no_disponible/">
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
                     <li>
-                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/api/geocodificacion_convencional.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/api/geocodificacion_directa.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -279,7 +269,7 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#geocodificacion-convencional">GEOCODIFICACIÓN CONVENCIONAL</a></li>
+        <li class="first-level active"><a href="#geocodificacion-directa">GEOCODIFICACIÓN DIRECTA</a></li>
             <li class="second-level"><a href="#construccion-de-la-consulta">Construcción de la consulta</a></li>
                 
             <li class="second-level"><a href="#configurar-el-numero-de-resultados">Configurar el número de resultados</a></li>
@@ -298,18 +288,20 @@
             <li class="second-level"><a href="#filtrado-de-la-busqueda">Filtrado de la búsqueda</a></li>
                 
                 <li class="third-level"><a href="#filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</a></li>
+                <li class="third-level"><a href="#filtrado-por-tipo-de-datos">Filtrado por tipo de datos</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="geocodificacion-convencional">GEOCODIFICACIÓN CONVENCIONAL</h2>
+<h2 id="geocodificacion-directa">GEOCODIFICACIÓN DIRECTA</h2>
 <p><br /></p>
-<p>La geocodificación convencional es el proceso de localización de una dirección junto con las coordenadas geográficas de su ubicación.</p>
+<p>El método de <em>geocodificación directa</em>, es el proceso que es necesario utilizar para la búsqueda y extracción de datos de una dirección o lugar, junto con las coordenadas geográficas de su ubicación, a partir de sus datos identificativos o de referencia.</p>
+<p>La url (endpoint) a la que dirigir la petición es: <em>https://geocoder-5-ign.larioja.org/v1/search</em>.</p>
 <p><br /></p>
 <h3 id="construccion-de-la-consulta">Construcción de la consulta</h3>
 <p><br /></p>
-<p>El formato de interrogación a la API se construye a partir de la url de referencia para el método elegido, seguido del signo <code>?</code> y de la secuencia de parámetros que configuran la pregunta, separados por el signo <code>&amp;</code>.</p>
-<p>Si se desea localizar una dirección que contenta un texto determinado, que es el caso más común, el parámetro a utilizar es <code>text</code>:</p>
+<p>El formato de interrogación a la API se construye a partir de la url de referencia de este método (/v1/search), seguido del signo <strong><code>?</code></strong> y de la secuencia de parámetros que configuran la pregunta, separados por el signo <strong><code>&amp;</code></strong>.</p>
+<p>Si se desea localizar una dirección que contenga un texto determinado, que es el caso más común, el parámetro a utilizar es <strong><code>text</code></strong>:</p>
 <table>
 <thead>
 <tr>
@@ -323,19 +315,27 @@
 </thead>
 <tbody>
 <tr>
-<td><code>text</code></td>
-<td>string</td>
+<td><strong><code>text</code></strong></td>
+<td>cadena de caracteres</td>
 <td>sí</td>
-<td>none</td>
+<td>ninguno</td>
 <td>Texto de la dirección a buscar</td>
-<td>Calle Mayor</td>
+<td>Calle Mayor 10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>En el ejemplo siguiente el texto a buscar en la dirección es «<em>murrieta</em>», para lo cual se añade a la url del método de geolocalización convencional <code>https://geocoder-5-ign.larioja.org/v1/search</code>, el signo <code>?</code> y el parámetro <code>text=murrieta</code>.</p>
+<p>En el ejemplo siguiente el texto a buscar en la dirección es «<em>murrieta</em>», para lo cual se añade a la url del método de búsqueda <code>https://geocoder-5-ign.larioja.org/v1/search</code>, el signo <code>?</code> y el parámetro <code>text=murrieta</code>.</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=murrieta">https://geocoder-5-ign.larioja.org/v1/search?text=murrieta</a></p>
-<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato GeoJSON que contiene los resultados de la búsqueda que mejor coinciden con el texto «<em>murrieta</em>». El fichero con formato GeoJSON puede ser leído en un navegador web (1) o en un procesador de texto.</p>
-<p>En este caso los resultados obtenidos son los siguientes (2):</p>
+<p>Pulsando sobre el enlace anterior se obtiene un fichero en formato GeoJSON que contiene los resultados de la búsqueda que mejor coinciden con el texto «<em>murrieta</em>». El fichero con formato GeoJSON puede ser leído en un navegador web <sup>(1)</sup> o en un procesador de texto.</p>
+<p>En este caso, los resultados obtenidos son los siguientes <sup>(2)</sup>:</p>
 <blockquote>
 <p>BARRIO MURRIETA, Putxeta, Bizkaia, España (-3.091738,43.319819)<br />
 CALLE MURRIETA, San Vicente de Barakaldo/San Bizenti-Barakaldo, Bizkaia, España (-2.989928,43.301062)<br />
@@ -344,7 +344,7 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <p><br /></p>
 <h3 id="configurar-el-numero-de-resultados">Configurar el número de resultados</h3>
 <p><br /></p>
-<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, este se puede configurar en la llamada utilizando el parámetro <code>size</code>.</p>
+<p>Por defecto la API devuelve hasta 10 resultados. Si se desea un número distinto de resultados, este se puede configurar en la llamada utilizando el parámetro <strong><code>size</code></strong>.</p>
 <table>
 <thead>
 <tr>
@@ -358,12 +358,20 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </thead>
 <tbody>
 <tr>
-<td><code>size</code></td>
+<td><strong><code>size</code></strong></td>
 <td>integer</td>
 <td>no</td>
 <td>10</td>
 <td>Número deseado de resultados</td>
 <td>5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -376,11 +384,11 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 <p><br /></p>
 <h3 id="consulta-en-un-area-determinada">Consulta en un área determinada</h3>
 <p><br /></p>
-<p>Es posible constreñir la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La <a href="https://github.com/pelias/pelias">API Pelias</a> que utiliza el geocodificador del SCN permite tres fórmulas para limitar espacialmente la búsqueda: <em>país</em>, <em>rectángulo</em> y <em>círculo</em>.</p>
+<p>Es posible constreñir la búsqueda de direcciones a una región o país en particular, o limitarla a un área específica. La <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> que utiliza el geocodificador del SCN permite tres fórmulas para limitar espacialmente la búsqueda: <em>país</em>, <em>rectángulo</em> y <em>círculo</em>.</p>
 <p><br /></p>
 <h4 id="busqueda-por-paises">Búsqueda por países</h4>
 <p><br /></p>
-<p>En ocasiones puede ser necesario que los resultados de una búsqueda correspondan a uno o varios países en particular. Para hacer esto, es necesario establecer el valor del parámetro <code>boundary.country</code> mediante una lista separada por comas de códigos de país <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a>, si bien en este caso la búsqueda por países no tendría mucho sentido ya que el geocodificador del SCN solamente contiene información de las direcciones de España </p>
+<p>En ocasiones puede ser necesario que los resultados de una búsqueda correspondan a uno o varios países en particular. Para hacer esto, es necesario establecer el valor del parámetro <strong><code>boundary.country</code></strong> mediante una lista separada por comas de códigos de país <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">(ISO-3166 country code)</a>, si bien en este caso la búsqueda por países no tendría mucho sentido ya que el geocodificador del SCN solamente contiene información de las direcciones de España </p>
 <table>
 <thead>
 <tr>
@@ -394,20 +402,28 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </thead>
 <tbody>
 <tr>
-<td><code>boundary.country</code></td>
-<td>string</td>
+<td><strong><code>boundary.country</code></strong></td>
+<td>cadena de caracteres</td>
 <td>no</td>
-<td>none</td>
-<td>Listado de países separados por comas, codificados según <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">ISO-3166 country code</a></td>
+<td>ninguno</td>
+<td>Listado de países separados por comas, codificados según <em>alpha-2</em> o <em>alpha-3</em> <a href="https://en.wikipedia.org/wiki/ISO_3166-1">(ISO-3166 country code)</a></td>
 <td>ES</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <p><br /></p>
 <h4 id="busqueda-en-un-area-rectangular">Búsqueda en un área rectangular</h4>
 <p><br /></p>
-<p>Para limitar la búsqueda a un área geográfica rectangular, es necesario conocer las coordenadas latitud y longitud, mínimas y máximas, que definen el rectángulo (3).</p>
-<p>En este caso los parámetros a utilizar son los siguientes (4):</p>
+<p>Para limitar la búsqueda a un área geográfica rectangular, es necesario conocer las coordenadas latitud y longitud, mínimas y máximas, que definen el rectángulo <sup>(3)</sup>.</p>
+<p>En este caso los parámetros a utilizar son los siguientes:</p>
 <table>
 <thead>
 <tr>
@@ -421,45 +437,53 @@ Calle Marqués de Murrieta, Logroño, La Rioja, España (-2.452761,42.465614)  <
 </thead>
 <tbody>
 <tr>
-<td><code>boundary.rect.max_lat</code></td>
-<td>floating point number</td>
+<td><strong><code>boundary.rect.max_lat</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor máximo de la latitud utilizado en la búsqueda en una región rectangular</td>
+<td>ninguno</td>
+<td>Valor máximo de la latitud utilizado en la búsqueda en una región rectangular <sup>(4)</sup></td>
 <td>41.7342</td>
 </tr>
 <tr>
-<td><code>boundary.rect.max_lon</code></td>
-<td>floating point number</td>
+<td><strong><code>boundary.rect.max_lon</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor máximo de la longitud utilizado en la búsqueda en una región rectangular</td>
+<td>ninguno</td>
+<td>Valor máximo de la longitud utilizado en la búsqueda en una región rectangular <sup>(4)</sup></td>
 <td>-0.6585</td>
 </tr>
 <tr>
-<td><code>boundary.rect.min_lat</code></td>
-<td>floating point number</td>
+<td><strong><code>boundary.rect.min_lat</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor mínimo de la latitud utilizado en la búsqueda en una región rectangular</td>
+<td>ninguno</td>
+<td>Valor mínimo de la latitud utilizado en la búsqueda en una región rectangular <sup>(4)</sup></td>
 <td>41.5453</td>
 </tr>
 <tr>
-<td><code>boundary.rect.min_lon</code></td>
-<td>floating point number</td>
+<td><strong><code>boundary.rect.min_lon</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor mínimo de la longitud utilizado en la búsqueda en una región rectangular</td>
+<td>ninguno</td>
+<td>Valor mínimo de la longitud utilizado en la búsqueda en una región rectangular <sup>(4)</sup></td>
 <td>-1.1474</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>Por ejemplo, para encontrar una dirección que contenga el texto "<em>mayor</em>" en el área rectangular que muestra la imagen, definida por las coordenadas lat_min=41.5453;lon_min=-1.1474;lat_max=41.7342;lon_max=-0.6585</p>
+<p>Por ejemplo, para encontrar una dirección que contenga el texto "<em>mayor</em>" en el área rectangular que muestra la imagen, definida por las coordenadas lat_min=41.5453; lon_min=-1.1474; at_max=41.7342; lon_max=-0.6585</p>
 <p><br />
 <img alt="Rectángulo área de Zaragoza(fuente: visor klokantech.com)" src="../../img/rectangulo_zaragoza.jpg" title="Rectángulo área de Zaragoza(fuente: visor klokantech.com)" />
 <br />
 <br /></p>
-<p>La sintaxis a utilizar es (4):</p>
+<p>La sintaxis a utilizar es:</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.max_lat=41.7342&amp;boundary.rect.max_lon=-0.6585">https://geocoder-5-ign.larioja.org/v1/search?text=mayor&amp;boundary.rect.min_lat=41.5453&amp;boundary.rect.min_lon=-1.1474&amp;boundary.rect.max_lat=41.7342&amp;boundary.rect.max_lon=-0.6585</a></p>
 <p>siendo estos los resultados obtenidos:</p>
 <blockquote>
@@ -471,7 +495,7 @@ PLAZA MAYOR (CARTUJA), Cartuja Baja, Zaragoza, España (-0.821923,41.604933)  </
 <p><br /></p>
 <h4 id="busqueda-en-un-area-circular">Búsqueda en un área circular</h4>
 <p><br /></p>
-<p>En aquellos casos en los que se quiera localizar las direcciones que se encuentran dentro de una distancia de un punto dado, se puede utilizar las búsqueda en un área circular, partiendo de una coordenada central de referencia y el radio en km del círculo dentro del cual realizar la búsqueda.</p>
+<p>En aquellos casos en los que se desea localizar las direcciones que se encuentran dentro de una distancia a un punto dado, se puede utilizar las búsqueda en un área circular, partiendo de una coordenada central de referencia y el radio en km del círculo dentro del cual se quiere realizar la búsqueda.</p>
 <p>Los parámetros a utilizar en este caso son los siguientes:</p>
 <table>
 <thead>
@@ -486,28 +510,36 @@ PLAZA MAYOR (CARTUJA), Cartuja Baja, Zaragoza, España (-0.821923,41.604933)  </
 </thead>
 <tbody>
 <tr>
-<td><code>boundary.circle.lat</code></td>
-<td>floating point number</td>
+<td><strong><code>boundary.circle.lat</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor de la latitud del punto central del círculo utilizado en la búsqueda en una región circular</td>
+<td>ninguno</td>
+<td>Valor de la latitud del punto central del círculo utilizado en la búsqueda en una región circular <sup>(4)</sup></td>
 <td>42.268</td>
 </tr>
 <tr>
-<td><code>boundary.circle.lon</code></td>
-<td>floating point number</td>
+<td><strong><code>boundary.circle.lon</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor de la longitud del punto central del círculo utilizado en la búsqueda en una región circular</td>
+<td>ninguno</td>
+<td>Valor de la longitud del punto central del círculo utilizado en la búsqueda en una región circular <sup>(4)</sup></td>
 <td>-4.405</td>
 </tr>
 <tr>
-<td><code>boundary.circle.radius</code></td>
-<td>floating point number</td>
+<td><strong><code>boundary.circle.radius</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
 <td>50</td>
-<td>Valor del radio (kilómetros) utilizado en la búsqueda en una región circular</td>
+<td>Valor del radio (kilómetros) utilizado en la búsqueda en una región circular <sup>(4)</sup></td>
 <td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -528,21 +560,22 @@ TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)  </p>
 <p><br /></p>
 <h4 id="busqueda-aplicando-jerarquia-administrativa">Búsqueda aplicando jerarquía administrativa</h4>
 <p><br /></p>
-<p>(APARTADO EN EDICIÓN)</p>
-<p>El almacenamiento de información mantiene internamente una estructuración jerárquica entre lugares, aplicando un concepto denominado <em>jerarquía administrativa</em> donde cada registro se asocia a un vecindario, ciudad, región, país y otras regiones principales.</p>
+<p>El almacenamiento de información mantiene internamente una estructuración jerárquica entre lugares, aplicando un concepto denominado <em>jerarquía administrativa</em>, en el que cada registro se asocia a un vecindario, ciudad, región, país y otras regiones principales.</p>
 <p>Esta propiedad tiene múltiples aplicaciones entre las que destaca el filtrado de información. El ID global de Pelias (gid) de cualquier registro se puede usar con el filtro <code>boundary.gid</code> para devolver solo registros con un ascendente determinado.</p>
 <p>Si se definen varios tipos de regiones en la misma solicitud, los resultados corresponderán a la intersección de todos los límites. Por lo que si las regiones no se superponen, el resultado de la consulta no contendrá datos.</p>
+<p class="text-warning">Por el momento no se ha implementado el gid en las tablas de regiones, por lo que parámetro boundary.gid no genera resultados específicos.</p>
+
 <p><br /></p>
 <h3 id="priorizacion-de-resultados-por-proximidad">Priorización de resultados por proximidad</h3>
 <p><br /></p>
 <p>En algunas ocasiones es conveniente presentar los resultados más cercanos a una ubicación o región en la parte superior de la lista sin renunciar a otros resultados que se encuentran geográficamente más lejanos.</p>
-<p>La <em>búsqueda convencional</em> permite priorizar los resultados dentro de los límites geográficos, incluso alrededor de un punto, dentro de un país o dentro de una región.</p>
+<p>La <em>geolocalización directa</em> permite priorizar los resultados dentro de los límites geográficos, incluso alrededor de un punto, dentro de un país o dentro de una región.</p>
 <p><br /></p>
 <h4 id="priorizar-la-proximidad-a-un-punto">Priorizar la proximidad a un punto</h4>
 <p><br /></p>
-<p>Aplicando a a búsqueda el parámetro <code>focus.point</code>, los resultados se ordenarán en parte por su proximidad a la coordenada dada.</p>
+<p>Aplicando a la búsqueda el parámetro <strong><code>focus.point</code></strong>, los resultados se ordenarán en parte por su proximidad a la coordenada dada.</p>
 <p>Para las mismas condiciones, los resultados más cercanos al punto aparecerán en la parte superior de la relación. Sin embargo, a diferencia de las consultas circunscritas a áreas rectangulares o circulares, este parámetro puede devolver resultados muy distantes de la coordenada de referencia.</p>
-<p>Los parámetros a utilizar para al consulta por proximidad a un punto son:</p>
+<p>Los parámetros a utilizar para la consulta por proximidad a un punto son:</p>
 <table>
 <thead>
 <tr>
@@ -556,20 +589,28 @@ TRVA MAYOR, BOADILLA DEL CAMINO, Palencia, España (-4.34823,42.259339)  </p>
 </thead>
 <tbody>
 <tr>
-<td><code>focus.point.lat</code></td>
-<td>floating point number</td>
+<td><strong><code>focus.point.lat</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor de la latitud utilizado en la búsqueda alrededor de un punto</td>
+<td>ninguno</td>
+<td>Valor de la latitud utilizado en la búsqueda alrededor de un punto <sup>(4)</sup></td>
 <td>42.268</td>
 </tr>
 <tr>
-<td><code>focus.point.lon</code></td>
-<td>floating point number</td>
+<td><strong><code>focus.point.lon</code></strong></td>
+<td>numérico coma flotante</td>
 <td>no</td>
-<td>none</td>
-<td>Valor de la longitud utilizado en la búsqueda alrededor de un punto</td>
+<td>ninguno</td>
+<td>Valor de la longitud utilizado en la búsqueda alrededor de un punto <sup>(4)</sup></td>
 <td>-4.405</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -597,11 +638,14 @@ CALLE OSA MAYOR, ZARAGOZA, España (-0.932936,41.637167) [distancia": 20.577]  <
 <p><br /></p>
 <h3 id="filtrado-de-la-busqueda">Filtrado de la búsqueda</h3>
 <p><br /></p>
+<p><br /></p>
+<h4 id="filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</h4>
+<p><br /></p>
 <p>El almacén de datos de referencia en este geocodificador permite combinar datos de muchas fuentes, de hecho, uno de los objetivos principales del proyecto es definir un modelo de datos neutro en formato CSV, con objeto de poder cargar datos procedentes de distintos productores.</p>
-<p>La API Pelias ofrece la posibilidad de seleccionar el conjunto de datos sobre el que se desea buscar y seleccionar el tipo de registro desde el que se quieren obtener los datos </p>
-<p>En la fase de pruebas Se han cargado direcciones de los siguientes <a href="../../datos/fuentes_de_datos">proveedores de datos</a>.</p>
-<p>Cuando se realiza una consulta, se dirige por defecto a todas las direcciones que están almacenadas en la base de datos.</p>
-<p>Es posible definir uno ovarios conjuntos de datos al realizar la petición a la API, utilizando el parámetro <code>sources</code>.</p>
+<p>La <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> ofrece la posibilidad de seleccionar, entre todos, el conjunto de datos de referencia al cual dirigir búsqueda.</p>
+<p>En la fase de pruebas se han cargado direcciones de las siguientes <a href="../../datos/fuentes_de_datos">fuentes de datos</a>.</p>
+<p>Cuando se realiza una consulta, se dirige por defecto al conjunto de todas las direcciones que están almacenadas en la base de datos.</p>
+<p>Utilizando el parámetro <strong><code>sources</code></strong>, es posible definir sobre qué conjuntos de datos realizar la petición.</p>
 <table>
 <thead>
 <tr>
@@ -615,28 +659,130 @@ CALLE OSA MAYOR, ZARAGOZA, España (-0.932936,41.637167) [distancia": 20.577]  <
 </thead>
 <tbody>
 <tr>
-<td><code>sources</code></td>
-<td>string</td>
+<td><strong><code>sources</code></strong></td>
+<td>cadena de caracteres</td>
 <td>no</td>
-<td>all sources: <em>nota (2)</em></td>
-<td>Listado de fuentes de datos separados por comas, codificados según lista controlada de proveedores</td>
-<td>cnig</td>
+<td>todas las fuentes</td>
+<td>Listado de fuentes de datos separados por comas, codificados según <a href="../../listas_controladas/proveedores_de_datos">lista controlada <em>Proveedores de datos</em></a></td>
+<td>cnig,calrj</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <p>El siguiente ejemplo realiza una consulta general a toda la base de datos:</p>
 <p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor 10 Briones">https://geocoder-5-ign.larioja.org/v1/search?text=mayor 10 Briones</a></p>
+<p>En tanto que el siguiente ejemplo dirige la consulta solamente a los datos aportados por el <em>Gobierno de La Rioja</em>:</p>
+<p><a href="https://geocoder-5-ign.larioja.org/v1/search?text=mayor 10 Briones&amp;sources=calrj">https://geocoder-5-ign.larioja.org/v1/search?text=mayor 10 Briones&amp;sources=calrj</a></p>
 <p><br /></p>
-<h4 id="filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</h4>
+<h4 id="filtrado-por-tipo-de-datos">Filtrado por tipo de datos</h4>
 <p><br /></p>
-<p>(APARTADO EN EDICIÓN)</p>
+<p class="text-warning">(APARTADO EN EDICIÓN)</p>
+
+<p>El almacenamiento de datos se realiza en tablas diferentes en función de su naturaleza, lo que permite diferenciar tres tipología de datos: <em>direcciones</em>; <em>topónimos</em> y <em>puntos de interés (POIs)</em>.</p>
+<p>El parámetro <strong><code>layer</code></strong> permite dirigir la petición de información a las siguientes capas, ordenadas por granularidad, con el fin de obtener el resultado deseado:</p>
+<p><br />
+<br />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>layer (capa)</th>
+        <th>descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>venue</td>
+        <td>topónimos; puntos de interés; nombres propios de las direcciones</td>
+    </tr>
+    <tr>
+        <td>address</td>
+        <td>puntos con una dirección postal</td>
+    </tr>
+    <tr>
+        <td>street</td>
+        <td>calles; vías; carreteras</td>
+    </tr>
+    <tr>
+        <td>neighbourhood</td>
+        <td>barrios; comunidades sociales</td>
+    </tr>
+    <tr>
+        <td>localadmin</td>
+        <td>límites administrativos locales</td>
+    </tr>
+    <tr>
+        <td>locality</td>
+        <td>ciudades; poblaciones; aldeas</td>
+    </tr>
+    <tr>
+        <td>region</td>
+        <td>provincias</td>
+    </tr>
+    <tr>
+        <td>macroregion</td>
+        <td>comunidades autónomas</td>
+    </tr>
+    <tr>
+        <td>country</td>
+        <td>países</td>
+    </tr>
+    <tr>
+        <td>layers</td>
+        <td>fórmula para buscar en todas las capas</td>
+    </tr>
+    <tr>
+        <td>postalcode</td>
+        <td>código postal</td>
+    </tr>
+  </tbody>
+  </table>
+</p>
+<p>El uso del parámetro <strong><code>layers</code></strong> es el siguiente:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Tipo</th>
+<th>Obligatorio</th>
+<th>Defecto</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>layers</code></strong></td>
+<td>cadena de caracteres</td>
+<td>no</td>
+<td>todas las capas</td>
+<td>Nombres de las capas de datos a las que se dirije la consulta, separados por comas</td>
+<td>venue, street</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p><br /></p>
 <hr />
-<p>NOTAS:</p>
-<p>-(1) Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON.<br />
--(2) Aunque las coordenadas geográficas se suelen expresar en el orden latitud,longitud, los resultados de la API se ofrecen en el orden longitud,latitud.<br />
--(3) Puede obtener las coordenadas de un rectángulo geográfico utlizando la <a href="https://boundingbox.klokantech.com/">utilidad web de Klokantech</a>.<br />
--(4) Utilizar la notación punto [.] como signo de separación decimal.  </p></div>
+<p><small><div class="text-primary">NOTAS:</div></p>
+<div class="text-primary"><sup>(1)</sup> Se aconseja implementar en el navegador web un complemento para la visualización estructurada de ficheros JSON.</div>
+<div class="text-primary"><sup>(2)</sup> Aunque las coordenadas geográficas generalmente se suelen expresar en el orden latitud,longitud, los resultados de la API se ofrecen en el orden longitud,latitud.</div>
+<div class="text-primary"><sup>(3)</sup> Puede obtener las coordenadas de un rectángulo geográfico mediante la [utilidad web de Klokantech](https://boundingbox.klokantech.com/).</div>
+<div class="text-primary"><sup>(4)</sup> Utilizar la notación *punto* (.) como signo de separación decimal.</div>
+<p></small></p></div>
         
         
     </div>
