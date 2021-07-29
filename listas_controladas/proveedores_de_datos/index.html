@@ -119,7 +119,7 @@
         
             
 <li >
-    <a href="../../api/no_disponible/">Geocodificación inversa</a>
+    <a href="../../api/geocodificacion_inversa/">Geocodificación inversa</a>
 </li>
 
         
@@ -306,6 +306,9 @@
 <p><br /></p>
 <p>Relación de potenciales proveedores de información.</p>
 <p>Codificación que se debe utilizar para cumplimentar el atributo <a href="../../datos/modelo_de_datos#217-proveedor"><strong><code>PROVEEDOR</code></strong></a></p>
+<blockquote>
+<p>Nota: A los datos de direcciones que se encuentran en desuso o sin vigencia administrativa, cuyo atributo <code>ESTADO</code> tiene el valor <em>Histórico</em>, se les añade al código de proveedor el sufijo «-h», con objeto de poder realizar <em>geocodificación directa</em> específica mediante el parámetro <a href="../../api/geocodificacion_directa/#filtrado-por-origen-de-los-datos"><strong><code>sources</code></strong></a>, y evitar al mismo tiempo interferencias en los procesos de <em>geocodificación inversa</em>.</p>
+</blockquote>
 <h3 id="administracion-general-del-estado-ministerios">Administración General del Estado (Ministerios)</h3>
 <p><br /></p>
 <table>
