@@ -125,7 +125,7 @@
         
             
 <li >
-    <a href="../no_disponible/">Autocompletar</a>
+    <a href="../autocompletar/">Autocompletar</a>
 </li>
 
         
@@ -653,8 +653,8 @@ CALLE OSA MAYOR, ZARAGOZA, España (-0.932936,41.637167) [distancia": 20.577]  <
 <p><br /></p>
 <h4 id="filtrado-por-origen-de-los-datos">Filtrado por origen de los datos</h4>
 <p><br /></p>
-<p>El almacén de datos de referencia en este geocodificador permite combinar datos de muchas fuentes, de hecho, uno de los objetivos principales del proyecto es definir un modelo de datos neutro en formato CSV, con objeto de poder cargar datos procedentes de distintos productores.</p>
-<p>La <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> ofrece la posibilidad de seleccionar, entre todos, el conjunto de datos de referencia al cual dirigir búsqueda.</p>
+<p>El almacén de datos de referencia en este geocodificador permite combinar datos procedentes de distintas fuentes, de hecho, uno de los objetivos principales del proyecto es definir un modelo de datos neutro en formato CSV, con objeto de poder cargar datos provenientes de distintos productores.</p>
+<p>La <a href="https://github.com/pelias/pelias"><em>API Pelias</em></a> ofrece la posibilidad de seleccionar, entre todos, el conjunto de datos de referencia al cual dirigir la búsqueda.</p>
 <p>En la fase de pruebas se han cargado direcciones de las siguientes <a href="../../datos/fuentes_de_datos">fuentes de datos</a> <sup>(5)</sup>.</p>
 <p>Cuando se realiza una consulta, se dirige por defecto al conjunto de todas las direcciones que están almacenadas en la base de datos.</p>
 <p>Utilizando el parámetro <strong><code>sources</code></strong>, es posible definir sobre qué conjuntos de datos realizar la petición.</p>
@@ -697,8 +697,6 @@ CALLE OSA MAYOR, ZARAGOZA, España (-0.932936,41.637167) [distancia": 20.577]  <
 <p><br /></p>
 <p>El almacenamiento de datos se realiza en tablas diferentes en función de su naturaleza, lo que permite diferenciar tres tipología de datos: <em>direcciones</em>; <em>topónimos</em> y <em>puntos de interés (POIs)</em>.</p>
 <p>El parámetro <strong><code>layers</code></strong> permite dirigir la petición de información a las siguientes capas, con el fin de obtener el resultado deseado:</p>
-<p><br />
-<br />
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -721,7 +719,7 @@ CALLE OSA MAYOR, ZARAGOZA, España (-0.932936,41.637167) [distancia": 20.577]  <
     </tr>
   </tbody>
   </table>
-</p>
+
 <p>El uso del parámetro <strong><code>layers</code></strong> es el siguiente:</p>
 <table>
 <thead>
@@ -767,7 +765,7 @@ Búsqueda del punto de interés <em>Cortijo Majón</em>:
 <p><br /></p>
 <h3 id="cuadro-de-parametros">Cuadro de parámetros</h3>
 <p><br /></p>
-<p>Esta es la relación de parámetros que se pueden utilizar en las operaciones de geocodificación directa:</p>
+<p>Esta es la relación de parámetros que se pueden utilizar en las operaciones de <em>geocodificación directa</em>:</p>
 <table>
 <thead>
 <tr>
@@ -919,7 +917,7 @@ Búsqueda del punto de interés <em>Cortijo Majón</em>:
 <div class="text-primary"><sup>(2)</sup> Aunque las coordenadas geográficas generalmente se suelen expresar en el orden latitud,longitud, los resultados de la API se ofrecen en el orden longitud,latitud.</div>
 <div class="text-primary"><sup>(3)</sup> Puede obtener las coordenadas de un rectángulo geográfico mediante la <a href="https://boundingbox.klokantech.com/">utilidad web de Klokantech</a>.</div>
 <div class="text-primary"><sup>(4)</sup> Utilizar la notación punto (.) como signo de separación decimal.</div>
-<div class="text-primary"><sup>(5)</sup> A los datos de direcciones que se encuentran en desuso o sin vigencia administrativa, cuyo atributo ESTADO tiene el valor <I>Histórico</I>, se les añade al código de proveedor el sufijo «-h», con objeto de poder realizar geocodificación directa específica mediante el parámetro <I>sources</I>, y evitar al mismo tiempo interferencias en los procesos de geocodificación inversa.</div>
+<div class="text-primary"><sup>(5)</sup> A los datos de direcciones que se encuentran en desuso o sin vigencia administrativa, cuyo atributo ESTADO tiene el valor <I>Histórico</I>, se les añade al código de proveedor el sufijo «-h», con objeto de poder realizar *geocodificación directa* específica mediante el parámetro <I>sources</I>, y evitar al mismo tiempo interferencias en los procesos de geocodificación inversa.</div>
 <p></small></p></div>
         
         
