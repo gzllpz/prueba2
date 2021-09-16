@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Proyecto de geocodificación de direcciones. Comisión Especializada de Normas Geográficas. España">
     <meta name="author" content="Gonzalo López García">
-    <link rel="canonical" href="https://example.com/api/geocodificacion_directa/">
+    <link rel="canonical" href="https://example.com/api/geocodificacion_estructurada/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Geocodificación directa - Geocodificador SCN</title>
+    <title>Geocodificación estructurada - Geocodificador SCN</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -112,8 +112,8 @@
     <ul class="dropdown-menu">
         
             
-<li class="active">
-    <a href="./">Geocodificación directa</a>
+<li >
+    <a href="../geocodificacion_directa/">Geocodificación directa</a>
 </li>
 
         
@@ -130,8 +130,8 @@
 
         
             
-<li >
-    <a href="../geocodificacion_estructurada/">Geocodificación estructurada</a>
+<li class="active">
+    <a href="./">Geocodificación estructurada</a>
 </li>
 
         
@@ -245,17 +245,17 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../informacion_general/">
+                        <a rel="prev" href="../autocompletar/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../geocodificacion_inversa/">
+                        <a rel="next" href="../no_disponible/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/api/geocodificacion_directa.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/cenormasgeograficas/geocodificador/edit/master/docs/api/geocodificacion_estructurada.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -267,9 +267,12 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#geocodificacion-directa">GEOCODIFICACIÓN DIRECTA</a></li>
-            <li class="second-level"><a href="#construccion-de-la-consulta">Construcción de la consulta</a></li>
+        <li class="first-level active"><a href="#geocodificacion-estructurada">GEOCODIFICACIÓN ESTRUCTURADA</a></li>
+            <li class="second-level"><a href="#parametros">Parámetros</a></li>
                 
+                <li class="third-level"><a href="#address-direccion">address (dirección)</a></li>
+                <li class="third-level"><a href="#neighbourhood-barriovecindario">neighbourhood (barrio/vecindario)</a></li>
+                <li class="third-level"><a href="#borough-distrito">borough (distrito)</a></li>
             <li class="second-level"><a href="#configurar-el-numero-de-resultados">Configurar el número de resultados</a></li>
                 
             <li class="second-level"><a href="#consulta-en-un-area-determinada">Consulta en un área determinada</a></li>
@@ -292,13 +295,76 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="geocodificacion-directa">GEOCODIFICACIÓN DIRECTA</h2>
+<h2 id="geocodificacion-estructurada">GEOCODIFICACIÓN ESTRUCTURADA</h2>
 <p><br /></p>
-<p>El método de <em>geocodificación directa</em>, es el proceso que es necesario utilizar para la búsqueda y extracción de datos de una dirección o lugar, junto con las coordenadas geográficas de su ubicación, a partir de sus datos identificativos o de referencia.</p>
-<p>La url (endpoint) a la que dirigir la petición es: <strong>https://geocoder-5-ign.larioja.org/v1/search</strong></p>
+<p>El método de <em>geocodificación estructurada</em> permite buscar las partes individuales de una ubicación. La codificación geográfica estructurada es una opción del método de <em>geocodificación directa</em> cuya url (endpoint) a la que dirigir la petición es: <strong>https://geocoder-5-ign.larioja.org/v1/structured</strong></p>
+<p>Por ejemplo, si se desea encontrar la dirección Calle Mayor, 10 en la población de La Muela, provincia de Zaragoza con el método de <em>geocodificación directa</em> es necesario introducir la ubicación completa como una cadena de texto = Calle Mayor, 10 La Muela, Zaragoza. Sin embargo mediante la <em>geolocalización estructurada</em> se puede especificar que esta ubicación se compone de una dirección postal, una localidad y una región.</p>
+<pre><code>{
+  address: 'Calle Mayor, 1',
+  locality: 'La Muela',
+  region: 'Zaragoz'
+}
+</code></pre>
+<p>La <em>geocodificación estructurada</em> puede mejorar la forma en que se analizan e interpretan los elementos de consulta en una búsqueda. Al separar los componentes de la entrada de búsqueda se reduce la ambigüedad en su consulta. Este método resulta  muy útil en aquellas ocasiones en las que los nombres de vía, numeración, población, municipio, provincia, así como los códigos postales se ordenan de forma aleatoria.</p>
 <p><br /></p>
-<h3 id="construccion-de-la-consulta">Construcción de la consulta</h3>
+<h3 id="parametros">Parámetros</h3>
 <p><br /></p>
+<p>En la búsqueda estructurada se pueden utilizar los siguientes parámetros:</p>
+<ul>
+<li><strong><code>address</code></strong></li>
+<li><strong><code>neighbourhood</code></strong></li>
+<li><strong><code>borough</code></strong></li>
+<li><strong><code>locality</code></strong></li>
+<li><strong><code>county</code></strong></li>
+<li><strong><code>region</code></strong></li>
+<li><strong><code>postalcode</code></strong></li>
+<li><strong><code>country</code></strong></li>
+</ul>
+<p><br /></p>
+<h4 id="address-direccion">address (dirección)</h4>
+<p><br /></p>
+<p>El parámetro <strong><code>address</code></strong> puede contener el nombre de vía y número de una dirección, o bien solamente el nombre de vía.</p>
+<p>Ejemplos:</p>
+<blockquote>
+<p>Calle Mayor, 21<br />
+Avenida de España 54<br />
+Camino del Calvario  </p>
+</blockquote>
+<p><br /></p>
+<h4 id="neighbourhood-barriovecindario">neighbourhood (barrio/vecindario)</h4>
+<p><br /></p>
+<p>Los <em>barrios</em>, los <em>vecindarios</em> y los <em>lugares</em>, así como las <em>parroquias</em> en los territorios de Galicia y Asturias, son estructuras vecinales tradicionales, y aunque en muchos casos pueden no ser necesariamente divisiones administrativas oficiales, resultan estratégicas para facilitar la búsqueda y localización de una dirección.</p>
+<p>Ejemplos:</p>
+<blockquote>
+<p>Malasaña<br />
+Barrio de la Estación<br />
+Parroquia de Seoane de Oleiros  </p>
+</blockquote>
+<div class="bs-callout bs-callout-info">
+<h4><small>Nota:</small></h4>
+<small>
+El modelo de datos contempla el atributo [**`nucleo`**](../../datos/modelo_de_datos/#27-nucleo) en el que se recoge la información relativa a una agrupación de direcciones de orden inferior a la Entidad Singular. Codifica la pertenencia de una dirección a un barrio, aldea, parroquia, o similar, cuando dicha pertenencia participa en la estructura formal de una dirección.
+</small>
+</div>
+
+<p><br /></p>
+<h4 id="borough-distrito">borough (distrito)</h4>
+<p><br /></p>
+<p>El distrito es una fórmula de organización administrativa dentro de un núcleo de población, generalmente de gran tamaño. Aunque su uso en España no está muy generalizado.</p>
+<p>Ejemplos:</p>
+<blockquote>
+<p>Eixample<br />
+Arganzuela<br />
+Camins al Grau  </p>
+</blockquote>
+<div class="bs-callout bs-callout-info">
+<h4><small>Nota:</small></h4>
+<small>
+La versión actual del [modelo de datos](../../datos/modelo_de_datos) no contempla el atributo *distrito*, por lo que este parámetro **`borough`** aunque técnicamente es operativo, de momento no ofrece resultado alguno.
+</small>
+</div>
+
+<p>Estos parámetros se pueden combinar con el resto de <a href="../../api/geocodificacion_directa/#cuadro-de-parametros">parámetros de la <em>geocodificación directa</em></a> con objeto de filtrar y priorizar los resultados.</p>
 <p>El formato de interrogación a la API se construye a partir de la url de referencia de este método (/v1/search), seguido del signo <strong><code>?</code></strong> y de la secuencia de parámetros que configuran la pregunta, separados por el signo <strong><code>&amp;</code></strong>.</p>
 <p>Si se desea localizar una dirección que contenga un texto determinado, que es el caso más común, el parámetro a utilizar es <strong><code>text</code></strong>:</p>
 <table>
