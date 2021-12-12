@@ -279,8 +279,8 @@
                 <li class="third-level"><a href="#23-nombre-de-la-via">2.3 Nombre de la vía</a></li>
                 <li class="third-level"><a href="#24-numero-de-la-finca-o-portal">2.4 Número de la finca o portal</a></li>
                 <li class="third-level"><a href="#25-nombre-de-la-localizacion">2.5 Nombre de la localización</a></li>
-                <li class="third-level"><a href="#26-enclave">2.6 Enclave</a></li>
-                <li class="third-level"><a href="#27-nucleo">2.7 Núcleo</a></li>
+                <li class="third-level"><a href="#26-enclave-en-discusion">2.6 Enclave (EN DISCUSIÓN)</a></li>
+                <li class="third-level"><a href="#27-nucleo-en-discusion">2.7 Núcleo (EN DISCUSIÓN)</a></li>
                 <li class="third-level"><a href="#28-codigo-postal">2.8 Código postal</a></li>
                 <li class="third-level"><a href="#29-poblacion">2.9 Población</a></li>
                 <li class="third-level"><a href="#210-municipio">2.10 Municipio</a></li>
@@ -568,7 +568,7 @@
 <p>Opcionalmente se puede incluir en los registros estructurados conforme a la fórmula clásica ‘calle-número’, esto que permite buscar una dirección por sus datos formales y también por su nombre, por ejemplo: <em>Torre Picasso</em>; <em>Facultad de Filosofía</em>; <em>Palacio de los deportes</em>, <em>Estación de autobuses</em>.</p>
 <p>Su uso es obligatorio en los registros con información toponímica y puntos de interés, .</p>
 <p><br /></p>
-<h4 id="26-enclave">2.6 Enclave</h4>
+<h4 id="26-enclave-en-discusion">2.6 Enclave (<strong>EN DISCUSIÓN</strong>)</h4>
 <p><br /></p>
 <table>
 <thead>
@@ -604,7 +604,7 @@
 <p>En este atributo recoge, de forma no estructurada, textos como el nombre de una urbanización, polígono industrial, vecindario, etc. que no tienen encaje en el resto de atributos del modelo, pero resultan de interés para identificar la zona en la que se ubica una dirección.</p>
 <p>La información incluida en este atributo no se incluye en los índices de búsqueda.</p>
 <p><br /></p>
-<h4 id="27-nucleo">2.7 Núcleo</h4>
+<h4 id="27-nucleo-en-discusion">2.7 Núcleo (<strong>EN DISCUSIÓN</strong>)</h4>
 <p><br /></p>
 <table>
 <thead>
@@ -726,7 +726,7 @@
 <td><strong><code>MUNICIPIO</code></strong></td>
 <td>Nombre del municipio</td>
 <td>obligatorio</td>
-<td>0,1</td>
+<td>1</td>
 <td>cadena de caracteres</td>
 <td><a href="../../listas_controladas/municipios">Lista controlada <em>Municipios</em></a></td>
 </tr>
@@ -760,7 +760,7 @@
 <td><strong><code>PROVINCIA</code></strong></td>
 <td>Nombre de la provincia</td>
 <td>obligatorio</td>
-<td>0,1</td>
+<td>1</td>
 <td>cadena de caracteres</td>
 <td><a href="../../listas_controladas/provincias">Lista controlada <em>Provincias</em></a></td>
 </tr>
@@ -794,7 +794,7 @@
 <td><strong><code>CA</code></strong></td>
 <td>Nombre de la comunidad o ciudad autónoma</td>
 <td>obligatorio</td>
-<td>0,1</td>
+<td>1</td>
 <td>cadena de caracteres</td>
 <td><a href="../../listas_controladas/comunidades_autonomas">Lista controlada <em>Comunidades autónomas</em></a>; <a href="../../listas_controladas/ciudades_autonomas">Lista controlada <em>Ciudades autonomas</em></a></td>
 </tr>
@@ -946,7 +946,7 @@ En los próximos meses se va a producir un cambio en el sistema de gestión del 
 <td><strong><code>TIPDATO</code></strong></td>
 <td>Tipología del registro de datos conforme a la naturaleza de la información</td>
 <td>obligatorio</td>
-<td>0.1</td>
+<td>1</td>
 <td>dominio de valores</td>
 <td><a href="../../listas_controladas/tipos_de_dato">Lista controlada <em>Tipos de dato</em></a></td>
 </tr>
@@ -986,10 +986,10 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 <tr>
 <td><strong><code>ESTADO</code></strong></td>
 <td>Estatus de una dirección o nombre geográfico</td>
-<td>0.1</td>
+<td>obligatorio</td>
+<td>1</td>
 <td>dominio de valores</td>
 <td><a href="../../listas_controladas/estados_del_dato">Lista controlada <em>Estados del dato</em></a></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
@@ -1029,7 +1029,7 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 <td><strong><code>PROVEEDOR</code></strong></td>
 <td>Proveedor de datos de la información del registro, señalando mediante una codificación el organismo o institución que suministra la información</td>
 <td>obligatorio</td>
-<td>0.1</td>
+<td>1</td>
 <td>dominio de valores</td>
 <td><a href="../../listas_controladas/proveedores_de_datos">Lista controlada <em>Proveedores de datos</em></a></td>
 </tr>
@@ -1071,7 +1071,7 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <td><strong><code>LATITUD</code></strong></td>
 <td>Valor de la <em>latitud</em> de la geometría puntual</td>
 <td>obligatorio</td>
-<td>0.1</td>
+<td>1</td>
 <td>numérico decimal</td>
 <td>-90.00&lt;=latitud&lt;=+90.00</td>
 </tr>
@@ -1110,7 +1110,7 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <td><strong><code>LONGITUD</code></strong></td>
 <td>Valor de la <em>longitud</em> de la geometría puntual</td>
 <td>obligatorio</td>
-<td>0.1</td>
+<td>1</td>
 <td>numérico decimal</td>
 <td>-180.00&lt;=longitud&lt;=+180.00</td>
 </tr>
