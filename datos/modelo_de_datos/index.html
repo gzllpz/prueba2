@@ -296,7 +296,7 @@
 
 <h2 id="modelo-de-datos">MODELO DE DATOS</h2>
 <p><br></p>
-<p>Se describe a continuacíón el modelo de datos que se ha definido para la recopilación efectiva de los datos de direcciones que servirán de referencia para la implementación de un servicio nacional de geocodificación de direcciones.</p>
+<p>Se describe a continuacíón el modelo de datos que se ha definido para la recopilación efectiva de los datos de direcciones, topónimos y puntos de interés (POI) que servirán de referencia para la implementación de un servicio nacional de geocodificación de direcciones.</p>
 <p><br></p>
 <h3 id="1-objetivos">1. Objetivos</h3>
 <p><br></p>
@@ -319,17 +319,17 @@
 <li>Respuesta a búsqueda de direcciones no estructuradas.</li>
 <li>Búsqueda de una dirección a partir de su nombre propio.</li>
 <li>Geolocalización de toponimia y nombres geográficos.</li>
-<li>Geolocalización de Puntos de Interés (POIs).</li>
+<li>Geolocalización de Puntos de Interés (POI).</li>
+<li>Localización de los puntos kilométricos de una carretera.</li>
 </ul>
 <p><br></p>
 <h3 id="2-introduccion">2. Introducción</h3>
 <p><br></p>
 <p>En España la competencia administrativa para definir el nombre oficial del viario y la numeración de las direcciones corresponde a los ayuntamientos.</p>
 <p>Por este motivo, para constituir una base de datos de direcciones, es necesaro definir un procedimiento de recopilación de información muy básico en el que pueda participar cualquier administración local independientemente de su tamaño y capacidad técnica o económica.</p>
-<p>Para ello se ha establecido que el formato de fichero de datos a utilizar para la recolección de direcciones, sea conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, dada su naturaleza de texto plano, la sencillez de su estructura interna y la posibidad de generarlo con cualquier tipo de software.</p>
-<p>A diferencia de otros modelos de datos de direcciones, la estructura y tipología de sus atributos se ha orientado para atender las funcionalidades genéricas de un servicio de geocodificación y las más específicas citadas anteriormente.</p>
-<p>Por este motivo se ha incluido un atributo que codifique la tipología del dato, con objeto de diferenciar las direcciones entre: oficiales; normalizadas; históricas y otras, así como otro atributo que permita asignar un nombre propio a una dirección o localización, con objeto de facilitar su descubrimiento cuando no se dispone del dato preciso de dirección, siendo aplicable también a la búsqueda de toponimia y puntos de interés.</p>
-<p>Una novedad de este modelo es la incorporación de un atributo denominado <code>ENCLAVE</code> que aporta al dato de dirección información complementaria de utilidad para el reparto postal y que habitualmente resulta difícil de encajar en otros esquemas.</p>
+<p>Para ello se ha establecido que el formato de fichero de datos a utilizar para la recolección de direcciones sea conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, dada su naturaleza de texto plano, la sencillez de su estructura interna y la posibidad de generarlo con cualquier tipo de software.</p>
+<p>A diferencia de otros modelos de datos de direcciones, la estructura y tipología de sus atributos se ha orientado para atender las funcionalidades genéricas de un servicio de geocodificación.</p>
+<p>Por este motivo se ha incluido un atributo que codifique el estado del dato, con objeto de diferenciar las direcciones entre: oficiales; normalizadas; históricas y otras, así como otro atributo que permita asignar un nombre propio a una dirección o localización, con objeto de facilitar su descubrimiento cuando no se dispone de un dato preciso de dirección, siendo aplicable también a la búsqueda de toponimia y puntos de interés.</p>
 <p>Es necesario recalcar que este modelo de datos no está dirigido a la formación de una base de datos de direcciones al uso, sino a la indexación de información con el objetivo de dar soporte a un servicio de geocodificación.</p>
 <p><br></p>
 <h3 id="3-modelo-de-datos">3. Modelo de datos</h3>
@@ -351,9 +351,9 @@
 <tr>
 <td><strong><code>ID</code></strong></td>
 <td>Identificador persistente y local proporcionado por el proveedor para referenciar una dirección (ubicación puntual) de un lugar que puede tener diferentes lenguas, diferentes épocas, diferentes denominaciones…</td>
-<td>opcional</td>
+<td>Opcional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -368,15 +368,13 @@
 </table>
 <p>Características para asignar el identificador:</p>
 <ul>
-<li>La geometría no varía.</li>
-<li>Expresa el identificador único de cada registro de datos, tal como es gestionado por el organismo productor de la información.</li>
-<li>Todos los registros que hacen referencia a la misma dirección, independientemente de la lengua y del momento temporal, como es el caso de las direcciones activas y las obsoletas, o los registros que se creen para cada fórmula lingüística, deberían tener el mismo ID.</li>
-<li>Incluir la abreviatura del organismo en el identificador.</li>
+<li>Expresa el identificador único de cada registro de datos tal como es gestionado por el organismo proveedor de la información.</li>
+<li>Todos los registros que hacen referencia a la misma dirección, topónimo o POI, independientemente de la lengua y del momento temporal, como es el caso de las direcciones activas y las obsoletas, o los registros que se creen para cada fórmula lingüística, deberían tener el mismo ID.</li>
 </ul>
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplo: ID</small></h4>
- Ejemplo de la organización A del punto X e Y:
+ Ejemplo de tratamiento del ID de una dirección por el <i>CNIG</i>:
  <table class="table table-bordered">
   <thead>
     <tr>
@@ -388,17 +386,17 @@
   <tbody>
     <tr>
         <td>123456</td>
-        <td>Calle Mayor, 16</td>
-        <td>Calle Mayor, 21</td>
+        <td>Avenida Diagonal, 16</td>
+        <td>Avenida Diagonal, 21</td>
     </tr>
     <tr>
         <td>123456</td>
-        <td>Rúa mayor, 16</td>
-        <td>Rúa mayor, 21</td>
+        <td>Avinguda Diagonal, 16</td>
+        <td>Avinguda Diagonal, 21</td>
     </tr>
   </tbody>
   </table>
-  Ejemplo de la organización B del punto X e Y:
+  Ejemplo de tratamiento del ID de una dirección por la <i>Diputación Provincial de Barcelona</i>:
   <table class="table table-bordered">
   <thead>
     <tr>
@@ -409,18 +407,24 @@
   </thead>
   <tbody>
     <tr>
-        <td>Ab4567</td>
-        <td>Calle Mayor, 16</td>
-        <td>Calle Mayor, 21</td>
+        <td>bcn4cfr567</td>
+        <td>Avenida Diagonal, 16</td>
+        <td>Avenida Diagonal, 21</td>
     </tr>
     <tr>
-        <td>Ab4567</td>
-        <td>Rúa mayor, 16</td>
-        <td>Rúa mayor, 21</td>
+        <td>bcn4cfr567</td>
+        <td>Avinguda Diagonal, 16</td>
+        <td>Avinguda Diagonal, 21</td>
     </tr>
   </tbody>
  </table>
  </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+Este atributo, concatenado con el relativo a la fuente de datos, se puede utilizar eficazmente para diseñar los procesos de actualización de la información, para el seguimiento de su evolución histórica, así como para el estudio de las distintas fórmulas linguísticas de una dirección, topónimo o POI.
+</small>
 </div>
 <p><br></p>
 <h4 id="32-tipo-de-via">3.2 Tipo de vía</h4>
@@ -440,9 +444,9 @@
 <tr>
 <td><strong><code>TIPVIA</code></strong></td>
 <td>Expresión de la tipología de vía de referencia o de su abreviatura</td>
-<td>opcional</td>
+<td>Opcional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -456,7 +460,7 @@
 </tbody>
 </table>
 <p>No es necesario que las organizaciones tengan almacenado en sus bases de datos el <code>TIPVIA</code>. El campo puede estar vacío.</p>
-<p>Se propone utilizar la tipología proporcionada por el INE, D.G. del Catastro, y los departamentos catastrales del País Vasco y Navarra así como los utilizados en los proyectos de recopilación de datos de direcciones gestionados por otras administraciones públicas.</p>
+<p>Se propone, como dominio, utilizar la tipología proporcionada por el INE, la D.G. del Catastro y los departamentos catastrales del País Vasco y Navarra, así como los utilizados en los proyectos de recopilación de datos de direcciones gestionados por otras administraciones públicas.</p>
 <p>Se recomienda utilizar la expresión textual completa para el tipo de vía, siendo posible aplicar las abreviaturas más comunes.</p>
 <p>En los casos en que el tipo de vía se considere parte intrínseca del nombre, se recomienda no rellenar el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a> con el fin de no duplicar esta información.</p>
 <p>Tampoco es necesario expresar el tipo de vía en aquellas direcciones identificadas mediante un nombre propio o un código, ni en los casos correspondientes a topónimos o puntos de interés.</p>
@@ -474,23 +478,32 @@
   </thead>
   <tbody>
     <tr>
-        <td>--</td>
+        <td>(null)</td>
         <td>Calle de la Virgen María</td>
         <td>Logroño</td>
-    </tr>
-    <tr>
-        <td>Kalea</td>
-        <td>Barrutiko</td>
-        <td>Iruñea</td>
     </tr>
     <tr>
         <td>Calle</td>
         <td>de la Virgen María</td>
         <td>Madrid</td>
     </tr>
+    <tr>
+        <td>(null)</td>
+        <td>Barrutiko kalea</td>
+        <td>Iruñea</td>
+    </tr>
   </tbody>
  </table>
  </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+En el caso del País Vasco, donde el tipo de vía se coloca generalmente detrás del nombre (Ej: Satrustegi hiribidea, Mirakontxa pasealekua, Zubieta kalea), se recomienda concatenar la información del nombre y tipo de vía conforme a su orden y uso natural dentro del atributo <i>Nombre de la vía</i> <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via">[NOMVIA]</a>, manteniendo vacío el atributo <i>Tipo de vía</i> <a href="../../datos/modelo_de_datos/#32-tipo-de-via">[TIPVIA]</a>.
+<br>
+<br>
+Es necesario atender los casos en los se incluye un tipo de vía que no coincide con el que ofrece el Ayuntamiento. Ejemplos de ello son la <i>Calle Avda. Mediterráneo</i>, o <i>Calle Travesía Camino del Molino</i>.
+</small>
 </div>
 <p><br></p>
 <h4 id="33-nombre-de-la-via">3.3 Nombre de la vía</h4>
@@ -510,9 +523,9 @@
 <tr>
 <td><strong><code>NOMVIA</code></strong></td>
 <td>Nombre o denominación de la calle o vía a la que se adscribe una dirección</td>
-<td>condicional</td>
+<td>Condicional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -525,16 +538,17 @@
 </tr>
 </tbody>
 </table>
-<p>Se recomienda utilizar expresiones completas evitando el uso de abreviaturas, si bien podrían tener cabida las abreviaturas más comunes.</p>
+<p>Se recomienda utilizar expresiones completas evitando el uso de abreviaturas, si bien pueden tener cabida las abreviaturas más comunes.</p>
 <p>Cuando el tipo de vía se trate o se considere como parte del nombre, no se debe rellenar el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a>.</p>
 <p>No es necesario expresar el nombre de vía en aquellas direcciones identificadas mediante un código o número de registro, o un nombre de localización.</p>
-<p>Si alguna organización recoge el tipo de vía en un campo aparte, el atributo <a href="../../datos/modelo_de_datos/#22-tipo-de-via"><code>TIPVIA</code></a> se rellenará. Si la organización no hace esa diferenciación, el tipo de vía vendrá incluido en el atributo <a href="../../datos/modelo_de_datos/#23-nombre-de-la-via"><code>NOMVIA</code></a> junto con el nombre de la vía y el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a> estará vacío.</p>
+<p>Si alguna organización recoge el tipo de vía en un campo aparte, el atributo <a href="../../datos/modelo_de_datos/#22-tipo-de-via"><code>TIPVIA</code></a> se rellenará. Si la organización no hace esa diferenciación, el tipo de vía vendrá incluido en el atributo <a href="../../datos/modelo_de_datos/#23-nombre-de-la-via"><code>NOMVIA</code></a> junto con el nombre de la vía y en este caso el atributo <a href="../../datos/modelo_de_datos/#32-tipo-de-via"><code>TIPVIA</code></a> estará vacío.</p>
 <div class="bs-callout bs-callout-info">
 <small>
 <h4><small>Notas:</small></h4>
-En los casos de direcciones con nombre de vía, en los que no consta un número pero sí el nombre de la casa o de la finca, es necesario especificar en el registro el nombre de la vía indicando el nombre de la casa en el atributo <I>Nombre de la localización [NOMLOC]</I> .
+En los casos de direcciones con nombre de vía, en los que no consta un número pero sí el nombre de la casa o de la finca, es necesario especificar en el registro el nombre de la vía indicando el nombre de la casa en el atributo <i>Nombre de la localización</i> <a href="../../datos/modelo_de_datos/#35-nombre-de-la-localizacion">[NOMLOC]</a>.
 <br>
-En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (Ej: Satrustegi hiribidea, Mirakontxa pasealekua, Zubieta kalea), se recomienda concatenar la información del nombre y tipo de vía conforme a su orden y uso natural dentro del atributo <I>Nombre de la vía</I> [NOMVIA], manteniendo vacío el atributo <I>Tipo de vía [TIPVIA]</I>.
+<br>
+En el caso del País Vasco, donde el tipo de vía se coloca generalmente detrás del nombre (Ej: Satrustegi hiribidea, Mirakontxa pasealekua, Zubieta kalea), se recomienda concatenar la información del nombre y tipo de vía conforme a su orden y uso natural dentro del atributo <i>Nombre de la vía</i> <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via">[NOMVIA]</a>, manteniendo vacío el atributo <i>Tipo de vía</i> <a href="../../datos/modelo_de_datos/#32-tipo-de-via">[TIPVIA]</a>.
 </small>
 </div>
 <p><br></p>
@@ -555,9 +569,9 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tr>
 <td><strong><code>NUMERO</code></strong></td>
 <td>Localizador o identificación del portal; número; punto km asociado a una dirección</td>
-<td>condicional</td>
+<td>Condicional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -576,11 +590,21 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <p>Se recomienda separar los distintos elementos de este atributo, si los hubiera, mediante espacios en blanco, evitando el uso como separadores de comas, puntos y coma, barras o guiones.</p>
 <div class="bs-callout bs-callout-info">
  <small>
- <h4><small>Ejemplo: uso del atributo NUMERO</small></h4>
+ <h4><small>Ejemplo: uso del atributo <a href="../../datos/modelo_de_datos/#34-numero-de-la-finca-portal-o-punto-kilometrico">[NUMERO]</a></small></h4>
  <ul>
     <li>Paseo de las flores 3 bis ([NUMERO] = 3 bis)</li>
     <li>Calle de la vaguada Edificio A ([NUMERO] = Edificio A)</li>
     <li>Autovía de Extremadura km 5 ([NUMERO] = km 5)</li>
+ </ul>
+ </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Nota:</small></h4>
+En el caso de que un portal haga referencia a dos o más números por dar servicio desde la misma entrada a distintos inmuebles, se recomienda generar un registro distinto para cada una de las opciones numerales. Ejemplo: portal rotulado como «Calle del cerezo 12-14» por compartir dos inmuebles el mismo acceso, generaría dos registros:
+<ul>
+    <li>Calle del cerezo 12</li>
+    <li>Calle del cerezo 14</li>
  </ul>
  </small>
 </div>
@@ -601,10 +625,10 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tbody>
 <tr>
 <td><strong><code>NOMLOC</code></strong></td>
-<td>Designación alternativa ligada a la dirección o lugar (nombre de edificio, topónimos, POIs)</td>
-<td>opcional,condicional</td>
+<td>Designación alternativa ligada a la dirección o lugar (nombre de edificio, topónimo, POI)</td>
+<td>Opcional,condicional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -638,9 +662,9 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tr>
 <td><strong><code>CODPOSTAL</code></strong></td>
 <td>Código postal asociado a una dirección</td>
-<td>condicional</td>
+<td>Condicional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td><a href="https://www.correos.es/es/es/herramientas/codigos-postales/detalle">Códigos postales</a> de la Sociedad Estatal Correos y Telégrafos</td>
 </tr>
 <tr>
@@ -653,11 +677,12 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 </tr>
 </tbody>
 </table>
+<p>No se considera para aquellos registros que hacen referencia a topónimos o puntos de interés.</p>
 <p>No incluir separador de millares.</p>
 <p><br></p>
 <h4 id="37-unidades-administrativas">3.7 UNIDADES ADMINISTRATIVAS</h4>
 <p><br></p>
-<p>Los siguientes atributos estructuran por orden de rango las unidades administrativas de pertenencia de una dirección, topónimo o POI.</p>
+<p>Los siguientes atributos estructuran por orden de rango las unidades administrativas a las que se asocia una dirección, topónimo o POI.</p>
 <p><br></p>
 <h4 id="371-comunidadciudad-autonoma">3.7.1 Comunidad/Ciudad Autónoma</h4>
 <p><br></p>
@@ -676,9 +701,9 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tr>
 <td><strong><code>CA</code></strong></td>
 <td>Nombre de la comunidad o ciudad autónoma</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td><a href="../../referencias/comunidades_autonomas">Lista controlada <em>Comunidades autónomas</em></a>; <a href="../../referencias/ciudades_autonomas">Lista controlada <em>Ciudades autonomas</em></a></td>
 </tr>
 <tr>
@@ -710,9 +735,9 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tr>
 <td><strong><code>PROVINCIA</code></strong></td>
 <td>Nombre de la provincia</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td><a href="../../referencias/provincias">Lista controlada <em>Provincias</em></a></td>
 </tr>
 <tr>
@@ -744,9 +769,9 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tr>
 <td><strong><code>MUNICIPIO</code></strong></td>
 <td>Nombre del municipio</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td><a href="../../referencias/municipios">Lista controlada <em>Municipios</em></a></td>
 </tr>
 <tr>
@@ -795,6 +820,7 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 </tr>
 </tbody>
 </table>
+<p>Los textos de los nombres de agrupamiento de direcciones de primer nivel deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas y de fórmulas de indexación, por ejemplo: «El Escorial», siendo las formas no recomendadas «Escorial, El», «Escorial (El)».</p>
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplos: NIVEL1</small></h4>
@@ -807,23 +833,32 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
   </thead>
   <tbody>
     <tr>
-        <td><I>(distrito)</I></td>
+        <td><i>(distrito)</i></td>
     </tr>
     <tr>
-        <td><I>(aldea)</I></td>
+        <td><i>(aldea)</i></td>
     </tr>
     <tr>
-        <td><I>(entidad singular)</I></td>
+        <td><i>(entidad singular)</i></td>
     </tr>
     <tr>
-        <td><I>(parroquia)</I></td>
+        <td><i>(parroquia)</i></td>
     </tr>
     <tr>
-        <td><I>(polígono industrial)</td>
+        <td><i>(polígono industrial)</td>
     </tr>
   </tbody>
  </table>
  </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+Dado que pueden existir poblaciones pertenecientes a un mismo municipio que tengan nombres de calles coincidentes, su uso es obligado en los casos de direcciones que se encuentren en el ámbito urbano.
+<br>
+<br>
+Para direcciones en el ámbito rústico su uso es opcional.
+</small>
 </div>
 
 <p><br></p>
@@ -843,9 +878,9 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tr>
 <td><strong><code>NIVEL2</code></strong></td>
 <td>Agrupación de direcciones de segundo nivel, de orden inferior al municipio: <em>entidad colectiva</em>, <em>parroquia (Galicia)</em>, <em>diputación (Almería)</em>, <em>entidad singular</em>, <em>núcleo urbano</em>, <em>población</em>, <em>distrito</em>, <em>sección</em>, <em>barrio</em>, <em>aldea</em>, <em>urbanización</em>, <em>polígono industrial</em>, <em>diseminado</em>, etc.</td>
-<td>opcional</td>
+<td>Opcional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
+<td>Cadena de caracteres</td>
 <td>Texto libre</td>
 </tr>
 <tr>
@@ -858,6 +893,8 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 </tr>
 </tbody>
 </table>
+<p>Información de una agrupación de direcciones de orden inferior al primer nivel, cuando dicha pertenencia participa en la estructura formal de una dirección.</p>
+<p>Los textos de los nombres de agrupamiento de direcciones de segundo nivel deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas y de fórmulas de indexación.</p>
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplos: NIVEL1 y NIVEL2</small></h4>
@@ -871,24 +908,24 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
   </thead>
   <tbody>
     <tr>
-        <td><I>(distrito)</I></td>
-        <td><I>(barrio)</I></td>
+        <td><i>(distrito)</i></td>
+        <td><i>(barrio)</i></td>
     </tr>
     <tr>
-        <td><I>(aldea)</I></td>
-        <td><I>(diseminado)</I></td>
+        <td><i>(aldea)</i></td>
+        <td><i>(diseminado)</i></td>
     </tr>
     <tr>
-        <td><I>(entidad singular)</I></td>
-        <td><I>(población)</I></td>
+        <td><i>(entidad singular)</i></td>
+        <td><i>(población)</i></td>
     </tr>
     <tr>
-        <td><I>(parroquia)</I></td>
-        <td><I>(núcleo urbano)</I></td>
+        <td><i>(parroquia)</i></td>
+        <td><i>(núcleo urbano)</i></td>
     </tr>
     <tr>
-        <td><I>(polígono industrial)</td>
-        <td></td>
+        <td><i>(polígono industrial)</td>
+        <td>(null)</td>
     </tr>
   </tbody>
  </table>
@@ -913,10 +950,10 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 <tr>
 <td><strong><code>INETRA</code></strong></td>
 <td>Código INE de tramo (16 dígitos)</td>
-<td>opcional</td>
+<td>Opcional</td>
 <td>0,1</td>
-<td>cadena de caracteres</td>
-<td>Código INE</td>
+<td>Cadena de caracteres</td>
+<td>Código INE de tramo</td>
 </tr>
 <tr>
 <td></td>
@@ -930,13 +967,6 @@ En el caso del País Vasco, donde el tipo de vía se coloca detrás del nombre (
 </table>
 <p>Formación del código de tramo de 16 dígitos: 2 dígitos de la provincia, 3 del municipio, 2 de la entidad colectiva, 2 de la entidad singular, 2 de núcleo o diseminado, 5 del tramo, correlativos. No confundir con el código de vial corto de 10 posiciones.</p>
 <p>Recomendación para construir los 5 dígitos del tramo cuando aún no lo ha establecido el INE: definir 5 dígitos de alarma que indique que el código está en espera de que lo defina el INE. Ejemplo para vías en una misma población: X0001, X0002, X0003…</p>
-<div class="bs-callout bs-callout-info">
-<h4><small>Nota:</small></h4>
-<small>
-En los próximos meses se va a producir un cambio en el sistema de gestión del Callejero de Censo Electoral del INE para mejorar la información que se obtiene y, entre otros, se ha incorporado una modificación en el fichero de tramos.
-</small>
-</div>
-
 <p><br></p>
 <h4 id="39-lengua">3.9 Lengua</h4>
 <p><br></p>
@@ -955,10 +985,10 @@ En los próximos meses se va a producir un cambio en el sistema de gestión del 
 <tr>
 <td><strong><code>LENGUA</code></strong></td>
 <td>Lengua utilizada en la expresión de una dirección, topónimo o punto de interés</td>
-<td>opcional</td>
-<td>0.1</td>
-<td>dominio de valores</td>
-<td><a href="../../referencias/lenguas">Lista controlada Lenguas</a></td>
+<td>Opcional</td>
+<td>0,1</td>
+<td>Cadena de caracteres</td>
+<td><a href="../../referencias/lenguas">Lista controlada lenguas ISO 639-3</a></td>
 </tr>
 <tr>
 <td></td>
@@ -1031,9 +1061,9 @@ En los próximos meses se va a producir un cambio en el sistema de gestión del 
 <tr>
 <td><strong><code>TIPDATO</code></strong></td>
 <td>Tipología del registro de datos conforme a la naturaleza de la información</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>dominio de valores</td>
+<td>Cadena de caracteres</td>
 <td><a href="../../referencias/tipos_de_dato">Lista controlada <em>Tipos de dato</em></a></td>
 </tr>
 <tr>
@@ -1052,14 +1082,8 @@ En los próximos meses se va a producir un cambio en el sistema de gestión del 
 <li><em>Topónimo</em>: Término toponímico o nombre geográfico.</li>
 <li><em>POI</em>: Ubicación geográfica de un punto de interés (POI), que no corresponde a una dirección formal.</li>
 </ul>
-<p>Este atributo permite acotar el ámbito de la búsqueda de una dirección, topónimo o POI a un subconjunto de registros en función de su tipología.</p>
-<div class="bs-callout bs-callout-info">
-<small>
-<h4><small>Nota:</small></h4>
-Poder integrar de forma flexible datos de distintas procedencias y formatos en un servicio común de geocodificación de direcciones, ofrece la posibilidad de adaptar la metodología de la recopilación de información a las necesidades y posibilidades de cada productor. De esta manera los datos de direcciones recopilados por una comunidad autónoma, administración local u organismo público, se podrían actualizar remitiéndolos a un repositorio común (P.ej. <I>Cartociudad</I>) para su indexación, o bien ser recopilados de forma automática y periódica a partir de un servicio de publicación o de un fichero en red.
-</small>
-</div>
-<p><br></p>
+<p>Este atributo permite acotar el ámbito de la búsqueda de una dirección, topónimo o POI a un subconjunto de registros en función de su tipología.
+<br></p>
 <h4 id="311-estado">3.11 Estado</h4>
 <p><br></p>
 <table>
@@ -1077,9 +1101,9 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 <tr>
 <td><strong><code>ESTADO</code></strong></td>
 <td>Estatus de una dirección o nombre geográfico</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>dominio de valores</td>
+<td>Cadena de caracteres</td>
 <td><a href="../../referencias/estados_del_dato">Lista controlada <em>Estados del dato</em></a></td>
 </tr>
 <tr>
@@ -1095,7 +1119,7 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 <p>Información que permite discernir qué crédito debe darse a la información con respecto a su oficialidad, grado de normalización y/o su vigencia.</p>
 <ul>
 <li><em>Oficial</em>: Información actualmente en uso, aprobada oficialmente por la administración competente o establecida por la legislación.</li>
-<li><em>Normalizado</em>: Información actualmente en uso, aceptada o recomendada por un órgano que tenga asignada una función asesora o tenga facultad de decisión en materia de toponimia.</li>
+<li><em>Normalizado</em>: Información actualmente en uso, aceptada o recomendada por un órgano que tenga asignada una función asesora o tenga facultad de decisión en materia de direcciones o toponimia.</li>
 <li><em>Histórico</em>: Información actualmente en desuso o sin vigencia administrativa.</li>
 <li><em>Otro</em>: Información actualmente en uso que no tienen ningún estatus oficial, ni ha sido aprobada por ningún órgano.</li>
 </ul>
@@ -1119,9 +1143,9 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 <tr>
 <td><strong><code>PROVEEDOR</code></strong></td>
 <td>Proveedor de datos de la información del registro, señalando mediante una codificación el organismo o institución que suministra la información</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>dominio de valores</td>
+<td>Cadena de caracteres</td>
 <td><a href="../../referencias/proveedores_de_datos">Lista controlada <em>Proveedores de datos</em></a></td>
 </tr>
 <tr>
@@ -1136,10 +1160,16 @@ Poder integrar de forma flexible datos de distintas procedencias y formatos en u
 </table>
 <p>Como la procedencia de los datos puede ser muy variada, se propone utilizar una lista controlada de códigos de proveedor para hacer referencia al productor/suministrador.</p>
 <p>Este atributo permite acotar el ámbito de la búsqueda de una dirección, topónimo o POI a un subconjunto de registros en función del organismo productor/suministrador.</p>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Nota:</small></h4>
+Poder integrar de forma flexible datos de distintas procedencias y formatos en un servicio común de geocodificación de direcciones, ofrece la posibilidad de adaptar la metodología de la recopilación de información a las necesidades y posibilidades de cada productor. De esta manera los datos de direcciones recopilados por una comunidad autónoma, administración local u organismo público, se podrían actualizar remitiéndolos a un repositorio común (P.ej. <i>Cartociudad</i>) para su indexación, o bien ser recopilados de forma automática y periódica a partir de un servicio de publicación on line o de un fichero en red.
+</small>
+</div>
 <p><br></p>
 <h4 id="313-geometria">3.13 GEOMETRÍA</h4>
 <p><br></p>
-<p>Expresión de las coordenadas que definen la ubicación geográfica de un registro de datos, representada mediante un objeto puntual.</p>
+<p>Expresión de las coordenadas que definen la ubicación geográfica de un registro de datos, representado mediante un objeto puntual.</p>
 <ul>
 <li>Los datos de latitud y longitud deben estar referidos al Sistema Geográfico de Referencia <a href="https://epsg.io/4258">EPSG:4258</a>.  <blockquote>
 <p>Unidades: Grados<br />
@@ -1178,9 +1208,9 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <tr>
 <td><strong><code>LATITUD</code></strong></td>
 <td>Valor de la <em>latitud</em> de la geometría puntual</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>numérico decimal</td>
+<td>Numérico decimal</td>
 <td>-90.00&lt;=latitud&lt;=+90.00</td>
 </tr>
 <tr>
@@ -1211,9 +1241,9 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <tr>
 <td><strong><code>LONGITUD</code></strong></td>
 <td>Valor de la <em>longitud</em> de la geometría puntual</td>
-<td>obligatorio</td>
+<td>Obligatorio</td>
 <td>1</td>
-<td>numérico decimal</td>
+<td>Numérico decimal</td>
 <td>-180.00&lt;=longitud&lt;=+180.00</td>
 </tr>
 <tr>
@@ -1229,9 +1259,10 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <p><br></p>
 <h3 id="4-formato-del-fichero">4. Formato del fichero</h3>
 <p><br></p>
-<p>El formato de fichero de intercambioomo debe ser conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, utilizando como separador de los campos el carácter <em>punto y coma</em> (;).</p>
+<p>El formato de fichero de intercambio debe ser conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, utilizando como separador de los campos el carácter <em>punto y coma</em> (;).</p>
 <p>Cada registro (dirección, topónimo, punto de interés) se define mediante una línea adicional en el fichero.</p>
 <p>Las coordenadas latitud, longitud, se deben expresan en formato geográfico decimal en el Sistema Geográfico de Referencia <a href="https://epsg.io/4258">EPSG:4258</a>, utilizando el carácter <em>punto</em> (.) como separador decimal.</p>
+<p>Los datos de latitud y longitud deben indicarse con al menos cinco (5) cifras decimales de precisión geográfica.</p>
 <p>Codificación de caracteres: <a href="https://es.wikipedia.org/wiki/UTF-8">UTF-8 sin BOM</a>.</p>
 <p><br></p>
 <hr /></div>
