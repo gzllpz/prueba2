@@ -114,8 +114,8 @@ Características para asignar el identificador:
 </div>
 <div class="bs-callout bs-callout-info">
 <small>
-<h4><small>Notas:</small></h4>
-Este atributo, concatenado con el relativo a la fuente de datos, se puede utilizar eficazmente para diseñar los procesos de actualización de la información, para el seguimiento de su evolución histórica, así como para el estudio de las distintas fórmulas linguísticas de una dirección, topónimo o POI.
+<h4><small>Nota:</small></h4>
+Este atributo, concatenado con el relativo a la fuente de datos, se puede utilizar eficazmente para diseñar los procesos de actualización de la información, para el seguimiento de su evolución histórica, así como para el estudio de las distintas fórmulas lingüísticas de una dirección, topónimo o POI.
 </small>
 </div>
 <br>
@@ -140,7 +140,7 @@ Tampoco es necesario expresar el tipo de vía en aquellas direcciones identifica
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplo: TIPVIA + nombre de vía</small></h4>
-  Se parsea para identificar solo el nombre de la vía (sin preposiciones y artículos)
+  Se parsea para identificar solo el nombre de la vía (sin preposiciones ni artículos)
  <table class="table table-bordered">
   <thead>
   	<tr>
@@ -151,7 +151,7 @@ Tampoco es necesario expresar el tipo de vía en aquellas direcciones identifica
   </thead>
   <tbody>
   	<tr>
-  		<td>(null)</td>
+  		<td><i>(null)</i></td>
   		<td>Calle de la Virgen María</td>
   		<td>Logroño</td>
   	</tr>
@@ -161,7 +161,7 @@ Tampoco es necesario expresar el tipo de vía en aquellas direcciones identifica
   		<td>Madrid</td>
   	</tr>
   	<tr>
-  		<td>(null)</td>
+  		<td><i>(null)</i></td>
   		<td>Barrutiko kalea</td>
   		<td>Iruñea</td>
   	</tr>
@@ -175,7 +175,7 @@ Tampoco es necesario expresar el tipo de vía en aquellas direcciones identifica
 En el caso del País Vasco, donde el tipo de vía se coloca generalmente detrás del nombre (Ej: Satrustegi hiribidea, Mirakontxa pasealekua, Zubieta kalea), se recomienda concatenar la información del nombre y tipo de vía conforme a su orden y uso natural dentro del atributo <i>Nombre de la vía</i> <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via">[NOMVIA]</a>, manteniendo vacío el atributo <i>Tipo de vía</i> <a href="../../datos/modelo_de_datos/#32-tipo-de-via">[TIPVIA]</a>.
 <br>
 <br>
-Es necesario atender los casos en los se incluye un tipo de vía que no coincide con el que ofrece el Ayuntamiento. Ejemplos de ello son la <i>Calle Avda. Mediterráneo</i>, o <i>Calle Travesía Camino del Molino</i>.
+Es necesario atender los casos en los se incluye un tipo de vía que no coincide con el que ofrece el Ayuntamiento. Ejemplos de ello son la <i>Calle Avda. Mediterráneo</i> o <i>Calle Travesía Camino del Molino</i>.
 </small>
 </div>
 <br>
@@ -223,11 +223,11 @@ Se recomienda separar los distintos elementos de este atributo, si los hubiera, 
 
 <div class="bs-callout bs-callout-info">
  <small>
- <h4><small>Ejemplo: uso del atributo <a href="../../datos/modelo_de_datos/#34-numero-de-la-finca-portal-o-punto-kilometrico">[NUMERO]</a></small></h4>
+ <h4><small>Ejemplo: uso del atributo <a href="../../datos/modelo_de_datos/#34-numero-de-la-finca-portal-o-punto-kilometrico">NUMERO</a></small></h4>
  <ul>
-  	<li>Paseo de las flores 3 bis ([NUMERO] = 3 bis)</li>
-  	<li>Calle de la vaguada Edificio A ([NUMERO] = Edificio A)</li>
-  	<li>Autovía de Extremadura km 5 ([NUMERO] = km 5)</li>
+  	<li>Paseo de las flores 3 bis (NUMERO = 3 bis)</li>
+  	<li>Calle de la vaguada Edificio A (NUMERO = Edificio A)</li>
+  	<li>Autovía de Extremadura km 5 (NUMERO = km 5)</li>
  </ul>
  </small>
 </div>
@@ -252,12 +252,12 @@ En el caso de que un portal haga referencia a dos o más números por dar servic
 
 Nombre propio por el que se conoce un emplazamiento.
 
-Su uso es opcional cuando el registro de datos corresponde a una dirección ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato)=*Dirección*), siendo obligatorio en los registros cuyo tipo de dato ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato)) sea *Topónimo* o *POI*.
+Su uso es opcional cuando el registro de datos corresponde a una dirección ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato) = *Dirección*), siendo obligatorio en los registros cuyo tipo de dato ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato)) sea *Topónimo* o *POI*.
 
 <div class="bs-callout bs-callout-info">
 <small>
 <h4><small>Nota:</small></h4>
-La inclusión de esta información de carácter complementario en los registros de direcciones definidos conforme a la fórmula clásica <I>'calle-número'</I>, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <I>Torre Picasso</I>; <I>Facultad de Filosofía</I>; <I>Palacio de los deportes</I>, <I>Estación de autobuses</I>.
+La inclusión de esta información de carácter complementario en los registros de direcciones definidos conforme a la fórmula clásica <i>'calle-número'</i>, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <i>Torre Picasso</i>; <i>Facultad de Filosofía</i>; <i>Palacio de los deportes</i>, <i>Estación de autobuses</i>.
 </small>
 </div>
 <br>
@@ -288,7 +288,7 @@ Los siguientes atributos estructuran por orden de rango las unidades administrat
 |**`CA`**|Nombre de la comunidad o ciudad autónoma|Obligatorio|1|Cadena de caracteres|[Lista controlada *Comunidades autónomas*](../../referencias/comunidades_autonomas); [Lista controlada *Ciudades autonomas*](../../referencias/ciudades_autonomas)|
 |||||||
 
-Los textos de los nombres de la comunidad o ciudad autónoma deben expresarse preferiblemente en lenguaje natural (no indizado).
+Los textos de los nombres de la comunidad o ciudad autónoma deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas.
 
 <br>
 #### 3.7.2 Provincia
@@ -316,21 +316,21 @@ Los textos de los nombres de municipio deben expresarse preferiblemente en lengu
 #### 3.7.4 Primer nivel
 <br>
 
+|Nombre|Definición|Obligación|Ocurrencia|Tipo de dato|Dominio|
+|---|---|---|---|---|---|
+|**`NIVEL1`**|Agrupación de direcciones de primer nivel, de orden inferior al municipio: *entidad colectiva*, *parroquia*, *diputación*, *entidad singular*, *núcleo urbano*, *población*, *distrito*, *sección*, *barrio*, *aldea*, *urbanización*, *polígono industrial*, *diseminado*, etc.|Opcional|0,1|cadena de caracteres|Texto libre|
+|||||||
+
 Existen muchas posibilidades de estructurar y jerarquizar una dirección por debajo del nivel del municipio, siendo la casuística muy variada.
 
 En este modelo se ha establecido la posibilidad de definir hasta dos niveles de jerarquización ([`NIVEL1`](../../datos/modelo_de_datos/#374-primer-nivel) y [`NIVEL2`](../../datos/modelo_de_datos/#375-segundo-nivel)) de orden inferior al municipio, pudiendo ser estos niveles los que dicta la práctica y la costumbre de cada caso o territorio, no fijándose de antemano una estructura específica.
-
-|Nombre|Definición|Obligación|Ocurrencia|Tipo de dato|Dominio|
-|---|---|---|---|---|---|
-|**`NIVEL1`**|Agrupación de direcciones de primer nivel, de orden inferior al municipio: *entidad colectiva*, *parroquia (Galicia)*, *diputación (Almería)*, *entidad singular*, *núcleo urbano*, *población*, *distrito*, *sección*, *barrio*, *aldea*, *urbanización*, *polígono industrial*, *diseminado*, etc.|opcional|0,1|cadena de caracteres|Texto libre|
-|||||||
 
 Los textos de los nombres de agrupamiento de direcciones de primer nivel deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas y de fórmulas de indexación, por ejemplo: «El Escorial», siendo las formas no recomendadas «Escorial, El», «Escorial (El)».
 
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplos: NIVEL1</small></h4>
- Ejemplos de uso del atributo [NIVEL1]
+ Ejemplos de uso del atributo <a href="../../datos/modelo_de_datos/#374-primer-nivel">NIVEL1</a>
  <table class="table table-bordered">
   <thead>
   	<tr>
@@ -372,7 +372,7 @@ Para direcciones en el ámbito rústico su uso es opcional.
 
 |Nombre|Definición|Obligación|Ocurrencia|Tipo de dato|Dominio|
 |---|---|---|---|---|---|
-|**`NIVEL2`**|Agrupación de direcciones de segundo nivel, de orden inferior al municipio: *entidad colectiva*, *parroquia (Galicia)*, *diputación (Almería)*, *entidad singular*, *núcleo urbano*, *población*, *distrito*, *sección*, *barrio*, *aldea*, *urbanización*, *polígono industrial*, *diseminado*, etc.|Opcional|0,1|Cadena de caracteres|Texto libre|
+|**`NIVEL2`**|Agrupación de direcciones de segundo nivel, de orden inferior al municipio: *entidad colectiva*, *parroquia*, *diputación*, *entidad singular*, *núcleo urbano*, *población*, *distrito*, *sección*, *barrio*, *aldea*, *urbanización*, *polígono industrial*, *diseminado*, etc.|Opcional|0,1|Cadena de caracteres|Texto libre|
 |||||||
 
 Información de una agrupación de direcciones de orden inferior al primer nivel, cuando dicha pertenencia participa en la estructura formal de una dirección.
@@ -382,7 +382,7 @@ Los textos de los nombres de agrupamiento de direcciones de segundo nivel deben 
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplos: NIVEL1 y NIVEL2</small></h4>
- Ejemplos de uso de los atributos [NIVEL1] y [NIVEL2]
+ Ejemplos de uso de los atributos <a href="../../datos/modelo_de_datos/#374-primer-nivel">NIVEL1</a> y <a href="../../datos/modelo_de_datos/#375-segundo-nivel">NIVEL2</a>
  <table class="table table-bordered">
   <thead>
   	<tr>
@@ -409,7 +409,7 @@ Los textos de los nombres de agrupamiento de direcciones de segundo nivel deben 
 	</tr>
   	<tr>
   		<td><i>(polígono industrial)</td>
-  		<td>(null)</td>
+  		<td><i>(null)</i></td>
   	</tr>
   </tbody>
  </table>
@@ -427,8 +427,12 @@ Los textos de los nombres de agrupamiento de direcciones de segundo nivel deben 
 
 Formación del código de tramo de 16 dígitos: 2 dígitos de la provincia, 3 del municipio, 2 de la entidad colectiva, 2 de la entidad singular, 2 de núcleo o diseminado, 5 del tramo, correlativos. No confundir con el código de vial corto de 10 posiciones.
 
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Nota:</small></h4>
 Recomendación para construir los 5 dígitos del tramo cuando aún no lo ha establecido el INE: definir 5 dígitos de alarma que indique que el código está en espera de que lo defina el INE. Ejemplo para vías en una misma población: X0001, X0002, X0003…
-
+</small>
+</div>
 <br>
 #### 3.9 Lengua
 <br>
@@ -583,7 +587,7 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 ### 4. Formato del fichero
 <br>
 
-El formato de fichero de intercambio de datos debe ser conforme con el estándar CSV (*Comma-Separated Values*) [[RFC 4180]](https://datatracker.ietf.org/doc/html/rfc4180), utilizando como separador de los campos el carácter *punto y coma* (;).
+El formato de fichero de intercambio de datos debe ser conforme con el estándar CSV (*Comma-Separated Values*) [[RFC 4180]](https://datatracker.ietf.org/doc/html/rfc4180), utilizando como separador de los atributos el carácter *punto y coma* (;).
 
 Cada registro (dirección, topónimo, punto de interés) se define mediante una línea adicional en el fichero.
 

@@ -422,8 +422,8 @@
 </div>
 <div class="bs-callout bs-callout-info">
 <small>
-<h4><small>Notas:</small></h4>
-Este atributo, concatenado con el relativo a la fuente de datos, se puede utilizar eficazmente para diseñar los procesos de actualización de la información, para el seguimiento de su evolución histórica, así como para el estudio de las distintas fórmulas linguísticas de una dirección, topónimo o POI.
+<h4><small>Nota:</small></h4>
+Este atributo, concatenado con el relativo a la fuente de datos, se puede utilizar eficazmente para diseñar los procesos de actualización de la información, para el seguimiento de su evolución histórica, así como para el estudio de las distintas fórmulas lingüísticas de una dirección, topónimo o POI.
 </small>
 </div>
 <p><br></p>
@@ -467,7 +467,7 @@ Este atributo, concatenado con el relativo a la fuente de datos, se puede utiliz
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplo: TIPVIA + nombre de vía</small></h4>
-  Se parsea para identificar solo el nombre de la vía (sin preposiciones y artículos)
+  Se parsea para identificar solo el nombre de la vía (sin preposiciones ni artículos)
  <table class="table table-bordered">
   <thead>
     <tr>
@@ -478,7 +478,7 @@ Este atributo, concatenado con el relativo a la fuente de datos, se puede utiliz
   </thead>
   <tbody>
     <tr>
-        <td>(null)</td>
+        <td><i>(null)</i></td>
         <td>Calle de la Virgen María</td>
         <td>Logroño</td>
     </tr>
@@ -488,7 +488,7 @@ Este atributo, concatenado con el relativo a la fuente de datos, se puede utiliz
         <td>Madrid</td>
     </tr>
     <tr>
-        <td>(null)</td>
+        <td><i>(null)</i></td>
         <td>Barrutiko kalea</td>
         <td>Iruñea</td>
     </tr>
@@ -502,7 +502,7 @@ Este atributo, concatenado con el relativo a la fuente de datos, se puede utiliz
 En el caso del País Vasco, donde el tipo de vía se coloca generalmente detrás del nombre (Ej: Satrustegi hiribidea, Mirakontxa pasealekua, Zubieta kalea), se recomienda concatenar la información del nombre y tipo de vía conforme a su orden y uso natural dentro del atributo <i>Nombre de la vía</i> <a href="../../datos/modelo_de_datos/#33-nombre-de-la-via">[NOMVIA]</a>, manteniendo vacío el atributo <i>Tipo de vía</i> <a href="../../datos/modelo_de_datos/#32-tipo-de-via">[TIPVIA]</a>.
 <br>
 <br>
-Es necesario atender los casos en los se incluye un tipo de vía que no coincide con el que ofrece el Ayuntamiento. Ejemplos de ello son la <i>Calle Avda. Mediterráneo</i>, o <i>Calle Travesía Camino del Molino</i>.
+Es necesario atender los casos en los se incluye un tipo de vía que no coincide con el que ofrece el Ayuntamiento. Ejemplos de ello son la <i>Calle Avda. Mediterráneo</i> o <i>Calle Travesía Camino del Molino</i>.
 </small>
 </div>
 <p><br></p>
@@ -590,11 +590,11 @@ En el caso del País Vasco, donde el tipo de vía se coloca generalmente detrás
 <p>Se recomienda separar los distintos elementos de este atributo, si los hubiera, mediante espacios en blanco, evitando el uso como separadores de comas, puntos y coma, barras o guiones.</p>
 <div class="bs-callout bs-callout-info">
  <small>
- <h4><small>Ejemplo: uso del atributo <a href="../../datos/modelo_de_datos/#34-numero-de-la-finca-portal-o-punto-kilometrico">[NUMERO]</a></small></h4>
+ <h4><small>Ejemplo: uso del atributo <a href="../../datos/modelo_de_datos/#34-numero-de-la-finca-portal-o-punto-kilometrico">NUMERO</a></small></h4>
  <ul>
-    <li>Paseo de las flores 3 bis ([NUMERO] = 3 bis)</li>
-    <li>Calle de la vaguada Edificio A ([NUMERO] = Edificio A)</li>
-    <li>Autovía de Extremadura km 5 ([NUMERO] = km 5)</li>
+    <li>Paseo de las flores 3 bis (NUMERO = 3 bis)</li>
+    <li>Calle de la vaguada Edificio A (NUMERO = Edificio A)</li>
+    <li>Autovía de Extremadura km 5 (NUMERO = km 5)</li>
  </ul>
  </small>
 </div>
@@ -642,11 +642,11 @@ En el caso de que un portal haga referencia a dos o más números por dar servic
 </tbody>
 </table>
 <p>Nombre propio por el que se conoce un emplazamiento.</p>
-<p>Su uso es opcional cuando el registro de datos corresponde a una dirección (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a>=<em>Dirección</em>), siendo obligatorio en los registros cuyo tipo de dato (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a>) sea <em>Topónimo</em> o <em>POI</em>.</p>
+<p>Su uso es opcional cuando el registro de datos corresponde a una dirección (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a> = <em>Dirección</em>), siendo obligatorio en los registros cuyo tipo de dato (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a>) sea <em>Topónimo</em> o <em>POI</em>.</p>
 <div class="bs-callout bs-callout-info">
 <small>
 <h4><small>Nota:</small></h4>
-La inclusión de esta información de carácter complementario en los registros de direcciones definidos conforme a la fórmula clásica <I>'calle-número'</I>, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <I>Torre Picasso</I>; <I>Facultad de Filosofía</I>; <I>Palacio de los deportes</I>, <I>Estación de autobuses</I>.
+La inclusión de esta información de carácter complementario en los registros de direcciones definidos conforme a la fórmula clásica <i>'calle-número'</i>, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <i>Torre Picasso</i>; <i>Facultad de Filosofía</i>; <i>Palacio de los deportes</i>, <i>Estación de autobuses</i>.
 </small>
 </div>
 <p><br></p>
@@ -721,7 +721,7 @@ La inclusión de esta información de carácter complementario en los registros 
 </tr>
 </tbody>
 </table>
-<p>Los textos de los nombres de la comunidad o ciudad autónoma deben expresarse preferiblemente en lenguaje natural (no indizado).</p>
+<p>Los textos de los nombres de la comunidad o ciudad autónoma deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas.</p>
 <p><br></p>
 <h4 id="372-provincia">3.7.2 Provincia</h4>
 <p><br></p>
@@ -793,8 +793,6 @@ La inclusión de esta información de carácter complementario en los registros 
 <p><br></p>
 <h4 id="374-primer-nivel">3.7.4 Primer nivel</h4>
 <p><br></p>
-<p>Existen muchas posibilidades de estructurar y jerarquizar una dirección por debajo del nivel del municipio, siendo la casuística muy variada.</p>
-<p>En este modelo se ha establecido la posibilidad de definir hasta dos niveles de jerarquización (<a href="../../datos/modelo_de_datos/#374-primer-nivel"><code>NIVEL1</code></a> y <a href="../../datos/modelo_de_datos/#375-segundo-nivel"><code>NIVEL2</code></a>) de orden inferior al municipio, pudiendo ser estos niveles los que dicta la práctica y la costumbre de cada caso o territorio, no fijándose de antemano una estructura específica.</p>
 <table>
 <thead>
 <tr>
@@ -809,8 +807,8 @@ La inclusión de esta información de carácter complementario en los registros 
 <tbody>
 <tr>
 <td><strong><code>NIVEL1</code></strong></td>
-<td>Agrupación de direcciones de primer nivel, de orden inferior al municipio: <em>entidad colectiva</em>, <em>parroquia (Galicia)</em>, <em>diputación (Almería)</em>, <em>entidad singular</em>, <em>núcleo urbano</em>, <em>población</em>, <em>distrito</em>, <em>sección</em>, <em>barrio</em>, <em>aldea</em>, <em>urbanización</em>, <em>polígono industrial</em>, <em>diseminado</em>, etc.</td>
-<td>opcional</td>
+<td>Agrupación de direcciones de primer nivel, de orden inferior al municipio: <em>entidad colectiva</em>, <em>parroquia</em>, <em>diputación</em>, <em>entidad singular</em>, <em>núcleo urbano</em>, <em>población</em>, <em>distrito</em>, <em>sección</em>, <em>barrio</em>, <em>aldea</em>, <em>urbanización</em>, <em>polígono industrial</em>, <em>diseminado</em>, etc.</td>
+<td>Opcional</td>
 <td>0,1</td>
 <td>cadena de caracteres</td>
 <td>Texto libre</td>
@@ -825,11 +823,13 @@ La inclusión de esta información de carácter complementario en los registros 
 </tr>
 </tbody>
 </table>
+<p>Existen muchas posibilidades de estructurar y jerarquizar una dirección por debajo del nivel del municipio, siendo la casuística muy variada.</p>
+<p>En este modelo se ha establecido la posibilidad de definir hasta dos niveles de jerarquización (<a href="../../datos/modelo_de_datos/#374-primer-nivel"><code>NIVEL1</code></a> y <a href="../../datos/modelo_de_datos/#375-segundo-nivel"><code>NIVEL2</code></a>) de orden inferior al municipio, pudiendo ser estos niveles los que dicta la práctica y la costumbre de cada caso o territorio, no fijándose de antemano una estructura específica.</p>
 <p>Los textos de los nombres de agrupamiento de direcciones de primer nivel deben expresarse preferiblemente en lenguaje natural (no indizado), evitando el uso de abreviaturas y de fórmulas de indexación, por ejemplo: «El Escorial», siendo las formas no recomendadas «Escorial, El», «Escorial (El)».</p>
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplos: NIVEL1</small></h4>
- Ejemplos de uso del atributo [NIVEL1]
+ Ejemplos de uso del atributo <a href="../../datos/modelo_de_datos/#374-primer-nivel">NIVEL1</a>
  <table class="table table-bordered">
   <thead>
     <tr>
@@ -882,7 +882,7 @@ Para direcciones en el ámbito rústico su uso es opcional.
 <tbody>
 <tr>
 <td><strong><code>NIVEL2</code></strong></td>
-<td>Agrupación de direcciones de segundo nivel, de orden inferior al municipio: <em>entidad colectiva</em>, <em>parroquia (Galicia)</em>, <em>diputación (Almería)</em>, <em>entidad singular</em>, <em>núcleo urbano</em>, <em>población</em>, <em>distrito</em>, <em>sección</em>, <em>barrio</em>, <em>aldea</em>, <em>urbanización</em>, <em>polígono industrial</em>, <em>diseminado</em>, etc.</td>
+<td>Agrupación de direcciones de segundo nivel, de orden inferior al municipio: <em>entidad colectiva</em>, <em>parroquia</em>, <em>diputación</em>, <em>entidad singular</em>, <em>núcleo urbano</em>, <em>población</em>, <em>distrito</em>, <em>sección</em>, <em>barrio</em>, <em>aldea</em>, <em>urbanización</em>, <em>polígono industrial</em>, <em>diseminado</em>, etc.</td>
 <td>Opcional</td>
 <td>0,1</td>
 <td>Cadena de caracteres</td>
@@ -903,7 +903,7 @@ Para direcciones en el ámbito rústico su uso es opcional.
 <div class="bs-callout bs-callout-info">
  <small>
  <h4><small>Ejemplos: NIVEL1 y NIVEL2</small></h4>
- Ejemplos de uso de los atributos [NIVEL1] y [NIVEL2]
+ Ejemplos de uso de los atributos <a href="../../datos/modelo_de_datos/#374-primer-nivel">NIVEL1</a> y <a href="../../datos/modelo_de_datos/#375-segundo-nivel">NIVEL2</a>
  <table class="table table-bordered">
   <thead>
     <tr>
@@ -930,7 +930,7 @@ Para direcciones en el ámbito rústico su uso es opcional.
     </tr>
     <tr>
         <td><i>(polígono industrial)</td>
-        <td>(null)</td>
+        <td><i>(null)</i></td>
     </tr>
   </tbody>
  </table>
@@ -971,7 +971,12 @@ Para direcciones en el ámbito rústico su uso es opcional.
 </tbody>
 </table>
 <p>Formación del código de tramo de 16 dígitos: 2 dígitos de la provincia, 3 del municipio, 2 de la entidad colectiva, 2 de la entidad singular, 2 de núcleo o diseminado, 5 del tramo, correlativos. No confundir con el código de vial corto de 10 posiciones.</p>
-<p>Recomendación para construir los 5 dígitos del tramo cuando aún no lo ha establecido el INE: definir 5 dígitos de alarma que indique que el código está en espera de que lo defina el INE. Ejemplo para vías en una misma población: X0001, X0002, X0003…</p>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Nota:</small></h4>
+Recomendación para construir los 5 dígitos del tramo cuando aún no lo ha establecido el INE: definir 5 dígitos de alarma que indique que el código está en espera de que lo defina el INE. Ejemplo para vías en una misma población: X0001, X0002, X0003…
+</small>
+</div>
 <p><br></p>
 <h4 id="39-lengua">3.9 Lengua</h4>
 <p><br></p>
@@ -1184,7 +1189,7 @@ Ellipsoid: <a href="https://epsg.io/7019-ellipsoid">GRS 1980</a><br />
 Meridiano de referencia: Meridiano de Greenwich  </p>
 </blockquote>
 </li>
-<li>Usar la notación en grados y decimales de grado hasta la 6ª cifra decimal.  </li>
+<li>Usar la notación en grados y decimales de grado hasta la 5ª cifra decimal.  </li>
 <li>Utilizar el carácter punto (.) como separador decimal.  </li>
 <li>NO UTILIZAR el formato en grados sexagesimales como una cadena de valores expresado en grados, minutos y segundos.</li>
 </ul>
