@@ -626,7 +626,7 @@ En el caso de que un portal haga referencia a dos o más números por dar servic
 <tr>
 <td><strong><code>NOMLOC</code></strong></td>
 <td>Designación alternativa ligada a la dirección o lugar (nombre de edificio, topónimo, POI)</td>
-<td>Opcional,condicional</td>
+<td>Condicional</td>
 <td>0,1</td>
 <td>Cadena de caracteres</td>
 <td>Texto libre</td>
@@ -642,8 +642,13 @@ En el caso de que un portal haga referencia a dos o más números por dar servic
 </tbody>
 </table>
 <p>Nombre propio por el que se conoce un emplazamiento.</p>
-<p>La inclusión de esta información complementaria en los registros definidos conforme a la fórmula clásica ‘calle-número’, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <em>Torre Picasso</em>; <em>Facultad de Filosofía</em>; <em>Palacio de los deportes</em>, <em>Estación de autobuses</em>.</p>
-<p>Su uso es obligatorio en los registros cuyo tipo de dato <a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a> sea <em>Topónimo</em> o <em>POI</em>.</p>
+<p>Su uso es opcional cuando el registro de datos corresponde a una dirección (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a>=<em>Dirección</em>), siendo obligatorio en los registros cuyo tipo de dato (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a>) sea <em>Topónimo</em> o <em>POI</em>.</p>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Nota:</small></h4>
+La inclusión de esta información de carácter complementario en los registros de direcciones definidos conforme a la fórmula clásica <I>'calle-número'</I>, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <I>Torre Picasso</I>; <I>Facultad de Filosofía</I>; <I>Palacio de los deportes</I>, <I>Estación de autobuses</I>.
+</small>
+</div>
 <p><br></p>
 <h4 id="36-codigo-postal">3.6 Código postal</h4>
 <p><br></p>
@@ -677,7 +682,7 @@ En el caso de que un portal haga referencia a dos o más números por dar servic
 </tr>
 </tbody>
 </table>
-<p>No se considera para aquellos registros que hacen referencia a topónimos o puntos de interés.</p>
+<p>Su uso es obligatorio cuando el registro de datos corresponde a una dirección (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a>=<em>Dirección</em>), no siendo necesario en los registros cuyo tipo de dato (<a href="../../datos/modelo_de_datos/#310-tipo-de-dato"><code>TIPDATO</code></a>) sea <em>Topónimo</em> o <em>POI</em>.</p>
 <p>No incluir separador de millares.</p>
 <p><br></p>
 <h4 id="37-unidades-administrativas">3.7 UNIDADES ADMINISTRATIVAS</h4>
@@ -1259,7 +1264,7 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 <p><br></p>
 <h3 id="4-formato-del-fichero">4. Formato del fichero</h3>
 <p><br></p>
-<p>El formato de fichero de intercambio debe ser conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, utilizando como separador de los campos el carácter <em>punto y coma</em> (;).</p>
+<p>El formato de fichero de intercambio de datos debe ser conforme con el estándar CSV (<em>Comma-Separated Values</em>) <a href="https://datatracker.ietf.org/doc/html/rfc4180">[RFC 4180]</a>, utilizando como separador de los atributos el carácter <em>punto y coma</em> (;).</p>
 <p>Cada registro (dirección, topónimo, punto de interés) se define mediante una línea adicional en el fichero.</p>
 <p>Las coordenadas latitud, longitud, se deben expresan en formato geográfico decimal en el Sistema Geográfico de Referencia <a href="https://epsg.io/4258">EPSG:4258</a>, utilizando el carácter <em>punto</em> (.) como separador decimal.</p>
 <p>Los datos de latitud y longitud deben indicarse con al menos cinco (5) cifras decimales de precisión geográfica.</p>

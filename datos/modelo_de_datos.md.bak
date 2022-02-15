@@ -60,10 +60,8 @@ Es necesario recalcar que este modelo de datos no está dirigido a la formación
 
 Características para asignar el identificador:
 
-- La geometría no varía.
-- Expresa el identificador único de cada registro de datos, tal como es gestionado por el organismo productor de la información.
-- Todos los registros que hacen referencia a la misma dirección, independientemente de la lengua y del momento temporal, como es el caso de las direcciones activas y las obsoletas, o los registros que se creen para cada fórmula lingüística, deberían tener el mismo ID.
-- Incluir en el identificador la [abreviatura del organismo proveedor del dato](../../referencias/proveedores_de_datos).
+- Expresa el identificador único de cada registro de datos tal como es gestionado por el organismo proveedor de la información.
+- Todos los registros que hacen referencia a la misma dirección, topónimo o POI, independientemente de la lengua y del momento temporal, como es el caso de las direcciones activas y las obsoletas, o los registros que se creen para cada fórmula lingüística, deberían tener el mismo ID.
 
 <div class="bs-callout bs-callout-info">
  <small>
@@ -79,12 +77,12 @@ Características para asignar el identificador:
   </thead>
   <tbody>
   	<tr>
-  		<td>cnig123456</td>
+  		<td>123456</td>
   		<td>Avenida Diagonal, 16</td>
   		<td>Avenida Diagonal, 21</td>
   	</tr>
   	<tr>
- 		<td>cnig123456</td>
+ 		<td>123456</td>
   		<td>Avinguda Diagonal, 16</td>
   		<td>Avinguda Diagonal, 21</td>
   	</tr>
@@ -101,18 +99,24 @@ Características para asignar el identificador:
   </thead>
   <tbody>
   	<tr>
-  		<td>dpbcn4cfr567</td>
+  		<td>bcn4cfr567</td>
   		<td>Avenida Diagonal, 16</td>
   		<td>Avenida Diagonal, 21</td>
   	</tr>
   	<tr>
- 		<td>dpbcn4cfr567</td>
+ 		<td>bcn4cfr567</td>
   		<td>Avinguda Diagonal, 16</td>
   		<td>Avinguda Diagonal, 21</td>
   	</tr>
   </tbody>
  </table>
  </small>
+</div>
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Notas:</small></h4>
+Este atributo, concatenado con el relativo a la fuente de datos, se puede utilizar eficazmente para diseñar los procesos de actualización de la información, para el seguimiento de su evolución histórica, así como para el estudio de las distintas fórmulas linguísticas de una dirección, topónimo o POI.
+</small>
 </div>
 <br>
 #### 3.2 Tipo de vía
@@ -165,7 +169,6 @@ Tampoco es necesario expresar el tipo de vía en aquellas direcciones identifica
  </table>
  </small>
 </div>
-
 <div class="bs-callout bs-callout-info">
 <small>
 <h4><small>Notas:</small></h4>
@@ -244,15 +247,19 @@ En el caso de que un portal haga referencia a dos o más números por dar servic
 
 |Nombre|Definición|Obligación|Ocurrencia|Tipo de dato|Dominio|
 |---|---|---|---|---|---|
-|**`NOMLOC`**|Designación alternativa ligada a la dirección o lugar (nombre de edificio, topónimo, POI)|Opcional,condicional|0,1|Cadena de caracteres|Texto libre|
+|**`NOMLOC`**|Designación alternativa ligada a la dirección o lugar (nombre de edificio, topónimo, POI)|Condicional|0,1|Cadena de caracteres|Texto libre|
 |||||||
 
 Nombre propio por el que se conoce un emplazamiento.
 
-La inclusión de esta información complementaria en los registros definidos conforme a la fórmula clásica ‘calle-número’, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: *Torre Picasso*; *Facultad de Filosofía*; *Palacio de los deportes*, *Estación de autobuses*.
+Su uso es opcional cuando el registro de datos corresponde a una dirección ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato)=*Dirección*), siendo obligatorio en los registros cuyo tipo de dato ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato)) sea *Topónimo* o *POI*.
 
-Su uso es obligatorio en los registros cuyo tipo de dato [`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato) sea *Topónimo* o *POI*.
-
+<div class="bs-callout bs-callout-info">
+<small>
+<h4><small>Nota:</small></h4>
+La inclusión de esta información de carácter complementario en los registros de direcciones definidos conforme a la fórmula clásica <I>'calle-número'</I>, permite buscar una dirección tanto por sus datos formales como por su nombre. Ej.: <I>Torre Picasso</I>; <I>Facultad de Filosofía</I>; <I>Palacio de los deportes</I>, <I>Estación de autobuses</I>.
+</small>
+</div>
 <br>
 #### 3.6 Código postal
 <br>
@@ -262,7 +269,7 @@ Su uso es obligatorio en los registros cuyo tipo de dato [`TIPDATO`](../../datos
 |**`CODPOSTAL`**|Código postal asociado a una dirección|Condicional|0,1|Cadena de caracteres|[Códigos postales](https://www.correos.es/es/es/herramientas/codigos-postales/detalle) de la Sociedad Estatal Correos y Telégrafos|
 |||||||
 
-No se considera para aquellos registros que hacen referencia a topónimos o puntos de interés.
+Su uso es obligatorio cuando el registro de datos corresponde a una dirección ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato)=*Dirección*), no siendo necesario en los registros cuyo tipo de dato ([`TIPDATO`](../../datos/modelo_de_datos/#310-tipo-de-dato)) sea *Topónimo* o *POI*.
 
 No incluir separador de millares.
 
@@ -576,7 +583,7 @@ La norma <a href="https://www.une.org/encuentra-tu-norma/busca-tu-norma/norma?c=
 ### 4. Formato del fichero
 <br>
 
-El formato de fichero de intercambio debe ser conforme con el estándar CSV (*Comma-Separated Values*) [[RFC 4180]](https://datatracker.ietf.org/doc/html/rfc4180), utilizando como separador de los campos el carácter *punto y coma* (;).
+El formato de fichero de intercambio de datos debe ser conforme con el estándar CSV (*Comma-Separated Values*) [[RFC 4180]](https://datatracker.ietf.org/doc/html/rfc4180), utilizando como separador de los campos el carácter *punto y coma* (;).
 
 Cada registro (dirección, topónimo, punto de interés) se define mediante una línea adicional en el fichero.
 

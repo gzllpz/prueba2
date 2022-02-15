@@ -2,33 +2,33 @@
 <br />
 Provincias de España, por orden alfabético, expresadas en lenguaje natural no indizado.
 
-Denominación de las provincias, recomendada para cumplimentar el atributo [**`PROVINCIA`**](../../datos/modelo_de_datos#211-provincia).
+Denominación de las provincias, recomendada para cumplimentar el atributo [**`PROVINCIA`**](../../datos/modelo_de_datos#372-provincia).
 
-Fuente de datos: [*Instituto Nacional de Estadística* (INE)](https://www.ine.es/).
+Fuente de datos: [*Instituto Geográfico Nacional* (INE)](https://www.ign.es/).
 
 |Código INE|Provincia|Comunidad/ciudad autónoma|
 |---|---|---|
 |15|A Coruña|Galicia|
 |02|Albacete|Castilla-La Mancha|
-|03|Alicante/Alacant|Comunitat Valenciana|
+|03|Alacant/Alicante|Comunitat Valenciana|
 |04|Almería|Andalucía|
-|01|Araba/Álava|País Vasco|
+|01|Araba/Álava|País Vasco/Euskadi|
 |33|Asturias|Principado de Asturias|
 |05|Ávila|Castilla y León|
 |06|Badajoz|Extremadura|
-|08|Barcelona|Cataluña|
-|48|Bizkaia|País Vasco|
+|08|Barcelona|Cataluña/Catalunya|
+|48|Bizkaia|País Vasco/Euskadi|
 |09|Burgos|Castilla y León|
 |10|Cáceres|Extremadura|
 |11|Cádiz|Andalucía|
 |39|Cantabria|Cantabria|
-|12|Castellón/Castelló|Comunitat Valenciana|
+|12|Castelló/Castellón|Comunitat Valenciana|
 |51|Ceuta|Ciudad Autónoma de Ceuta|
 |13|Ciudad Real|Castilla-La Mancha|
 |14|Córdoba|Andalucía|
 |16|Cuenca|Castilla-La Mancha|
-|20|Gipuzkoa|País Vasco|
-|17|Girona|Cataluña|
+|20|Gipuzkoa|País Vasco/Euskadi|
+|17|Girona|Cataluña/Catalunya|
 |18|Granada|Andalucía|
 |19|Guadalajara|Castilla-La Mancha|
 |21|Huelva|Andalucía|
@@ -38,7 +38,7 @@ Fuente de datos: [*Instituto Nacional de Estadística* (INE)](https://www.ine.es
 |26|La Rioja|La Rioja|
 |35|Las Palmas|Canarias|
 |24|León|Castilla y León|
-|25|Lleida|Cataluña|
+|25|Lleida|Cataluña/Catalunya|
 |27|Lugo|Galicia|
 |28|Madrid|Comunidad de Madrid|
 |29|Málaga|Andalucía|
@@ -53,10 +53,10 @@ Fuente de datos: [*Instituto Nacional de Estadística* (INE)](https://www.ine.es
 |40|Segovia|Castilla y León|
 |41|Sevilla|Andalucía|
 |42|Soria|Castilla y León|
-|43|Tarragona|Cataluña|
+|43|Tarragona|Cataluña/Catalunya|
 |44|Teruel|Aragón|
 |45|Toledo|Castilla-La Mancha|
-|46|Valencia/València|Comunitat Valenciana|
+|46|València/Valencia|Comunitat Valenciana|
 |47|Valladolid|Castilla y León|
 |49|Zamora|Castilla y León|
 |50|Zaragoza|Aragón|
